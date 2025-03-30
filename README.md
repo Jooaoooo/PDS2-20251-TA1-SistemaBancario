@@ -31,3 +31,15 @@ Dentre as ferramentas utilizadas para a construção do sistema foram implementa
 
 - Apresentação de funcionalidades para usuários internos ao ao sistema:
 
+| **Usuário** |      **Ação**      |                             **Motivação**                            | **Criterios de aceitação**                                                            |
+|:-----------:|:------------------:|:--------------------------------------------------------------------:|---------------------------------------------------------------------------------------|
+| Gerente     | Aprovar empréstimo | Disponibilizar crédito aos clientes  garantindo as normas do banco   | Verificar se cliente possui saldo  positivo e se possui conta,  mostrar saldo e conta |
+| Gerente     | Cancelar contas    | Clientes com saldo nulo em vários meses  fogem a política da empresa | Mostrar saldo nulo e retirar cliente  do banco de dados                               |
+| Gerente     | Gerar relatório    | Verificar todos os clientes ativos  e o saldo em conta de cada       | Mostrar relatório de contas cadastradas  e relatório de saldo de cada conta           |
+
+<h2>CONTRIBUINTES</h2>
+
+_João Augusto Rosa Cunha_ <br>
+_Lucas Miller dos Santos Sousa_<br>
+_Alan Pessoa Silva_<br>
+_Natan Inoue dos Reis_
