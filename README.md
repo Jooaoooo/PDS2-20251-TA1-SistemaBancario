@@ -19,3 +19,15 @@ Dentre as ferramentas utilizadas para a construção do sistema foram implementa
 
 <h2>USER STORIES</h2>
 
+- Apresentação de funcionalidades para funcionários externos ao sistema:
+
+| **Usuário** |           **Ação**           |                          **Motivação**                         | **Criterios de aceitação**                                           |
+|:-----------:|:----------------------------:|:--------------------------------------------------------------:|----------------------------------------------------------------------|
+| Cliente     | Abertura de conta            | Para acessar os serviços do  banco e todas as funcionalidades  | Salvar dados em txt e valida unico RG                                |
+| Cliente     | Depósito via PIX             | Quero aumentar o saldo em  conta para credito instrantâneo     | Valor depositado aparece como saldo e  é salvo no extrato            |
+| Cliente     | Verificar extrato            | Verificar o extrato por  período para constrole                | Filtra o período do extrato e mostra  o saldo antes e após o período |
+| Cliente     | Bloquear cartão              | O cartão foi perdido ou roubado,  para segurança é bloquado    | Cartão exibido como bloqueado e  cliente impedido de usá-lo          |
+| Cliente     | Investir em Tesouro Nacional | Utilizar o banco para investimento  para retorno em um período | Informa o retorno após o período  e o valor investido                |
+
+- Apresentação de funcionalidades para usuários internos ao ao sistema:
+
