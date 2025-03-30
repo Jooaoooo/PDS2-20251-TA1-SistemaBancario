@@ -1,6 +1,6 @@
-FINALMENTE
+<h1>FINALMENTE</h1>
 
-#Vamo timeeee
+<h2>Vamo timeeee
 
 ##Vamos começar a bagaçar caralhoooo
 
