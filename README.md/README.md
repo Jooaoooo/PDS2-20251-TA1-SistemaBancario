@@ -1,7 +1,3 @@
-<h1>FINALMENTE</h1>
+<h1>SPECTRAL BANK++ - Sistema Bancário</h1>
 
-<h2>Vamo timeeee
-
-##Vamos começar a bagaçar caralhoooo
-
-###Aprendi a commitar nessa porraaaaaaaaaa
+![Logotipo para o banco](https://github.com/Jooaoooo/PDS2-20251-TA1-SistemaBancario/issues/1#issue-2958976330)
