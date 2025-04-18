@@ -17,6 +17,10 @@ A persistência de dados é garantida por meio de arquivos `.txt`, onde as infor
 
 Dentre as ferramentas utilizadas para a construção do sistema foram implementadas técnicas de modelagem e orientação a objetos, de forma geral, optou-se pela linguagem c++ em função da segurança que pode ser alocada em atributos de classes. Inicialmente, o projeto buscou apresentar características centrais baseadas em TAD´s, Polimorfismo, Herança... Dessa forma, para apresentação de boas práticas de programação a separação dos blocos de código em blocos `.hpp` e `.cpp` foi realizada de forma a prezar pela execução do sistema e facilitação de implementação de testes unitários. Para a documentação optou-se pelo Doxygen em função da praticidade e relação com cartões CRC. A modelagem foi implementada de forma a ilustrar a utilização de user stories váriados com objetivo central em apresentação de funcionalidades uteis aos usuários do sistema. Buscou-se descrever a utilidade do mecanismo relacionado as funcionalidades apresendatas pelo sistema, o objetivo central nessa etapa se deu de forma a centrar o usuário a acessar o sistema, a ação a ser realizada por ele e  uma justificativa fim ou motivação.
 
+<h2>CARTÕES CRC</h2>
+
+Para elucidação e organicação das funções e classes do sistema bancário além de suas funcionalidades foi desenvolvido por meio de tabelas em Markdown, cartões CRC (Class Responsibility Collaboration) que buscam organizar as classes, definir responsabilidades e mapear colaborações. Optou-se por se utilizar os cartões pelas vantegens relacionadas principalmente a clareza visual e utilidade em etapas iniciais de desenvolvimento. Acesse o link para verificação dos cartões CRC: 
+
 <h2>USER STORIES</h2>
 
 Acesse o link para verificação do USER STORIES no formato padrão exigido atualmente: [USER STORIES](https://github.com/Jooaoooo/PDS2-20251-TA1-SistemaBancario/blob/main/USER%20STORIES.md).
