@@ -15,7 +15,7 @@
 ### Cartão CRC 3: ContaPF (Subclasse)
 | Classe       | Responsabilidades | Colaborações |
 |--------------|------------------|--------------|
-| **ContaPF**  | - Gerenciar saldo (poupança/corrente)<br>- Aplicar regras de PF<br>- Calcular rendimento poupança | - Conta (herança)<br>- Investimento (vinculação)<br>- Transação (operações) |
+| **ContaPF**  | - Gerenciar saldo (poupança/corrente)<br>- Aplicar regras de PF<br>- Calcular rendimento tesouro | - Conta (herança)<br>- Investimento (vinculação)<br>- Transação (operações) |
 
 ### Cartão CRC 4: ContaPJ (Subclasse)
 | Classe       | Responsabilidades | Colaborações |
