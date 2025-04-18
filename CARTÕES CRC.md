@@ -45,4 +45,4 @@
 ### Cartão CRC 9: RelatórioGerencial
 | Classe       | Responsabilidades | Colaborações |
 |--------------|------------------|--------------|
-| **RelatórioGerencial** | - Consolidar métricas mensais<br>- Filtrar por agência/período<br>- Gerar visualizações<br>- Alertar metas | - Banco (dados brutos)<br>- Gerente (personalização)<br>- Conta (detalhes) |
+| **RelatórioGerencial** | - Consolidar métricas mensais<br>- Filtrar por período<br>- Gerar visualizações de dados/transações<br>- Alertar metas | - Banco (dados brutos)<br>- Gerente (personalização)<br>- Conta (detalhes) |
