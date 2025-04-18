@@ -19,7 +19,7 @@ Dentre as ferramentas utilizadas para a construção do sistema foram implementa
 
 <h2>USER STORIES</h2>
 
-Acesse o link para verificação do USER STORIES no formato padrão exigido atualmente [\[\](C:\Users\joaoj\OneDrive\Documentos\UFMG\ELETRICA\Período 2\PDS2\PDS2-20251-TA1-SistemaBancario\USER STORIES.md)].
+Acesse o link para verificação do USER STORIES no formato padrão exigido atualmente [link:](https://github.com/Jooaoooo/PDS2-20251-TA1-SistemaBancario/blob/main/USER%20STORIES.md).
 
 - Apresentação de funcionalidades para funcionários externos ao sistema:
 
