@@ -19,7 +19,7 @@ Dentre as ferramentas utilizadas para a construção do sistema foram implementa
 
 <h2>CARTÕES CRC</h2>
 
-Para elucidação e organicação das funções e classes do sistema bancário além de suas funcionalidades foi desenvolvido por meio de tabelas em Markdown, cartões CRC (Class Responsibility Collaboration) que buscam organizar as classes, definir responsabilidades e mapear colaborações. Optou-se por se utilizar os cartões pelas vantegens relacionadas principalmente a clareza visual e utilidade em etapas iniciais de desenvolvimento. Acesse o link para verificação dos cartões CRC: [CARTÕES CRC](https://github.com/Jooaoooo/PDS2-20251-TA1-SistemaBancario/blob/main/CART%C3%95ES%20CRC.md)
+Para elucidação e organicação das funções e classes do sistema bancário além de suas funcionalidades foi desenvolvido por meio de tabelas em Markdown, cartões CRC (Class Responsibility Collaboration) que buscam organizar as classes, definir responsabilidades e mapear colaborações. Optou-se por se utilizar os cartões pelas vantegens relacionadas principalmente a clareza visual e utilidade em etapas iniciais de desenvolvimento. Acesse o link para verificação dos cartões CRC: [CARTÕES CRC](https://github.com/Jooaoooo/PDS2-20251-TA1-SistemaBancario/blob/main/CART%C3%95ES%20CRC.md).
 
 <h2>USER STORIES</h2>
 
