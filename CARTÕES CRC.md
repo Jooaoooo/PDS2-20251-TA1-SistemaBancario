@@ -40,7 +40,7 @@
 ### Cartão CRC 8: Gerente
 | Classe       | Responsabilidades | Colaborações |
 |--------------|------------------|--------------|
-| **Gerente**  | - Aprovar contas PJ<br>- Liberar limites VIP<br>- Auditar fraudes<br>- Gerar relatórios | - Banco (dados)<br>- ContaPJ (validação)<br>- Empréstimo (aprovações) |
+| **Gerente**  | - Aprovar contas PJ<br>- Auditar fraudes<br>- Gerar relatórios | - Banco (dados)<br>- ContaPJ (validação)<br>- Empréstimo (aprovações) |
 
 ### Cartão CRC 9: RelatórioGerencial
 | Classe       | Responsabilidades | Colaborações |
