@@ -11,7 +11,7 @@ O SPECTRAL BANK++ é um sistema bancário moderno e robusto, desenvolvido para o
 
 Foram incorporadas funcionalidades bancárias essenciais, como depósitos (via PIX ou transferência), saques, pagamentos de contas, transferências entre contas, consultas de saldo e extratos detalhados, além de opções de empréstimo e investimento em títulos do tesouro nacional. Para garantir a segurança dos usuários, implementou-se um sistema de login em duas etapas, baseado em senha e RG.  
 
-A persistência de dados é garantida por meio de arquivos `.txt`, onde as informações de contas e transações são armazenadas, permitindo recuperação e continuidade das operações. A interface gráfica, desenvolvida com `gtkmm`, demonstra um diferencial proporcionando uma experiência intuitiva e amigável, seguindo as melhores práticas de usabilidade.  
+A persistência de dados é garantida por meio de arquivos `.txt`, onde as informações de contas e transações são armazenadas, permitindo recuperação e continuidade das operações. A interface gráfica será apresentada por meio do executável, demonstra um diferencial proporcionando uma experiência intuitiva e amigável, seguindo as melhores práticas de usabilidade.  
 
 <h2>CONSTRUÇÃO</h2>
 
@@ -29,7 +29,7 @@ Dentre as ferramentas utilizadas para a construção do sistema foram implementa
 | Cliente     | Bloquear cartão              | O cartão foi perdido ou roubado,  para segurança é bloqueado   | Cartão exibido como bloqueado e  cliente impedido de usá-lo          |
 | Cliente     | Investir em Tesouro Nacional | Utilizar o banco para investimento  para retorno em um período | Informa o retorno após o período  e o valor investido                |
 
-- Apresentação de funcionalidades para usuários internos ao ao sistema:
+- Apresentação de funcionalidades para usuários internos ao sistema:
 
 | **Usuário** |      **Ação**      |                             **Motivação**                            | **Criterios de aceitação**                                                            |
 |:-----------:|:------------------:|:--------------------------------------------------------------------:|---------------------------------------------------------------------------------------|
