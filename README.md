@@ -19,6 +19,8 @@ Dentre as ferramentas utilizadas para a construção do sistema foram implementa
 
 <h2>USER STORIES</h2>
 
+Acesse o link para verificação do USER STORIES no formato padrão exigido atualmente " ".
+
 - Apresentação de funcionalidades para funcionários externos ao sistema:
 
 | **Usuário** |           **Ação**           |                          **Motivação**                         | **Criterios de aceitação**                                           |
