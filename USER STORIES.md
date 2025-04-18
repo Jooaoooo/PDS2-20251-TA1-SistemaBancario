@@ -44,7 +44,7 @@ para que eu possa ver projeções de retorno após um determinado período (ex.:
 
 <h4>Critérios de aceitação</h4>
 1. O sistema deve calcular e exibir uma projeção de retorno bruto (valor futuro) com base no valor investido, 
-tipo de título e prazo selecionado. - Testar com valores conhecidos (ex.: R$1.000 em Tesouro Selic 2026) 
+tipo de título e prazo selecionado. Testar com valores conhecidos (ex.: R$1.000 em Tesouro Selic 2026) 
 e comparar com a calculadora oficial do Tesouro Direto.<br>
 2. O investimento só deve ser confirmado após a exibição de um termo de riscos 
 e a confirmação explícita do cliente (duplo clique ou checkbox).<br>
