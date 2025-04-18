@@ -5,44 +5,44 @@
 ### Cartão CRC 1: Cliente
 | Classe       | Responsabilidades | Colaborações |
 |--------------|------------------|--------------|
-| **Cliente**  | - Autenticar usuário (login em duas etapas: senha e RG)<br>- Gerenciar dados pessoais<br>- Vincular-se a contas (PF/PJ) | - Conta (PF/PJ)<br>- Banco (validação de cadastro)<br>- Transação (operações) |
+| **Cliente**  | 1. Autenticar usuário (login em duas etapas: senha e RG)<br>2. Gerenciar dados pessoais (nome, endereço, RG)<br>3. Vincular-se a contas (PF/PJ)<br>4. Solicitar bloqueio/desbloqueio de cartão<br>5. Acessar histórico de transações<br>6. Atualizar métodos de contato (e-mail, telefone) | - Conta (PF/PJ)<br>- Banco (validação)<br>- Transação<br>- Cartão |
 
 ### Cartão CRC 2: Conta (Superclasse)
 | Classe       | Responsabilidades | Colaborações |
 |--------------|------------------|--------------|
-| **Conta**    | - Gerenciar saldo básico<br>- Validar estado da conta<br>- Fornecer dados para extrato | - Cliente (titular)<br>- Transação (operações)<br>- Banco (atualização) |
+| **Conta**    | 1. Gerenciar saldo básico<br>2. Validar estado da conta (ativa/bloqueada)<br>3. Fornecer dados para extrato<br>4. Aplicar tarifas mensais<br>5. Gerar número da conta único<br>6. Validar titularidade (PF/PJ) | - Cliente<br>- Transação<br>- Banco<br>- Extrato |
 
 ### Cartão CRC 3: ContaPF (Subclasse)
 | Classe       | Responsabilidades | Colaborações |
 |--------------|------------------|--------------|
-| **ContaPF**  | - Gerenciar saldo (poupança/corrente)<br>- Aplicar regras de PF<br>- Calcular rendimento tesouro | - Conta (herança)<br>- Investimento (vinculação)<br>- Transação (operações) |
+| **ContaPF**  | 1. Gerenciar saldo (poupança/corrente)<br>2. Aplicar regras de PF (limites de saque)<br>3. Calcular rendimento tesouro direto<br>4. Validar CPF do titular<br>5. Gerenciar conta conjunta (se aplicável)<br>6. Solicitar portabilidade de salário | - Conta<br>- Investimento<br>- Transação<br>- Cliente |
 
 ### Cartão CRC 4: ContaPJ (Subclasse)
 | Classe       | Responsabilidades | Colaborações |
 |--------------|------------------|--------------|
-| **ContaPJ**  | - Validar CNPJ e sócios<br>- Gerenciar limites corporativos<br>- Aplicar taxas específicas | - Conta (herança)<br>- Gerente (aprovação)<br>- Transação (operações) |
+| **ContaPJ**  | 1. Validar CNPJ e sócios<br>2. Gerenciar limites corporativos<br>3. Aplicar taxas específicas (TED/DOC)<br>4. Emitir cobranças (boletos)<br>5. Integrar com sistemas contábeis<br>6. Solicitar aumento de limite | - Conta<br>- Gerente<br>- Transação<br>- Banco |
 
 ### Cartão CRC 5: Transação
 | Classe       | Responsabilidades | Colaborações |
 |--------------|------------------|--------------|
-| **Transação** | - Registrar depósitos/saques/transferências<br>- Validar saldo suficiente<br>- Gerar comprovante | - Conta (origem/destino)<br>- Banco (autorização)<br>- PIX/Transferência |
+| **Transação** | 1. Registrar depósitos/saques/transferências<br>2. Validar saldo suficiente<br>3. Gerar comprovante<br>4. Aplicar taxas (PJ/valores altos)<br>5. Converter moedas (se internacional)<br>6. Rastrear status (pendente/concluída) | - Conta<br>- Banco<br>- PIX<br>- Cartão |
 
 ### Cartão CRC 6: Banco
 | Classe       | Responsabilidades | Colaborações |
 |--------------|------------------|--------------|
-| **Banco**    | - Gerenciar contas/clientes<br>- Validar transações globais<br>- Bloquear cartões<br>- Gerar relatórios | - Cliente (cadastro)<br>- Conta (gerenciamento)<br>- Transação (auditoria) |
+| **Banco**    | 1. Gerenciar contas/clientes<br>2. Validar transações globais<br>3. Bloquear cartões (fraude/perda)<br>4. Gerar relatórios mensais<br>5. Processar folha de pagamento (PJ)<br>6. Integrar com sistemas externos (BACEN) | - Cliente<br>- Conta<br>- Transação<br>- Gerente |
 
 ### Cartão CRC 7: Empréstimo
 | Classe       | Responsabilidades | Colaborações |
 |--------------|------------------|--------------|
-| **Empréstimo** | - Calcular juros e parcelas<br>- Validar score<br>- Liberar crédito<br>- Gerar contrato | - Cliente (solicitante)<br>- Banco (aprovação)<br>- Conta (depósito) |
+| **Empréstimo** | 1. Calcular juros e parcelas<br>2. Validar score (Serasa/SPC)<br>3. Liberar crédito (fundos SPECTRAL)<br>4. Gerar contrato digital<br>5. Notificar vencimentos<br>6. Renegociar dívidas | - Cliente<br>- Banco<br>- Conta<br>- Gerente |
 
 ### Cartão CRC 8: Gerente
 | Classe       | Responsabilidades | Colaborações |
 |--------------|------------------|--------------|
-| **Gerente**  | - Aprovar contas PJ<br>- Auditar fraudes<br>- Gerar relatórios | - Banco (dados)<br>- ContaPJ (validação)<br>- Empréstimo (aprovações) |
+| **Gerente**  | 1. Aprovar contas PJ<br>2. Auditar transações suspeitas<br>3. Liberar limites especiais (VIP)<br>4. Gerar relatórios customizados<br>5. Gerenciar equipe de atendimento<br>6. Aprovar renegociações | - Banco<br>- ContaPJ<br>- Empréstimo<br>- RelatórioGerencial |
 
 ### Cartão CRC 9: RelatórioGerencial
 | Classe       | Responsabilidades | Colaborações |
 |--------------|------------------|--------------|
-| **RelatórioGerencial** | - Consolidar métricas mensais<br>- Filtrar por período<br>- Gerar visualizações de dados/transações<br>- Alertar metas | - Banco (dados brutos)<br>- Gerente (personalização)<br>- Conta (detalhes) |
+| **RelatórioGerencial** | 1. Consolidar métricas mensais<br>2. Filtrar por agência/período<br>3. Gerar dashboards interativos<br>4. Alertar metas não atingidas<br>5. Exportar em PDF/Excel<br>6. Integrar com BI (PowerBI/Tableau) | - Banco<br>- Gerente<br>- Conta<br>- Transação |
