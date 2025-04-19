@@ -7,7 +7,7 @@
 
 **Introdução ao Projeto SPECTRAL BANK++**
 
-O SPECTRAL BANK++ é um sistema bancário moderno e robusto, desenvolvido para oferecer uma experiência segura e eficiente aos seus usuários. Pode-se destacar o foco na gestão de contas, transações e clientes, o sistema elaborou-se para atender tanto pessoas físicas (com opções de conta poupança, corrente ou investimento) quanto pessoas jurídicas (com conta corrente), incluindo a possibilidade de contas conjunta 
+O SPECTRAL BANK++ é um sistema bancário moderno e robusto, desenvolvido para oferecer uma experiência segura e eficiente aos seus usuários. Pode-se destacar o foco na gestão de contas, transações e clientes, o sistema elaborou-se para atender tanto pessoas físicas (com opções de conta poupança, corrente ou investimento) quanto pessoas jurídicas (com conta corrente), incluindo a possibilidade de contas conjuntas.  
 
 Foram incorporadas funcionalidades bancárias essenciais, como depósitos (via PIX ou transferência), saques, pagamentos de contas, transferências entre contas, consultas de saldo e extratos detalhados, além de opções de empréstimo e investimento em títulos do tesouro nacional. Para garantir a segurança dos usuários, implementou-se um sistema de login em duas etapas, baseado em senha e RG.  
 
