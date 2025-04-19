@@ -7,7 +7,7 @@ lcomp:
 	g++ -c ./src/ContaPf.cpp -o ./build/ContaPf.o
 	g++ -c ./src/ContaPj.cpp -o ./build/ContaPj.o
 #linkagem e geração do executável
-	g++ ./build/main.o ./build/Cliente.o /build/Conta.o -o ./build/ContaPf.o ./build/ContaPj.o./bin/main-app
+	g++ ./build/main.o ./build/Cliente.o ./build/Conta.o ./build/ContaPf.o ./build/ContaPj.o -o ./bin/main-app
 lrun: lcomp
 	./bin/main-app
 

@@ -1,3 +1,4 @@
+#pragma once
 #include <iostream>
 
 class Conta{
@@ -12,3 +13,5 @@ public:
     int gerarId();
     void gerenciarSaldo();
 };
+
+

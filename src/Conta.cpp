@@ -6,10 +6,9 @@
 
 int Conta::gerarId(){//deve ser modificado
     int id;
-
     return id;
 }
-void gerenciarSaldo(){//deve ser modificado
+void Conta::gerenciarSaldo(){//deve ser modificado
 
 }
 int Conta::bloquearConta(){

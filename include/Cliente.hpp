@@ -1,3 +1,5 @@
+#pragma once
+
 #ifdef _WIN32
     #include".\\ContaPf.hpp"
     #include".\\ContaPj.hpp"
