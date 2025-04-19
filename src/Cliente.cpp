@@ -1,5 +1,8 @@
-#include"../include/Cliente.hpp"
-
+#ifdef _WIN32
+    #include"..\\include\\Cliente.hpp"
+#else
+    #include"../include/Cliente.hpp"
+#endif
 int Cliente::autenticarUsuario(std::string senha, std::string rg){
     if(this->senha_ != senha){
         return 0;
