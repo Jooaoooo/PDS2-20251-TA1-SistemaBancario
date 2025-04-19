@@ -1,5 +1,3 @@
-#pragma once
-
 #ifdef _WIN32
     #include".\\Banco.hpp"
     #include".\\Banco.hpp"
