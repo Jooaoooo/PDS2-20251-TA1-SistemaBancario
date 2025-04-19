@@ -1,7 +1,7 @@
 #include <iostream>
 
 class Conta{
-protected:
+private:
     int id_;
     int saldoBasico_;
     int ativo_;
