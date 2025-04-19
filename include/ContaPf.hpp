@@ -9,4 +9,7 @@
 
 class ContaPf:public Conta{
 
+    int calcularTesouro();
+    int validarCpf();
+    void gerarContaConjunta();
 };

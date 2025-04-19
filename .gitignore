@@ -1,3 +1,4 @@
 #ignorar arquivos -app
-*-app
+build/
+bin/
 .vscode/

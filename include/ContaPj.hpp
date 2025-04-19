@@ -9,4 +9,13 @@
 
 class ContaPj:public Conta{
 
+    int validarCnpj();
+    int validarSocio();
+    int emitirCobraca();
 };
+
+//PENDENTE:
+/*
+-aplicar taxas específicas
+-integrar com sistemas contábeis
+*/

@@ -6,12 +6,17 @@ private:
     int id_;
     int saldoBasico_;
     int ativo_;
+    int limite_;
 
     int bloquearConta();
     int ativarConta();
 public:
     int gerarId();
-    void gerenciarSaldo();
+    void gerenciarSaldo();//será método puramente abstrato
+    void definirLimite();
 };
-
-
+//PENDENTE:
+/*
+-fornecer dados para extrato
+-aplicar tarifas mensais
+*/

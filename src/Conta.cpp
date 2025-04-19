@@ -11,6 +11,9 @@ int Conta::gerarId(){//deve ser modificado
 void Conta::gerenciarSaldo(){//deve ser modificado
 
 }
+void Conta::definirLimite(){//deve ser modificado
+
+};
 int Conta::bloquearConta(){
     if(this->ativo_ == 0){
         return 0;
