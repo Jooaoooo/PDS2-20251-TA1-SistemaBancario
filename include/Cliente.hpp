@@ -9,7 +9,8 @@ private:
     std::string senha_;
     std::string endereço_;
     std::string email_;
-    int telefone_;
+    std::string telefone_;
 public:
     int autenticarUsuario(std::string senha, std::string rg);
+    
 };
