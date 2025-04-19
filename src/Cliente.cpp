@@ -19,6 +19,6 @@ std::string Cliente::getDados(int dado){
     }else if(dado == 3){//telefone
         return this->telefone_;
     }else{
-        return "";
+        exit(1);
     }
 }
