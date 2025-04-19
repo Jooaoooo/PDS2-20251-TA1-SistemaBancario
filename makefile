@@ -6,8 +6,10 @@ lcomp:
 	g++ -c ./src/Conta.cpp -o ./build/Conta.o
 	g++ -c ./src/ContaPf.cpp -o ./build/ContaPf.o
 	g++ -c ./src/ContaPj.cpp -o ./build/ContaPj.o
+	g++ -c ./src/Banco.cpp -o ./build/Banco.o
+	g++ -c ./src/Gerente.cpp -o ./build/Gerente.o
 #linkagem e geração do executável
-	g++ ./build/main.o ./build/Cliente.o ./build/Conta.o ./build/ContaPf.o ./build/ContaPj.o -o ./bin/main-app
+	g++ ./build/main.o ./build/Cliente.o ./build/Conta.o ./build/ContaPf.o ./build/ContaPj.o ./build/Banco.o ./build/Gerente.o -o ./bin/main-app
 lrun: lcomp
 	./bin/main-app
 
@@ -19,7 +21,9 @@ wcomp:
 	g++ -c .\\src\\Conta.cpp -o .\\build\\Conta.o
 	g++ -c .\\src\\ContaPf.cpp -o .\\build\\ContaPf.o
 	g++ -c .\\src\\ContaPj.cpp -o .\\build\\ContaPj.o
+	g++ -c .\\src\\Banco.cpp -o .\\build\\Banco.o
+	g++ -c .\\src\\Gerente.cpp -o .\\build\\Gerente.o
 #linkagem e geração do executável
-	g++ .\\build\\main.o .\\build\\Cliente.o .\\build\\Conta.o .\\build\\ContaPf.o .\\build\\ContaPj.o -o .\\bin\\main.exe
+	g++ .\\build\\main.o .\\build\\Cliente.o .\\build\\Conta.o .\\build\\ContaPf.o .\\build\\ContaPj.o .\\build\\Banco.o .\\build\\Gerente.o -o .\\bin\\main.exe
 wrun: wcomp
 	.\\bin\\main.exe

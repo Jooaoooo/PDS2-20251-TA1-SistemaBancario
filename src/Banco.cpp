@@ -1,9 +1,7 @@
 #ifdef _WIN32
-    #include".\\Banco.hpp"
-    #include".\\Banco.hpp"
+    #include"..\\include\\Banco.hpp"
 #else
-    #include"./Banco.hpp"
-    #include"./Banco.hpp"
+    #include"../include/Banco.hpp"
 #endif
 #include<iostream>
 

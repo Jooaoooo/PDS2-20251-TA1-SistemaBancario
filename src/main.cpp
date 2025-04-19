@@ -3,11 +3,15 @@
     #include"..\\include\\Cliente.hpp"
     #include"..\\include\\ContaPf.hpp"
     #include"..\\include\\ContaPj.hpp"
+    #include"..\\include\\Banco.hpp"
+    #include"..\\include\\Gerente.hpp"
 #else
     #include"../include/Conta.hpp"
     #include"../include/Cliente.hpp"
     #include"../include/ContaPf.hpp"
     #include"../include/ContaPj.hpp"
+    #include"../include/Banco.hpp"
+    #include"../include/Gerente.hpp"
 #endif
 #include<iostream>
 

@@ -1,9 +1,7 @@
 #ifdef _WIN32
-    #include".\\Gerente.hpp"
-    #include".\\Gerente.hpp"
+    #include"..\\include\\Gerente.hpp"
 #else
-    #include"./Gerente.hpp"
-    #include"./Gerente.hpp"
+    #include"../include/Gerente.hpp"
 #endif
 
 int aprovarPj(){
