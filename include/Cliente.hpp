@@ -1,6 +1,11 @@
+#ifdef _WIN32
+    #include".\\ContaPf.hpp"
+    #include".\\ContaPj.hpp"
+#else
+    #include"./ContaPf.hpp"
+    #include"./ContaPj.hpp"
+#endif
 #include<iostream>
-#include"./ContaPf.hpp"
-#include"./ContaPj.hpp"
 class Cliente{
 private:
     std::string nome_;
