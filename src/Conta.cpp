@@ -9,6 +9,9 @@ int Conta::gerarId(){//deve ser modificado
 
     return id;
 }
+void gerenciarSaldo(){//deve ser modificado
+
+}
 int Conta::bloquearConta(){
     if(this->ativo_ == 0){
         return 0;

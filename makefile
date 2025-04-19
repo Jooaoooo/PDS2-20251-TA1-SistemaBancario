@@ -3,8 +3,11 @@ lcomp:
 #compilação - gera objetos
 	g++ -c ./src/main.cpp -o ./build/main.o
 	g++ -c ./src/Cliente.cpp -o ./build/Cliente.o
+	g++ -c ./src/Conta.cpp -o ./build/Conta.o
+	g++ -c ./src/ContaPf.cpp -o ./build/ContaPf.o
+	g++ -c ./src/ContaPj.cpp -o ./build/ContaPj.o
 #linkagem e geração do executável
-	g++ ./build/main.o ./build/Cliente.o -o ./bin/main-app
+	g++ ./build/main.o ./build/Cliente.o /build/Conta.o -o ./build/ContaPf.o ./build/ContaPj.o./bin/main-app
 lrun: lcomp
 	./bin/main-app
 
@@ -13,7 +16,10 @@ wcomp:
 #compilação - gera objetos
 	g++ -c src\\main.cpp -o build\\main.o
 	g++ -c src\\Cliente.cpp -o build\\Cliente.o
+	g++ -c .\\src\\Conta.cpp -o .\\build\\Conta.o
+	g++ -c .\\src\\ContaPf.cpp -o .\\build\\ContaPf.o
+	g++ -c .\\src\\ContaPj.cpp -o .\\build\\ContaPj.o
 #linkagem e geração do executável
-	g++ .\\build\\main.o .\\build\\Cliente.o -o \\bin\\main.exe
+	g++ .\\build\\main.o .\\build\\Cliente.o .\\build\\Conta.o .\\build\\ContaPf.o .\\build\\ContaPj.o -o .\\bin\\main.exe
 wrun: wcomp
 	.\\bin\\main.exe
