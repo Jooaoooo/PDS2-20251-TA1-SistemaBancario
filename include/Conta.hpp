@@ -3,17 +3,17 @@
 
 class Conta{
 private:
-    int id_;
-    int saldoBasico_;
-    int ativo_;
-    int limite_;
+    int _id;
+    int _saldoBasico;
+    int _ativo;
+    int _limite;
 
-    int bloquearConta();
-    int ativarConta();
+    int bloquear_conta();
+    int ativar_conta();
 public:
-    int gerarId();
-    void gerenciarSaldo();//será método puramente abstrato
-    void definirLimite();
+    int gerar_id();
+    void gerenciar_saldo();//será método puramente abstrato
+    void definir_limite();
 };
 //PENDENTE:
 /*

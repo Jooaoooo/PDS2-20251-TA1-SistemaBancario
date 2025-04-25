@@ -3,9 +3,9 @@
 #include<iostream>
 
 class Gerente{
-    int aprovarPj();
-    int liberarLimite();
-    int aprovarNegocio();
+    int aprovar_pj();
+    int liberar_limite();
+    int aprovar_negocio();
 };
 //PENDENTE:
 /*

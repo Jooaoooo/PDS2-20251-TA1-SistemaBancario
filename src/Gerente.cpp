@@ -4,15 +4,15 @@
     #include"../include/Gerente.hpp"
 #endif
 
-int aprovarPj(){
+int Gerente::aprovar_pj(){
     int valor;
     return valor;
 }
-int liberarLimite(){
+int Gerente::liberar_limite(){
     int valor;
     return valor;
 }
-int aprovarNegocio(){
+int Gerente::aprovar_negocio(){
     int valor;
     return valor;
 }

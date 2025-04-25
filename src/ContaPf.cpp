@@ -4,14 +4,14 @@
     #include"../include/ContaPf.hpp"
 #endif
 
-int ContaPf::calcularTesouro(){
+int ContaPf::calcular_tesouro(){
     int valor;
     return valor;
 }
-int ContaPf::validarCpf(){
+int ContaPf::validar_cpf(){
     int valor;
     return valor;
 }
-void ContaPf::gerarContaConjunta(){
+void ContaPf::gerar_conta_conjunta(){
     
 }

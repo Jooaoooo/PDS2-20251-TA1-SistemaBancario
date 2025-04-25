@@ -9,9 +9,9 @@
 
 class ContaPj:public Conta{
 
-    int validarCnpj();
-    int validarSocio();
-    int emitirCobraca();
+    int validar_cnpj();
+    int validar_socio();
+    int emitir_cobraca();
 };
 
 //PENDENTE:

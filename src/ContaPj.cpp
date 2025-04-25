@@ -4,15 +4,15 @@
     #include"../include/ContaPj.hpp"
 #endif
 
-int ContaPj::validarCnpj(){
+int ContaPj::validar_cnpj(){
     int valor;
     return valor;
 };
-int ContaPj::validarSocio(){
+int ContaPj::validar_socio(){
     int valor;
     return valor;
 };
-int ContaPj::emitirCobraca(){
+int ContaPj::emitir_cobraca(){
     int valor;
     return valor;
 };

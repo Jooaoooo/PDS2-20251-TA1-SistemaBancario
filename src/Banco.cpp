@@ -5,23 +5,23 @@
 #endif
 #include<iostream>
 
-int gerenciarContas(){
+int Banco::gerenciar_contas(){
     int valor;
     return valor;
 }
-int validarTransacoes(){
+int Banco::validar_transacoes(){
     int valor;
     return valor;
 }
-int bloquearCartao(){
+int Banco::bloquear_cartao(){
     int valor;
     return valor;
 }
-int gerarRelatorio(){
+int Banco::gerar_relatorio(){
     int valor;
     return valor;
 }
-int processarFolhaPagamento(){
+int Banco::processar_folha_pagamento(){
     int valor;
     return valor;
 }
