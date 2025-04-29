@@ -16,6 +16,6 @@
 #include<iostream>
 
 int main(){
-    std::cout << "Programa aberto";
+
     return 0;
 }
