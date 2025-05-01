@@ -4,24 +4,27 @@
     #include"../include/Conta.hpp"
 #endif
 
-int Conta::gerarId(){//deve ser modificado
+int Conta::gerar_id(){//deve ser modificado
     int id;
     return id;
 }
-void Conta::gerenciarSaldo(){//deve ser modificado
+void Conta::gerenciar_saldo(){//deve ser modificado
 
 }
-int Conta::bloquearConta(){
-    if(this->ativo_ == 0){
+void Conta::definir_limite(){//deve ser modificado
+
+};
+int Conta::bloquear_conta(){
+    if(this->_ativo == 0){
         return 0;
     }
-    this->ativo_ = 0;
+    this->_ativo = 0;
     return 1;
 }
-int Conta::ativarConta(){
-    if(this->ativo_ != 0){
+int Conta::ativar_conta(){
+    if(this->_ativo != 0){
         return 0;
     }
-    this->ativo_ = 1;
+    this->_ativo = 1;
     return 1;
 }

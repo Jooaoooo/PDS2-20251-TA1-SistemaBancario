@@ -3,24 +3,24 @@
 #else
     #include"../include/Cliente.hpp"
 #endif
-int Cliente::autenticarUsuario(std::string senha, std::string rg){
-    if(this->senha_ != senha){
+int Cliente::autenticar_usuario(std::string senha, std::string rg){
+    if(this->_senha != senha){
         return 0;
     }
-    if(this->rg_ != rg){
+    if(this->_rg != rg){
         return 0;
     }
     return 1;
 }
-std::string Cliente::getDados(int dado){
+std::string Cliente::get_dados(int dado){
     if(dado == 0){//nome
-        return this->nome_;
+        return this->_nome;
     }else if(dado == 1){//endereço
-        return this->endereco_;
+        return this->_endereco;
     }else if(dado == 2){//email
-        return this->email_;
+        return this->_email;
     }else if(dado == 3){//telefone
-        return this->telefone_;
+        return this->_telefone;
     }else{
         exit(1);
     }

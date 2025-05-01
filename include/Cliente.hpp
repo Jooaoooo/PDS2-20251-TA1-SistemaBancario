@@ -10,14 +10,14 @@
 #include<iostream>
 class Cliente{
 private:
-    std::string nome_;
-    std::string cpf_;
-    std::string rg_;
-    std::string senha_;
-    std::string endereco_;
-    std::string email_;
-    std::string telefone_;
+    std::string _nome;
+    std::string _cpf;
+    std::string _rg;
+    std::string _senha;
+    std::string _endereco;
+    std::string _email;
+    std::string _telefone;
 public:
-    int autenticarUsuario(std::string senha, std::string rg);
-    std::string getDados(int dado);
+    int autenticar_usuario(std::string senha, std::string rg);
+    std::string get_dados(int dado);
 };

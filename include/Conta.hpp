@@ -3,15 +3,20 @@
 
 class Conta{
 private:
-    int id_;
-    int saldoBasico_;
-    int ativo_;
+    int _id;
+    int _saldoBasico;
+    int _ativo;
+    int _limite;
 
-    int bloquearConta();
-    int ativarConta();
+    int bloquear_conta();
+    int ativar_conta();
 public:
-    int gerarId();
-    void gerenciarSaldo();
+    int gerar_id();
+    void gerenciar_saldo();//será método puramente abstrato
+    void definir_limite();
 };
-
-
+//PENDENTE:
+/*
+-fornecer dados para extrato
+-aplicar tarifas mensais
+*/
