@@ -20,14 +20,13 @@
 
 class Gerente{
     public:
+        // Métodos básicos de aprovação
+        int aprovar_pj();
+        int liberar_limite();
+        int aprovar_negocio(); 
 
-    // Métodos básicos de aprovação
-    int aprovar_pj();
-    int liberar_limite();
-    int aprovar_negoco();
-
-    // Funcionalidades pendentes implementadas
-    bool auditar_transacoes_suspeitas(const std::vector<int>& transacoes);
-    void gerar_relatorio_customizado(const std::string& tipo_relatorio, int periodo);
-    void gerenciar_equipe_atendimento(const std::vector<std::string>& membros_equipe);
+        // Funcionalidades pendentes implementadas
+        bool auditar_transacoes_suspeitas(const std::vector<int>& transacoes);
+        void gerar_relatorio_customizado(const std::string& tipo_relatorio, int periodo);
+        void gerenciar_equipe_atendimento(const std::vector<std::string>& membros_equipe);
 };

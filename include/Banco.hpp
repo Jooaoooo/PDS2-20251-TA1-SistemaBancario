@@ -11,7 +11,7 @@ struct Transacao {
     double valor;
     int conta_origem;
     int conta_destino;
-    bool aprovada = true; 
+    bool aprovada = false; 
 };
 
 struct Cartao {
