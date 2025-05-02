@@ -11,6 +11,7 @@ struct Transacao {
     double valor;
     int conta_origem;
     int conta_destino;
+    bool aprovada = true; 
 };
 
 struct Cartao {
@@ -32,4 +33,5 @@ public:
     int bloquear_cartao();
     int gerar_relatorio();
     int processar_folha_pagamento();
+    std::vector<Transacao>& get_transacoes(); 
 };

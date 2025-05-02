@@ -155,17 +155,27 @@ int Banco::gerenciar_contas(){
         return -1;
     }
 }
-int Banco::validar_transacoes(){
-    // Exemplo de implementação
+int Banco::validar_transacoes() {
     std::cout << "Validando transações..." << std::endl;
-    for (const auto& transacao : transacoes) {
-        if (transacao.valor <= 0) {
-            std::cout<< "Transação inválida detectada!" << std::endl;
-            return -1; // Código de erro
+    
+    for (auto& transacao : transacoes) {
+        if (transacao.valor <= 5000) {
+            // Aprova a transação automaticamente se o valor for menor ou igual a 5000
+            transacao.aprovada = true;
+            std::cout << "Transação de ID " << transacao.conta_origem 
+                      << " aprovada automaticamente (valor <= 5000)." << std::endl;
+        } else if (transacao.valor > 0) {
+            std::cout << "Transação de ID " << transacao.conta_origem 
+                      << " não aprovada automaticamente (valor > 5000)." << std::endl;
+        } else {
+            std::cout << "Transação inválida detectada!" << std::endl;
+            return -1; // Código de erro para transação inválida
         }
     }
+    
     return 0; // Sucesso
 }
+
 int Banco::bloquear_cartao(){
     std::string numero;
     std::cout << "Informe o número do cartão: ";
@@ -201,4 +211,8 @@ int Banco::processar_folha_pagamento(){
     // Implementação básica
     std::cout << "Processando folha de pagamento...\n";
     return 0;
+}
+
+std::vector<Transacao>& Banco::get_transacoes() {
+    return transacoes;
 }

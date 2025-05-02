@@ -24,7 +24,7 @@ class Gerente{
     // Métodos básicos de aprovação
     int aprovar_pj();
     int liberar_limite();
-    int aprovar_negocio();
+    int aprovar_negoco();
 
     // Funcionalidades pendentes implementadas
     bool auditar_transacoes_suspeitas(const std::vector<int>& transacoes);
