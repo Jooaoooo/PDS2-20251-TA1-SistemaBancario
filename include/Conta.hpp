@@ -7,9 +7,11 @@ private:
     int _saldoBasico;
     int _ativo;
     int _limite;
+    bool _aprovada;  
 
     int bloquear_conta();
     int ativar_conta();
+
 public:
     int gerar_id();
     void gerenciar_saldo();//será método puramente abstrato
@@ -39,6 +41,10 @@ public:
     int get_limite(){
         return _limite;
     }
+
+    void set_aprovada(bool aprovada) { _aprovada = aprovada; }
+    bool get_aprovada() { return _aprovada; }
+    
 };
 //PENDENTE:
 /*
