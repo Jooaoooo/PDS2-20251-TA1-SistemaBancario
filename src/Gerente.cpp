@@ -1,4 +1,3 @@
-#pragma once
 
 #ifdef _WIN32
     #include"..\\include\\Gerente.hpp"
@@ -26,10 +25,10 @@
 #include <limits>
 
 // Reutilizando os vetores globais da classe Banco
-extern std::vector<std::shared_ptr<Conta>> contas;
-extern std::vector<Transacao> transacoes;
-extern std::vector<Cartao> cartoes;
-extern std::vector<std::shared_ptr<Cliente>> clientes;
+std::vector<std::shared_ptr<Conta>> contas;
+std::vector<Transacao> transacoes;
+std::vector<Cartao> cartoes;
+std::vector<std::shared_ptr<Cliente>> clientes;
 
 #include <iostream>
 #include <vector>

@@ -10,22 +10,32 @@
 #include <iostream>
 #include <string>
 
-
-class ContaPf:public Conta{
+class ContaPf : public Conta {
 private:
     std::string _nome;
     std::string _cpf;
     std::string _rg;
     std::string _senha;
     
-    // Métodos privados
     int calcular_tesouro();
     int validar_cpf();
     void gerar_conta_conjunta();
+
 public:
     // Construtor
     ContaPf() = default;
     
+    int gerar_id() override {
+        static int nextId = 1;
+        return nextId++;
+    }
+
+    void gerenciar_saldo() override {
+    }
+
+    void definir_limite() override {
+    }
+
     // Setters e Getters específicos para PF
     void set_nome(const std::string& nome) { _nome = nome; }
     std::string get_nome() const { return _nome; }
