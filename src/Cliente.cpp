@@ -9,7 +9,7 @@ int Cliente::autenticar_usuario(std::string senha, std::string rg){
     }
     if(this->_rg != rg){
         return 0;
-    }
+    } 
     return 1;
 }
 std::string Cliente::get_dados(int dado){
