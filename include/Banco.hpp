@@ -1,4 +1,5 @@
 #pragma once
+
 #include <vector>
 #include <memory>
 #include <string>
@@ -11,6 +12,7 @@ struct Transacao {
     double valor;
     int conta_origem;
     int conta_destino;
+    bool aprovada = false; 
 };
 
 struct Cartao {
@@ -32,4 +34,5 @@ public:
     int bloquear_cartao();
     int gerar_relatorio();
     int processar_folha_pagamento();
+    std::vector<Transacao>& get_transacoes(); 
 };

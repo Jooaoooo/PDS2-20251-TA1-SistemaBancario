@@ -12,7 +12,7 @@ int ContaPj::validar_socio(){
     int valor;
     return valor;
 };
-int ContaPj::emitir_cobraca(){
+int ContaPj::emitir_cobranca(){
     int valor;
     return valor;
 };
