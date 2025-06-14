@@ -3,6 +3,7 @@
     #include"..\\include\\ContaPf.hpp"
     #include"..\\include\\ContaPj.hpp"
     #include"..\\include\\Cliente.hpp"
+    #include"..\\include\\RelatorioTemplate.hpp"
     #include "..\\include\\Conta.hpp"
 #else
     #include"../include/Banco.hpp"
@@ -10,6 +11,7 @@
     #include"../include/ContaPj.hpp"
     #include"../include/Cliente.hpp"
     #include "../include/Conta.hpp"
+    #include "../include/RelatorioTemplate.hpp"
 #endif
 
 #include<iostream>
@@ -21,193 +23,176 @@
 #include<algorithm>
 #include <limits>
 
-//Criação de vector para instanciar os tad´s
-static std::vector<std::shared_ptr<Conta>> contas;
-static std::vector<Transacao> transacoes;
-static std::vector<Cartao> cartoes;
-static std::vector<std::shared_ptr<Cliente>> clientes;
+std::vector<std::shared_ptr<Conta>>& Banco::getContas() { return contas; }
+std::vector<Transacao>& Banco::getTransacoes() { return transacoes; }
 
-int Banco::gerenciar_contas(){
-    //É necessário saber oque é possível ser gerenciado.
+void limparBuffer() {
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+}
+
+int Banco::gerenciar_contas() {
     int opcao;
-    std::cout<<"Selecione uma opcao: \n";
-    std::cout<<"1 - Abrir conta PF"<<std::endl<<"2 - Abrir conta PJ"<<std::endl
-    <<"3 - Consultar conta existente"<<std::endl<<"4 - Encerrar conta"<<std::endl<<"5 - Listar as contas existentes"<<std::endl;
-    std::cout<<"Opcao: ";
-    std::cin>>opcao;
-    switch(opcao){
-        case 1:{ //Abertura de conta PF
-            auto cliente = std::make_shared<Cliente>();
-            auto conta = std::make_shared<ContaPf>();
+    std::cout << "\n--- Gerenciamento de Contas ---\n";
+    std::cout << "1 - Abrir conta PF\n"
+              << "2 - Abrir conta PJ\n"
+              << "3 - Consultar conta existente\n"
+              << "4 - Encerrar conta\n"
+              << "5 - Listar contas existentes\n"
+              << "Opcao: ";
+    std::cin >> opcao;
+    limparBuffer();
 
-            //Será utilizado a definição do contrato de Cliente
-            std::cout<<"Nome PF: ";
-            std::cin.ignore();
-            std::string nome;
+    switch (opcao) {
+        case 1: { 
+            std::string nome, cpf, rg, senha, endereco, email, telefone;
+            std::cout << "Nome completo: ";
             std::getline(std::cin, nome);
-            conta->set_nome(nome);
-
-            std::cout<<"CPF: ";
-            std::string cpf;
+            std::cout << "CPF: ";
             std::getline(std::cin, cpf);
-            conta->set_cpf(cpf);
-
-            std::cout<<"RG: ";
-            std::string RG;
-            std::getline(std::cin, RG);
-            conta->set_rg(RG);
-
-            std::cout<<"Senha: ";
-            std::string senha;
-            std::getline(std::cin, senha);
-            conta->set_senha(senha);
-
-            conta->set_id(conta->gerar_id());
-            conta->set_saldoBasico(0);
-            conta->set_ativo(1);
-            conta->set_limite(1000);
-
-            clientes.emplace_back(cliente);
-            contas.emplace_back(conta);
-            std::cout << "Conta PF criada com sucesso! ID: "<<conta->get_id()<<std::endl;
-            return conta->get_id();
-        }
-        case 2:{ // Abertura de conta PJ
-            auto cliente = std::make_shared<Cliente>();
-            auto conta = std::make_shared<ContaPj>();
-
-            std::cout << "Razão Social (Nome empresa): ";
-            std::cin.ignore();
-            std::string razao_social;
-            std::getline(std::cin, razao_social);
-            conta->set_razao_social(razao_social);
-
-            std::cout << "CNPJ: ";
-            std::string cnpj;
-            std::getline(std::cin, cnpj);
-            conta->set_cnpj(cnpj);
-
-            std::cout << "Inscrição Estadual: ";
-            std::string ie;
-            std::getline(std::cin, ie);
-            conta->set_inscricao_estadual(ie);
-
+            std::cout << "RG: ";
+            std::getline(std::cin, rg);
             std::cout << "Senha: ";
-            std::string senha;
             std::getline(std::cin, senha);
-            conta->set_senha(senha);
+            std::cout << "Endereco: ";
+            std::getline(std::cin, endereco);
+            std::cout << "Email: ";
+            std::getline(std::cin, email);
+            std::cout << "Telefone: ";
+            std::getline(std::cin, telefone);
 
-            // Configuração inicial da conta
-            conta->set_id(conta->gerar_id());
-            conta->set_saldoBasico(0);
-            conta->set_ativo(1);
-            conta->set_limite(5000); // Limite maior para PJ
+            auto cliente = std::make_shared<Cliente>(nome, cpf, rg, senha, endereco, email, telefone);
+            auto conta = std::make_shared<ContaPf>(cliente, senha);
+            
+            this->clientes.push_back(cliente);
+            this->contas.push_back(conta);
+            
+            std::cout << "Conta PF criada com sucesso! ID: " << conta->getId() << std::endl;
+            return conta->getId();
+        }
+        case 2: { 
+            std::string razao_social, cnpj, rg_responsavel, senha, endereco, email, telefone;
+            std::cout << "Razao Social (Nome empresa): ";
+            std::getline(std::cin, razao_social);
+            std::cout << "CNPJ: ";
+            std::getline(std::cin, cnpj);
+            std::cout << "RG do Responsavel: ";
+            std::getline(std::cin, rg_responsavel);
+            std::cout << "Senha: ";
+            std::getline(std::cin, senha);
+            std::cout << "Endereco: ";
+            std::getline(std::cin, endereco);
+            std::cout << "Email: ";
+            std::getline(std::cin, email);
+            std::cout << "Telefone: ";
+            std::getline(std::cin, telefone);
 
-            contas.push_back(conta);
-            clientes.push_back(cliente);
+            auto cliente = std::make_shared<Cliente>(razao_social, cnpj, rg_responsavel, senha, endereco, email, telefone);
+            auto conta = std::make_shared<ContaPj>(cliente, senha);
+
+            this->clientes.push_back(cliente);
+            this->contas.push_back(conta);
             
-            std::cout << "Conta PJ criada com sucesso! ID: "<<conta->get_id()<< std::endl;
-            return conta->get_id();
-    }
-    case 3:{ //Consultar conta pelo id
-        int id;
-            std::cout<<"Informe o ID da conta: ";
-            std::cin>>id;
-            
-            for (const auto& conta : contas) {
-                if (conta->get_id() == id) {
-                    std::cout << "Conta encontrada!\n";
+            std::cout << "Conta PJ criada com sucesso! ID: " << conta->getId() << std::endl;
+            return conta->getId();
+        }
+        case 3: { 
+            int id;
+            std::cout << "Informe o ID da conta: ";
+            std::cin >> id;
+            for (const auto& conta : this->contas) {
+                if (conta->getId() == id) {
+                    std::cout << "Conta encontrada! Titular: " << conta->getNomeTitular() << ", Saldo: R$" << conta->getSaldo() << std::endl;
                     return id;
                 }
             }
-            std::cout << "Conta não encontrada!\n";
+            std::cout << "Conta nao encontrada!\n";
             return -1;
-    }
-    case 4:{ //Encerrar uma conta pelo id
-        int id;
+        }
+        case 4: { 
+            int id;
             std::cout << "Informe o ID da conta a encerrar: ";
             std::cin >> id;
-            
-            for (auto& conta : contas) {
-                if (conta->get_id() == id) {
-                    conta->set_ativo(0);
-                    std::cout << "Conta encerrada com sucesso!\n";
+            for (auto& conta : this->contas) {
+                if (conta->getId() == id) {
+                    conta->bloquear();
                     return id;
                 }
             }
-            std::cout << "Conta não encontrada!\n";
+            std::cout << "Conta nao encontrada!\n";
+            return -1;
+        }
+        case 5: { // Listar as contas
+            if (contas.empty()) {
+                std::cout << "Nenhuma conta cadastrada.\n";
+                return 0;
+            }
+            for (const auto& conta : this->contas) {
+                std::cout << "ID: " << conta->getId() << " - Titular: " << conta->getNomeTitular()
+                          << " - Saldo: R$" << conta->getSaldo() << " - Ativa: " << (conta->isAtivo() ? "Sim" : "Nao") << "\n";
+            }
+            return contas.size();
+        }
+        default:
+            std::cout << "Opcao invalida!\n";
             return -1;
     }
-    case 5:{ //Listar as contas
-        for (const auto& conta : contas) {
-            std::cout << "ID: " << conta->get_id() << " - ";
-            if (auto pf = std::dynamic_pointer_cast<ContaPf>(conta)) {
-                std::cout << "PF: " << pf->get_nome();
-            } else if (auto pj = std::dynamic_pointer_cast<ContaPj>(conta)) {
-                std::cout << "PJ: " << pj->get_razao_social();
-            }
-            std::cout << " - Saldo: " << conta->get_saldoBasico() << "\n";
-        }
-        return contas.size();
-    }
-    default:
-        std::cout << "Opção inválida!\n";
-        return -1;
-    }
-}
-int Banco::validar_transacoes() {
-    std::cout << "Validando transações..." << std::endl;
-    
-    for (auto& transacao : transacoes) {
-        if (transacao.valor <= 5000) {
-            // Aprova a transação automaticamente se o valor for menor ou igual a 5000
-            transacao.aprovada = true;
-            std::cout << "Transação de ID " << transacao.conta_origem 
-                      << " aprovada automaticamente (valor <= 5000)." << std::endl;
-        } else if (transacao.valor > 0) {
-            std::cout << "Transação de ID " << transacao.conta_origem 
-                      << " não aprovada automaticamente (valor > 5000)." << std::endl;
-        } else {
-            std::cout << "Transação inválida detectada!" << std::endl;
-            return -1; // Código de erro para transação inválida
-        }
-    }
-    
-    return 0; // Sucesso
 }
 
-int Banco::bloquear_cartao(){
+int Banco::validar_transacoes() {
+    std::cout << "Validando transacoes...\n";
+    int aprovadas = 0;
+    for (auto& transacao : this->transacoes) {
+        if (!transacao.aprovada && transacao.valor > 0) {
+            if (transacao.valor <= 5000) {
+                transacao.aprovada = true;
+                aprovadas++;
+                std::cout << "Transacao da conta " << transacao.conta_origem
+                          << " aprovada automaticamente (valor <= 5000).\n";
+            } else {
+                std::cout << "Transacao da conta " << transacao.conta_origem
+                          << " necessita de aprovacao manual (valor > 5000).\n";
+            }
+        }
+    }
+    if (aprovadas == 0) {
+        std::cout << "Nenhuma nova transacao aprovada automaticamente.\n";
+    }
+    return aprovadas;
+}
+
+int Banco::bloquear_cartao() {
     std::string numero;
-    std::cout << "Informe o número do cartão: ";
+    std::cout << "Informe o numero do cartao a ser bloqueado: ";
     std::cin >> numero;
-    
-    for (auto& cartao : cartoes) {
+    for (auto& cartao : this->cartoes) {
         if (cartao.numero == numero) {
             cartao.bloqueado = true;
-            std::cout << "Cartão bloqueado com sucesso!\n";
+            std::cout << "Cartao final " << numero.substr(numero.length() - 4) << " bloqueado com sucesso!\n";
             return 1;
         }
     }
-    std::cout << "Cartão não encontrado!\n";
+    std::cout << "Cartao nao encontrado!\n";
     return -1;
 }
+
 int Banco::gerar_relatorio() {
     std::ofstream relatorio("relatorio_banco.txt");
-    if (!relatorio) {
-        std::cerr << "Erro ao criar relatório!\n";
+    if (!relatorio.is_open()) {
+        std::cerr << "Erro ao criar arquivo de relatorio!\n";
         return -1;
     }
 
-    int totalContas = contas.size();
-    int totalTransacoes = transacoes.size();
-    int totalCartoes = cartoes.size();
-
-    relatorio << "Relatório do Banco\n";
-    exibirTotal("Total de contas", totalContas);
-    exibirTotal("Total de transações", totalTransacoes);
-    exibirTotal("Total de cartões", totalCartoes);
+    relatorio << "--- Relatorio Geral do Banco ---\n\n";
+    exibirTotal("Total de contas", this->contas.size());
+    exibirTotal("Total de transacoes", this->transacoes.size());
+    exibirTotal("Total de cartoes", this->cartoes.size());
+    relatorio << "\n--- Detalhes das Contas ---\n";
+    for (const auto& conta : this->contas) {
+        relatorio << "ID: " << conta->getId() << " | Titular: " << conta->getNomeTitular()
+                  << " | Saldo: R$" << conta->getSaldo() << " | Ativa: " << (conta->isAtivo() ? "Sim" : "Nao") << "\n";
+    }
 
     relatorio.close();
-    std::cout << "Relatório gerado com sucesso!\n";
+    std::cout << "Relatorio 'relatorio_banco.txt' gerado com sucesso!\n";
     return 1;
 }

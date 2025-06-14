@@ -1,9 +1,9 @@
-// include/RelatorioUtils.hpp
 #ifndef RELATORIO_UTILS_HPP
 #define RELATORIO_UTILS_HPP
 
 #include <iostream>
 #include <string>
+#include <iomanip> // Para formatação de output
 
 template <typename T>
 void exibirTotal(const std::string& rotulo, T valor) {
@@ -12,20 +12,20 @@ void exibirTotal(const std::string& rotulo, T valor) {
 
 template <typename T>
 void exibirPercentual(const std::string& rotulo, T parte, T total) {
-    double percentual = 0;
+    double percentual = 0.0;
     if (total != 0) {
-        percentual = static_cast<double>(parte) * 100 / total;
+        percentual = (static_cast<double>(parte) / total) * 100.0;
     }
-    std::cout << rotulo << ": " << parte << " (" << percentual << "%)" << std::endl;
+    std::cout << rotulo << ": " << parte << " (" << std::fixed << std::setprecision(2) << percentual << "%)" << std::endl;
 }
 
 template <typename T1, typename T2>
 void exibirMedia(const std::string& rotulo, T1 soma, T2 quantidade) {
-    double media = 0;
+    double media = 0.0;
     if (quantidade != 0) {
         media = static_cast<double>(soma) / quantidade;
     }
-    std::cout << rotulo << ": R$ " << media << std::endl;
+    std::cout << rotulo << ": R$ " << std::fixed << std::setprecision(2) << media << std::endl;
 }
 
-#endif // RELATORIO_UTILS_HPP
+#endif 

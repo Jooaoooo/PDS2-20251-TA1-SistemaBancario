@@ -10,42 +10,20 @@
 #include <iostream>
 #include <string>
 
+#pragma once
+
+#include "Conta.hpp"
+
 class ContaPf : public Conta {
 private:
-    std::string _nome;
-    std::string _cpf;
-    std::string _rg;
-    std::string _senha;
-    
-    int calcular_tesouro();
-    int validar_cpf();
-    void gerar_conta_conjunta();
+    bool validarCpf();
 
 public:
-    // Construtor
-    ContaPf() = default;
-    
-    int gerar_id() override {
-        static int nextId = 1;
-        return nextId++;
-    }
+    ContaPf(std::shared_ptr<Cliente> titular, const std::string& senha, double saldoInicial = 0.0);
 
-    void gerenciar_saldo() override {
-    }
+    void bloquear() override;
+    void ativar() override;
+    std::string getNomeTitular() const override;
 
-    void definir_limite() override {
-    }
-
-    // Setters e Getters específicos para PF
-    void set_nome(const std::string& nome) { _nome = nome; }
-    std::string get_nome() const { return _nome; }
-    
-    void set_cpf(const std::string& cpf) { _cpf = cpf; }
-    std::string get_cpf() const { return _cpf; }
-    
-    void set_rg(const std::string& rg) { _rg = rg; }
-    std::string get_rg() const { return _rg; }
-    
-    void set_senha(const std::string& senha) { _senha = senha; }
-    std::string get_senha() const { return _senha; }
+    std::string getCpf() const;
 };

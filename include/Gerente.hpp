@@ -16,18 +16,13 @@
     #include"../include/Conta.hpp"
 #endif
 
-#include<iostream>
-#include<vector>
-#include<string>
+#include <string>
+#include <vector>
 
-class Gerente{
-    public:
-        // Métodos básicos de aprovação
-        int aprovar_pj();
-        int liberar_limite();
-        int aprovar_negocio(); 
-
-        // Funcionalidades pendentes implementadas
-        bool auditar_transacoes_suspeitas(const std::vector<int>& transacoes);
-        void gerar_relatorio_customizado(const std::string& tipo_relatorio, int periodo);
+class Gerente {
+public:
+    int aprovar_pj(Banco& banco);
+    int liberar_limite(Banco& banco);
+    int aprovar_negocio(Banco& banco);
+    void gerar_relatorio_customizado(Banco& banco, const std::string& tipo_relatorio, int periodo);
 };

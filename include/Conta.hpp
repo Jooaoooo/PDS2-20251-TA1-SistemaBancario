@@ -1,38 +1,40 @@
 #pragma once
-#include <iostream>
+
+#include <memory>
+#include "Cliente.hpp"
 
 class Conta {
 private:
-    int _id;
-    int _saldoBasico;
-    bool _ativo;  // Alterado para bool
-    int _limite;
-    bool _aprovada;
+    static int _proximoId;
 
-    virtual int bloquear_conta();
-    virtual int ativar_conta();
+protected:
+    int _id;
+    double _saldo;
+    bool _ativo;
+    double _limite;
+    bool _aprovada;
+    std::shared_ptr<Cliente> _titular;
+
+    Conta(std::shared_ptr<Cliente> titular, double saldoInicial, double limiteInicial);
 
 public:
     virtual ~Conta() = default;
-    
-    // Métodos que devem ser implementados pelas classes derivadas
-    virtual int gerar_id() = 0;  
-    virtual void gerenciar_saldo() = 0;  
-    virtual void definir_limite() = 0;  
 
-    // Getters e Setters
-    virtual void set_id(int id) { _id = id; }
-    virtual int get_id() const { return _id; }
-    
-    virtual void set_saldoBasico(int saldoBasico) { _saldoBasico = saldoBasico; }
-    virtual int get_saldoBasico() const { return _saldoBasico; }
-    
-    virtual void set_ativo(bool ativo) { _ativo = ativo; }  // Alterado para bool
-    virtual bool get_ativo() const { return _ativo; }  // Alterado para bool
-    
-    virtual void set_limite(int limite) { _limite = limite; }
-    virtual int get_limite() const { return _limite; }
-    
-    virtual void set_aprovada(bool aprovada) { _aprovada = aprovada; }
-    virtual bool get_aprovada() const { return _aprovada; }
+    // Métodos virtuais puros
+    virtual void bloquear() = 0;
+    virtual void ativar() = 0;
+    virtual std::string getNomeTitular() const = 0;
+
+    // Métodos de operação
+    void depositar(double valor);
+    bool sacar(double valor);
+    void aprovar();
+    void definirLimite(double novoLimite);
+
+    int getId() const;
+    double getSaldo() const;
+    double getLimite() const;
+    bool isAtivo() const;
+    bool isAprovada() const;
+    std::shared_ptr<Cliente> getTitular() const;
 };
