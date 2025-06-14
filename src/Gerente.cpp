@@ -151,3 +151,84 @@ int Gerente::aprovar_negocio() {
     std::cout << "Erro ao aprovar transação." << std::endl;
     return -1;
 }
+
+void Gerente::gerar_relatorio_customizado(const std::string& tipo_relatorio, int periodo) {
+    if (periodo <= 0) {
+        std::cout << "Período inválido. Deve ser maior que zero." << std::endl;
+        return;
+    }
+    
+    std::cout << "\n==== RELATÓRIO: " << tipo_relatorio << " ====\n";
+    
+    if (tipo_relatorio == "contas_ativas") {
+        int total_contas = 0;
+        int contas_ativas = 0;
+        double saldo_total = 0.0;
+        
+        for (const auto& conta : contas) {
+            total_contas++;
+            if (conta->get_ativo()) {
+                contas_ativas++;
+                saldo_total += conta->get_saldoBasico();
+            }
+        }
+        
+        exibirTotal("Total de contas", total_contas);
+        exibirPercentual("Contas ativas", contas_ativas, total_contas);
+        exibirTotal("Saldo total nas contas ativas", saldo_total);
+        
+    } else if (tipo_relatorio == "contas_aprovadas") {
+        int total_contas = 0;
+        int contas_aprovadas = 0;
+        double limite_total = 0.0;
+        
+        for (const auto& conta : contas) {
+            total_contas++;
+            if (conta->get_aprovada()) {
+                contas_aprovadas++;
+                limite_total += conta->get_limite();
+            }
+        }
+        
+        exibirTotal("Total de contas", total_contas);
+        exibirPercentual("Contas aprovadas", contas_aprovadas, total_contas);
+        exibirTotal("Limite total concedido", limite_total);
+        
+    } else if (tipo_relatorio == "saldo_medio") {
+        int contas_ativas = 0;
+        double saldo_total = 0.0;
+        
+        for (const auto& conta : contas) {
+            if (conta->get_ativo()) {
+                contas_ativas++;
+                saldo_total += conta->get_saldoBasico();
+            }
+        }
+        
+        exibirTotal("Contas ativas consideradas", contas_ativas);
+        exibirMedia("Saldo médio", saldo_total, contas_ativas);
+        
+    } else if (tipo_relatorio == "limite_medio") {
+        int contas_com_limite = 0;
+        double limite_total = 0.0;
+        
+        for (const auto& conta : contas) {
+            if (conta->get_aprovada()) {
+                contas_com_limite++;
+                limite_total += conta->get_limite();
+            }
+        }
+        
+        exibirTotal("Contas com limite", contas_com_limite);
+        exibirMedia("Limite médio", limite_total, contas_com_limite);
+        
+    } else {
+        std::cout << "Tipo de relatório inválido. Opções disponíveis:\n"
+                  << "- contas_ativas\n"
+                  << "- contas_aprovadas\n"
+                  << "- saldo_medio\n"
+                  << "- limite_medio" << std::endl;
+    }
+    
+    std::cout << "===================================\n" << std::endl;
+}
