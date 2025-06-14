@@ -45,7 +45,7 @@ std::string Cliente::get_endereco() const { return _endereco; }
 std::string Cliente::get_email() const { return _email; }
 std::string Cliente::get_telefone() const { return _telefone; }
 
-std::string Cliente::atualizar_metodos_contato(std::string endereco, std::string email, std::string telefone){
+void Cliente::atualizar_metodos_contato(std::string endereco, std::string email, std::string telefone){
     this->set_endereco(endereco);
     this->set_email(email);
     this->set_telefone(telefone);

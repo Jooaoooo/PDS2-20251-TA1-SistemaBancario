@@ -20,7 +20,7 @@ private:
 public:
     int autenticar_usuario(std::string senha, std::string rg);
     std::string get_dados(int dado);
-    std::string atualizar_metodos_contato(std::string endereco, std::string email, std::string telefone);
+    void atualizar_metodos_contato(std::string endereco, std::string email, std::string telefone);
 
     void set_nome(const std::string& nome);
     void set_cpf(const std::string& cpf);
