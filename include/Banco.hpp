@@ -10,7 +10,7 @@
 // Estruturas usadas pela classe Banco
 struct Transacao {
     std::string data;
-    double valor;
+    double valor = 0;
     int conta_origem;
     int conta_destino;
     bool aprovada = false; 
@@ -34,6 +34,5 @@ public:
     int validar_transacoes();
     int bloquear_cartao();
     int gerar_relatorio();
-    int processar_folha_pagamento();
     std::vector<Transacao>& get_transacoes(); 
 };
