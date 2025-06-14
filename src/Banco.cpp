@@ -191,28 +191,23 @@ int Banco::bloquear_cartao(){
     std::cout << "Cartão não encontrado!\n";
     return -1;
 }
-int Banco::gerar_relatorio(){
+int Banco::gerar_relatorio() {
     std::ofstream relatorio("relatorio_banco.txt");
     if (!relatorio) {
         std::cerr << "Erro ao criar relatório!\n";
         return -1;
     }
-    
+
+    int totalContas = contas.size();
+    int totalTransacoes = transacoes.size();
+    int totalCartoes = cartoes.size();
+
     relatorio << "Relatório do Banco\n";
-    relatorio << "Total de contas: " << contas.size() << "\n";
-    relatorio << "Total de transações: " << transacoes.size() << "\n";
-    relatorio << "Total de cartões: " << cartoes.size() << "\n";
-    
+    exibirTotal("Total de contas", totalContas);
+    exibirTotal("Total de transações", totalTransacoes);
+    exibirTotal("Total de cartões", totalCartoes);
+
     relatorio.close();
     std::cout << "Relatório gerado com sucesso!\n";
     return 1;
-}
-int Banco::processar_folha_pagamento(){
-    // Implementação básica
-    std::cout << "Processando folha de pagamento...\n";
-    return 0;
-}
-
-std::vector<Transacao>& Banco::get_transacoes() {
-    return transacoes;
 }

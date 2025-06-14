@@ -5,6 +5,7 @@
 #include <string>
 #include "Conta.hpp"
 #include "Cliente.hpp"
+#include "RelatorioTemplate.hpp"
 
 // Estruturas usadas pela classe Banco
 struct Transacao {
