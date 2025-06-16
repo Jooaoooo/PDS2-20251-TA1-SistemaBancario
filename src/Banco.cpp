@@ -196,3 +196,33 @@ int Banco::gerar_relatorio() {
     std::cout << "Relatorio 'relatorio_banco.txt' gerado com sucesso!\n";
     return 1;
 }
+    //int receber_transacoes(int id_remetente, float valor);//conta recebimentom = 1
+int Banco::realizar_transacoes(int id_destinatario, float valor)
+{
+    Transacao transac;//cria transac
+    transac.conta_origem = 1;
+    transac.conta_destino = id_destinatario;
+    transac.valor = valor;
+    this->transacoes.push_back(transac);//adiciona transac para a lista
+    if(this->validar_transacoes())
+    {
+        this->contas[1]->sacar(valor);
+        this->contas[id_destinatario]->depositar(valor);
+        return 1;
+    }
+    return 0;
+}
+int Banco::receber_transacoes(int id_remetente, float valor){
+    Transacao transac;//cria transac
+    transac.conta_origem = id_remetente;
+    transac.conta_destino = 1;
+    transac.valor = valor;
+    this->transacoes.push_back(transac);//adiciona transac para a lista
+    if(this->validar_transacoes())
+    {
+        this->contas[id_remetente]->sacar(valor);
+        this->contas[1]->depositar(valor);
+        return 1;
+    }
+    return 0;
+}

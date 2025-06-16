@@ -33,6 +33,8 @@ public:
     int validar_transacoes();
     int bloquear_cartao();
     int gerar_relatorio();
+    int realizar_transacoes(int id_destinatario, float valor);//conta origem = 1
+    int receber_transacoes(int id_remetente, float valor);//conta recebimentom = 1
 
     // Getters para acesso controlado aos dados internos
     std::vector<std::shared_ptr<Conta>>& getContas();

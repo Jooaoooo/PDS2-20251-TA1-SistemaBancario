@@ -1,0 +1,5 @@
+--- Relatorio Geral do Banco ---
+
+
+--- Detalhes das Contas ---
+ID: 1 | Titular: NATAZIN | Saldo: R$0 | Ativa: Sim
