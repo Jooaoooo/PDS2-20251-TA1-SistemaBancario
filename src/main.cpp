@@ -5,6 +5,7 @@
     #include"..\\include\\ContaPj.hpp"
     #include"..\\include\\Banco.hpp"
     #include"..\\include\\Gerente.hpp"
+    #include"..\\include\\RelatorioTemplate.hpp"
 #else
     #include"../include/Conta.hpp"
     #include"../include/Cliente.hpp"
@@ -12,6 +13,7 @@
     #include"../include/ContaPj.hpp"
     #include"../include/Banco.hpp"
     #include"../include/Gerente.hpp"
+    #include"../include/RelatorioTemplate.hpp"
 #endif
 #include <iostream>
 

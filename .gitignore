@@ -1,6 +1,6 @@
-#ignorar arquivos -app
 build/
 bin/
 .vscode/
-./inputf.in
+inputf.in
 ./outputf.out
+backups/
