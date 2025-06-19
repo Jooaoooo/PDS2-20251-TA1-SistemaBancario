@@ -10,12 +10,11 @@
 #include <iostream>
 #include <string>
 
-#pragma once
-
 #include "Conta.hpp"
 
 class ContaPf : public Conta {
 private:
+    const float _taxaSelic = 0.0125;//ao mês
     bool validarCpf();
 
 public:
@@ -24,6 +23,6 @@ public:
     void bloquear() override;
     void ativar() override;
     std::string getNomeTitular() const override;
-
+    float calcualarTesouro(int tempo, float investimento);
     std::string getCpf() const;
 };

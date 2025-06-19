@@ -2,3 +2,5 @@
 build/
 bin/
 .vscode/
+./inputf.in
+./outputf.out

@@ -3,6 +3,8 @@
 #else
     #include"../include/ContaPf.hpp"
 #endif
+    
+    #include<math.h>
 
 ContaPf::ContaPf(std::shared_ptr<Cliente> titular, const std::string& senha, double saldoInicial)
     : Conta(titular, saldoInicial, 0.0) { 
@@ -29,4 +31,9 @@ std::string ContaPf::getCpf() const {
 
 bool ContaPf::validarCpf() {
     return _titular && !_titular->get_cpf_cnpj().empty();
+}
+float ContaPf::calcualarTesouro(int tempo, float investimento){
+    float montante;
+    montante = investimento*pow((1+this->_taxaSelic),tempo);
+    return montante;
 }

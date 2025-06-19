@@ -138,13 +138,21 @@ int Banco::gerenciar_contas() {
     }
 }
 
+void Banco::validar_transacao(Transacao &transacao){
+    if (transacao.valor <= 5000) {
+        transacao.aprovada = true;
+    } else {
+        transacao.aprovada = false;
+    }
+}
+
 int Banco::validar_transacoes() {
     std::cout << "Validando transacoes...\n";
     int aprovadas = 0;
     for (auto& transacao : this->transacoes) {
-        if (!transacao.aprovada && transacao.valor > 0) {
-            if (transacao.valor <= 5000) {
-                transacao.aprovada = true;
+        this->validar_transacao(transacao);
+        if (transacao.valor > 0){
+            if (transacao.aprovada == true) {
                 aprovadas++;
                 std::cout << "Transacao da conta " << transacao.conta_origem
                           << " aprovada automaticamente (valor <= 5000).\n";
@@ -196,6 +204,7 @@ int Banco::gerar_relatorio() {
     std::cout << "Relatorio 'relatorio_banco.txt' gerado com sucesso!\n";
     return 1;
 }
+
     //int receber_transacoes(int id_remetente, float valor);//conta recebimentom = 1
 int Banco::realizar_transacoes(int id_destinatario, float valor)
 {
@@ -203,9 +212,10 @@ int Banco::realizar_transacoes(int id_destinatario, float valor)
     transac.conta_origem = 1;
     transac.conta_destino = id_destinatario;
     transac.valor = valor;
-    this->transacoes.push_back(transac);//adiciona transac para a lista
-    if(this->validar_transacoes())
+    this->validar_transacao(transac);
+    if(transac.aprovada)
     {
+        this->transacoes.push_back(transac);//adiciona transac para a lista
         this->contas[1]->sacar(valor);
         this->contas[id_destinatario]->depositar(valor);
         return 1;
@@ -217,9 +227,10 @@ int Banco::receber_transacoes(int id_remetente, float valor){
     transac.conta_origem = id_remetente;
     transac.conta_destino = 1;
     transac.valor = valor;
-    this->transacoes.push_back(transac);//adiciona transac para a lista
-    if(this->validar_transacoes())
-    {
+    this->validar_transacao(transac);
+    if(transac.aprovada)
+    {   
+        this->transacoes.push_back(transac);//adiciona transac para a lista
         this->contas[id_remetente]->sacar(valor);
         this->contas[1]->depositar(valor);
         return 1;

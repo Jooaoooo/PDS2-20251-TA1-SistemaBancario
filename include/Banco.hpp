@@ -30,6 +30,7 @@ private:
 
 public:
     int gerenciar_contas();
+    void validar_transacao(Transacao &transacao);
     int validar_transacoes();
     int bloquear_cartao();
     int gerar_relatorio();
