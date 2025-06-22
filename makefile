@@ -1,19 +1,3 @@
-#configuração para LINUX
-#lcomp:
-#compilação - gera objetos
-#	g++ -c ./src/main.cpp -o ./build/main.o
-#	g++ -c ./src/Cliente.cpp -o ./build/Cliente.o
-#	g++ -c ./src/Conta.cpp -o ./build/Conta.o
-#	g++ -c ./src/ContaPf.cpp -o ./build/ContaPf.o
-#	g++ -c ./src/ContaPj.cpp -o ./build/ContaPj.o
-#	g++ -c ./src/Banco.cpp -o ./build/Banco.o
-#	g++ -c ./src/Gerente.cpp -o ./build/Gerente.o
-#linkagem e geração do executável
-#	g++ ./build/main.o ./build/Cliente.o ./build/Conta.o ./build/ContaPf.o ./build/ContaPj.o ./build/Banco.o ./build/Gerente.o -o ./bin/main-app
-#lrun: lcomp
-#	./bin/main-app
-
-#-----Variáveis-----
 CC = g++
 CFLAGS = -std=c++11 -Wall
 TARGET = programa
