@@ -1,8 +1,4 @@
-#ifdef _WIN32
-    #include"..\\include\\Conta.hpp"
-#else
-    #include"../include/Conta.hpp"
-#endif
+#include"Conta.hpp"
 
 int Conta::_proximoId = 1;
 

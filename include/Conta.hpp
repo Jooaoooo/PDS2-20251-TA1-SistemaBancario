@@ -10,8 +10,8 @@ private:
 protected:
     int _id;
     double _saldo;
-    bool _ativo;
     double _limite;
+    bool _ativo;
     bool _aprovada;
     std::shared_ptr<Cliente> _titular;
 

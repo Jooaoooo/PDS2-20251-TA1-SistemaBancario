@@ -1,18 +1,9 @@
-#ifdef _WIN32
-    #include"..\\include\\Banco.hpp"
-    #include"..\\include\\ContaPf.hpp"
-    #include"..\\include\\ContaPj.hpp"
-    #include"..\\include\\Cliente.hpp"
-    #include"..\\include\\RelatorioTemplate.hpp"
-    #include "..\\include\\Conta.hpp"
-#else
-    #include"../include/Banco.hpp"
-    #include"../include/ContaPf.hpp"
-    #include"../include/ContaPj.hpp"
-    #include"../include/Cliente.hpp"
-    #include "../include/Conta.hpp"
-    #include "../include/RelatorioTemplate.hpp"
-#endif
+#include "Banco.hpp"
+#include "ContaPf.hpp"
+#include "ContaPj.hpp"
+#include "Cliente.hpp"
+#include "Conta.hpp"
+#include "RelatorioTemplate.hpp"
 
 #include<iostream>
 #include<vector>

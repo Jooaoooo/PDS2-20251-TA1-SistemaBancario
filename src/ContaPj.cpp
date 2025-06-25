@@ -1,9 +1,4 @@
-#ifdef _WIN32
-    #include"..\\include\\ContaPj.hpp"
-#else
-    #include"../include/ContaPj.hpp"
-#endif
-
+#include"ContaPj.hpp"
 #include <iostream>
 
 ContaPj::ContaPj(std::shared_ptr<Cliente> titular, const std::string& senha, double saldoInicial)

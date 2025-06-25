@@ -1,20 +1,10 @@
-#ifdef _WIN32
-    #include"..\\include\\Conta.hpp"
-    #include"..\\include\\Cliente.hpp"
-    #include"..\\include\\ContaPf.hpp"
-    #include"..\\include\\ContaPj.hpp"
-    #include"..\\include\\Banco.hpp"
-    #include"..\\include\\Gerente.hpp"
-    #include"..\\include\\RelatorioTemplate.hpp"
-#else
-    #include"../include/Conta.hpp"
-    #include"../include/Cliente.hpp"
-    #include"../include/ContaPf.hpp"
-    #include"../include/ContaPj.hpp"
-    #include"../include/Banco.hpp"
-    #include"../include/Gerente.hpp"
-    #include"../include/RelatorioTemplate.hpp"
-#endif
+#include"Conta.hpp"
+#include"Cliente.hpp"
+#include"ContaPf.hpp"
+#include"ContaPj.hpp"
+#include"Banco.hpp"
+#include"Gerente.hpp"
+#include"RelatorioTemplate.hpp"
 #include <iostream>
 
 int main() {

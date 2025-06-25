@@ -1,8 +1,4 @@
-#ifdef _WIN32
-    #include"..\\include\\Cliente.hpp"
-#else
-    #include"../include/Cliente.hpp"
-#endif
+#include"Cliente.hpp"
 
 #include <cstdlib> 
 

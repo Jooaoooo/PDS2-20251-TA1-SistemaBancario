@@ -1,9 +1,4 @@
-#ifdef _WIN32
-    #include"..\\include\\ContaPf.hpp"
-#else
-    #include"../include/ContaPf.hpp"
-#endif
-    
+    #include"ContaPf.hpp"
     #include<math.h>
 
 ContaPf::ContaPf(std::shared_ptr<Cliente> titular, const std::string& senha, double saldoInicial)
