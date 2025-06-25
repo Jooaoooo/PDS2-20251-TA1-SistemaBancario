@@ -1,16 +1,11 @@
 #pragma once
 
-#ifdef _WIN32
-    #include"..\\include\\Conta.hpp"
-    #include"..\\include\\Cliente.hpp"
-#else
-    #include"../include/Conta.hpp"
-    #include"../include/Cliente.hpp"
-#endif
 #include <iostream>
 #include <string>
 
 #include "Conta.hpp"
+#include "Cliente.hpp"
+
 
 class ContaPj : public Conta {
 private:

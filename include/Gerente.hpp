@@ -1,20 +1,12 @@
 #pragma once
 
-#ifdef _WIN32
-    #include"..\\include\\Banco.hpp"
-    #include"..\\include\\ContaPf.hpp"
-    #include"..\\include\\ContaPj.hpp"
-    #include"..\\include\\Cliente.hpp"
-    #include "..\\include\\RelatorioTemplate.hpp"
-    #include"..\\include\\Conta.hpp"
-#else
-    #include"../include/Banco.hpp"
-    #include"../include/ContaPf.hpp"
-    #include"../include/ContaPj.hpp"
-    #include "../include/RelatorioTemplate.hpp"
-    #include"../include/Cliente.hpp"
-    #include"../include/Conta.hpp"
-#endif
+#include "Banco.hpp"
+#include "ContaPf.hpp"
+#include "ContaPj.hpp"
+#include "RelatorioTemplate.hpp"
+#include "Cliente.hpp"
+#include "Conta.hpp"
+
 
 #include <string>
 #include <vector>
