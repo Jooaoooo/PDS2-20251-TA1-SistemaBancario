@@ -1,5 +1,6 @@
     #include"ContaPf.hpp"
     #include<math.h>
+    #include "Exceções.hpp"
 
 ContaPf::ContaPf(std::shared_ptr<Cliente> titular, const std::string& senha, double saldoInicial)
     : Conta(titular, saldoInicial, 0.0) { 
@@ -17,11 +18,13 @@ void ContaPf::ativar() {
 }
 
 std::string ContaPf::getNomeTitular() const {
-    return _titular ? _titular->get_nome() : "Não existe";
+    if (!_titular) throw ContaNaoEncontradaException(_id);
+    return _titular->get_nome();
 }
 
 std::string ContaPf::getCpf() const {
-    return _titular ? _titular->get_cpf_cnpj() : "Não existe";
+    if (!_titular) throw ContaNaoEncontradaException(_id);
+    return _titular->get_cpf_cnpj();
 }
 
 bool ContaPf::validarCpf() {

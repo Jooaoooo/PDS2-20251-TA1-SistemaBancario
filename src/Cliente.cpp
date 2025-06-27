@@ -1,4 +1,5 @@
 #include"Cliente.hpp"
+#include "Exceções.hpp"
 
 #include <cstdlib> 
 
@@ -25,7 +26,8 @@ std::string Cliente::get_dados(int dado) const {
         case 3: return _telefone;
         case 4: return _cpf_cnpj;
         case 5: return _rg;
-        default: return "Dado inválido";
+        default:
+            throw EntradaInvalidaException();
     }
 }
 

@@ -1,5 +1,6 @@
 #include"ContaPj.hpp"
 #include <iostream>
+#include "Exceções.hpp"
 
 ContaPj::ContaPj(std::shared_ptr<Cliente> titular, const std::string& senha, double saldoInicial)
     : Conta(titular, saldoInicial, 0.0) { 
@@ -21,11 +22,13 @@ std::string ContaPj::getNomeTitular() const {
 }
 
 std::string ContaPj::getRazaoSocial() const {
-    return _titular ? _titular->get_nome() : "Não encontrado";
+    if (!_titular) throw ContaNaoEncontradaException(_id);
+    return _titular->get_nome();
 }
 
 std::string ContaPj::getCnpj() const {
-    return _titular ? _titular->get_cpf_cnpj() : "Não encontrado";
+    if (!_titular) throw ContaNaoEncontradaException(_id);
+    return _titular->get_cpf_cnpj();
 }
 
 bool ContaPj::validarCnpj() {

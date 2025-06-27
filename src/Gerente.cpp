@@ -4,6 +4,7 @@
 #include"ContaPj.hpp"
 #include"Cliente.hpp"
 #include"Conta.hpp"
+#include"Exceções.hpp"
 
 #include<iostream>
 #include<vector>
@@ -44,6 +45,7 @@ int Gerente::aprovar_pj(Banco& banco) {
     int id;
     std::cout << "Digite o ID da conta PJ para aprovar (0 para cancelar): ";
     std::cin >> id;
+    if (std::cin.fail()) throw EntradaInvalidaException();
 
     if (id == 0) return -1;
 
@@ -57,9 +59,7 @@ int Gerente::aprovar_pj(Banco& banco) {
             }
         }
     }
-
-    std::cout << "ID invalido, conta nao e PJ, ou ja foi aprovada.\n";
-    return -1;
+    throw ContaNaoEncontradaException(id);
 }
 
 int Gerente::liberar_limite(Banco& banco) {
@@ -76,8 +76,10 @@ int Gerente::liberar_limite(Banco& banco) {
     double novo_limite;
     std::cout << "\nDigite o ID da conta: ";
     std::cin >> id;
+    if (std::cin.fail()) throw EntradaInvalidaException();
     std::cout << "Digite o novo limite: ";
     std::cin >> novo_limite;
+    if (std::cin.fail()) throw EntradaInvalidaException();
 
     for (auto& conta : contas) {
         if (conta->getId() == id) {
@@ -86,9 +88,7 @@ int Gerente::liberar_limite(Banco& banco) {
             return id;
         }
     }
-
-    std::cout << "Conta nao encontrada.\n";
-    return -1;
+    throw ContaNaoEncontradaException(id);
 }
 
 int Gerente::aprovar_negocio(Banco& banco) {

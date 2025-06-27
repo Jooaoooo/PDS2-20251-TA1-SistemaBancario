@@ -5,6 +5,7 @@
 #include"Banco.hpp"
 #include"Gerente.hpp"
 #include"RelatorioTemplate.hpp"
+#include"Exceções.hpp"
 #include <iostream>
 
 int main() {
@@ -12,7 +13,7 @@ int main() {
     int opcao;
 
     do {
-        std::cout << "\n=== MENU PRINCIPAL DO BANCO ===\n";
+        std::cout << "\n=== MENU PRINCIPAL SPECTRAL BANK++ ===\n";
         std::cout << "1 - Gerenciar contas\n";
         std::cout << "2 - Validar transacoes\n";
         std::cout << "3 - Bloquear cartao\n";
@@ -28,16 +29,32 @@ int main() {
 
         switch (opcao) {
             case 1:
-                banco.gerenciar_contas();
+                try {
+                    banco.gerenciar_contas();
+                    } catch (const std::exception& e) {
+                        std::cerr << "Erro: " << e.what() << std::endl;
+                    }
                 break;
             case 2:
-                banco.validar_transacoes();
+                try {
+                    banco.validar_transacoes();
+                    } catch (const std::exception& e) {
+                    std::cerr << "Erro: " << e.what() << std::endl;
+                    }
                 break;
             case 3:
-                banco.bloquear_cartao();
+                try {
+                    banco.bloquear_cartao();
+                    } catch (const std::exception& e) {
+                    std::cerr << "Erro: " << e.what() << std::endl;
+                    }
                 break;
             case 4:
-                banco.gerar_relatorio();
+                try {
+                    banco.gerar_relatorio();
+                    } catch (const std::exception& e) {
+                    std::cerr << "Erro: " << e.what() << std::endl;
+                    }
                 break;
             case 0:
                 std::cout << "Saindo do sistema...\n";

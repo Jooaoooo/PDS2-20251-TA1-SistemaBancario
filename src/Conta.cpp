@@ -1,4 +1,5 @@
 #include"Conta.hpp"
+#include"Exceções.hpp"
 
 int Conta::_proximoId = 1;
 
@@ -7,24 +8,25 @@ Conta::Conta(std::shared_ptr<Cliente> titular, double saldoInicial, double limit
       _ativo(true), _aprovada(false), _titular(titular) {}
 
 void Conta::depositar(double valor) {
-    if (valor > 0) {
-        _saldo += valor;
-    }
+    if (valor <= 0) throw EntradaInvalidaException();
+    _saldo += valor;
 }
 
 bool Conta::sacar(double valor) {
-    if (valor > 0 && (_saldo + _limite) >= valor) {
-        _saldo -= valor;
-        return true;
+    if (valor <= 0) {
+        throw EntradaInvalidaException();
     }
-    return false;
+    if ((_saldo + _limite) < valor) {
+        throw SaldoInsuficienteException();
+    }
+    _saldo -= valor;
+    return true;
 }
 
 void Conta::aprovar() { _aprovada = true; }
 void Conta::definirLimite(double novoLimite) {
-    if (novoLimite >= 0) {
+    if (novoLimite < 0) throw EntradaInvalidaException();
         _limite = novoLimite;
-    }
 }
 
 int Conta::getId() const { return _id; }

@@ -4,6 +4,7 @@
 #include "Cliente.hpp"
 #include "Conta.hpp"
 #include "RelatorioTemplate.hpp"
+#include "Exceções.hpp"
 
 #include<iostream>
 #include<vector>
@@ -31,6 +32,7 @@ int Banco::gerenciar_contas() {
               << "5 - Listar contas existentes\n"
               << "Opcao: ";
     std::cin >> opcao;
+    if (std::cin.fail()) throw EntradaInvalidaException();
     limparBuffer();
 
     switch (opcao) {
@@ -90,27 +92,29 @@ int Banco::gerenciar_contas() {
             int id;
             std::cout << "Informe o ID da conta: ";
             std::cin >> id;
+            if (std::cin.fail()) throw EntradaInvalidaException();
+
             for (const auto& conta : this->contas) {
                 if (conta->getId() == id) {
                     std::cout << "Conta encontrada! Titular: " << conta->getNomeTitular() << ", Saldo: R$" << conta->getSaldo() << std::endl;
                     return id;
                 }
             }
-            std::cout << "Conta nao encontrada!\n";
-            return -1;
+            throw ContaNaoEncontradaException(id);
         }
         case 4: { 
             int id;
             std::cout << "Informe o ID da conta a encerrar: ";
             std::cin >> id;
+            if (std::cin.fail()) throw EntradaInvalidaException();
+
             for (auto& conta : this->contas) {
                 if (conta->getId() == id) {
                     conta->bloquear();
                     return id;
                 }
             }
-            std::cout << "Conta nao encontrada!\n";
-            return -1;
+            throw ContaNaoEncontradaException(id);
         }
         case 5: { // Listar as contas
             if (contas.empty()) {
@@ -124,8 +128,7 @@ int Banco::gerenciar_contas() {
             return contas.size();
         }
         default:
-            std::cout << "Opcao invalida!\n";
-            return -1;
+            throw EntradaInvalidaException();
     }
 }
 
@@ -163,15 +166,16 @@ int Banco::bloquear_cartao() {
     std::string numero;
     std::cout << "Informe o numero do cartao a ser bloqueado: ";
     std::cin >> numero;
-    for (auto& cartao : this->cartoes) {
+    if (std::cin.fail()) throw EntradaInvalidaException();
+
+    for (auto& cartao : cartoes) {
         if (cartao.numero == numero) {
             cartao.bloqueado = true;
             std::cout << "Cartao final " << numero.substr(numero.length() - 4) << " bloqueado com sucesso!\n";
             return 1;
         }
     }
-    std::cout << "Cartao nao encontrado!\n";
-    return -1;
+    throw CartaoNaoEncontradoException(numero);
 }
 
 int Banco::gerar_relatorio() {
@@ -199,6 +203,9 @@ int Banco::gerar_relatorio() {
     //int receber_transacoes(int id_remetente, float valor);//conta recebimentom = 1
 int Banco::realizar_transacoes(int id_destinatario, float valor)
 {
+    if (valor <= 0) throw EntradaInvalidaException();
+    if (id_destinatario >= contas.size()) throw ContaNaoEncontradaException(id_destinatario);
+
     Transacao transac;//cria transac
     transac.conta_origem = 1;
     transac.conta_destino = id_destinatario;
@@ -214,6 +221,10 @@ int Banco::realizar_transacoes(int id_destinatario, float valor)
     return 0;
 }
 int Banco::receber_transacoes(int id_remetente, float valor){
+
+    if (valor <= 0) throw EntradaInvalidaException();
+    if (id_remetente >= contas.size()) throw ContaNaoEncontradaException(id_remetente);
+
     Transacao transac;//cria transac
     transac.conta_origem = id_remetente;
     transac.conta_destino = 1;
