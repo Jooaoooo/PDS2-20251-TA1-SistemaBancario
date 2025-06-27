@@ -27,7 +27,7 @@ struct Deposito {
 
 struct Cartao {
     std::string numero;
-    int conta_cartao;
+    int conta_id;
     bool bloqueado = false;
 };
 
@@ -53,6 +53,7 @@ public:
     int posicao_id(int id);//retorna a posição do ID no vetor contas
     bool verifica_id(int id);
     bool autenticar_conta(int id_conta);
+    bool verificar_cartao(int id_conta, const std::string& numero_cartao);
 
     // Getters para acesso controlado aos dados internos
     std::vector<std::shared_ptr<Conta>>& getContas();

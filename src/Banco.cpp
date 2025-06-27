@@ -64,6 +64,15 @@ bool Banco::autenticar_conta(int id_conta) {
         return false;
     }
 }
+bool Banco::verificar_cartao(int id_conta, const std::string& numero_cartao) {
+    // Verifica se o cartão existe e está associado à conta
+    for (const auto& cartao : cartoes) {
+        if (cartao.conta_id == id_conta && cartao.numero == numero_cartao) {
+            return !cartao.bloqueado;//Retorna true se não estiver bloqueado
+        }
+    }
+    return false;//Cartão não encontrado ou inválido
+}
 
 int Banco::gerenciar_contas() {
     int opcao;
@@ -272,7 +281,7 @@ int Banco::criar_cartao(){
     }
     Cartao novoCartao;
     novoCartao.numero = num;
-    novoCartao.conta_cartao = id;
+    novoCartao.conta_id = id;
     cartoes.push_back(novoCartao);
     int pos = posicao_id(id);
     this->contas[pos]->set_num_cartao(novoCartao.numero);
@@ -384,6 +393,15 @@ int Banco::realizar_saque(){
         return 0;
     }
 
+    std::cout << "Digite o numero do cartao: ";
+    std::string numCartao;
+    std::cin >> numCartao;
+
+    if (!verificar_cartao(id_conta,numCartao)) {
+        throw std::runtime_error("Cartão inválido ou bloqueado");
+    }
+
+
     std::cout << "Digite o valor a sacar: ";
     std::cin >> valor;
     if (std::cin.fail()) throw EntradaInvalidaException();
@@ -417,6 +435,14 @@ int Banco::realizar_deposito() {
     if (!autenticar_conta(id_conta)) {
         std::cout << "Autenticação falhou. Operação cancelada.\n";
         return 0;
+    }
+
+    std::cout << "Digite o numero do cartao: ";
+    std::string numCartao;
+    std::cin >> numCartao;
+
+    if (!verificar_cartao(id_conta,numCartao)) {
+        throw std::runtime_error("Cartão inválido ou bloqueado");
     }
 
     // Solicitar valor do depósito

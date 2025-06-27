@@ -2,5 +2,5 @@
 
 
 --- Detalhes das Contas ---
-ID: 1 | Titular: Lucas | Saldo: R$434435 | Ativa: Sim
-ID: 2 | Titular: Kaiak | Saldo: R$325356 | Ativa: Sim
+ID: 1 | Titular: Lucas Miller | Saldo: R$11900 | Ativa: Sim
+ID: 2 | Titular: Anemia | Saldo: R$60000 | Ativa: Sim
