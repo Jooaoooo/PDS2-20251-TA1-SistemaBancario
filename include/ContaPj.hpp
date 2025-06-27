@@ -11,7 +11,6 @@
 class ContaPj : public Conta {
 private:
     bool validarCnpj();
-    bool anuidadePaga = false;
     Calendario _dataCriacao;
 
 

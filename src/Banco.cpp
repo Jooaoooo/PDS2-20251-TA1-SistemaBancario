@@ -4,6 +4,7 @@
 #include "Cliente.hpp"
 #include "Conta.hpp"
 #include "RelatorioTemplate.hpp"
+#include "Calendario.hpp"
 #include "Excecoes.hpp"
 
 #include<iostream>
@@ -14,6 +15,8 @@
 #include<string>
 #include<algorithm>
 #include <limits>
+#include <random>
+#include <string>
 
 std::vector<std::shared_ptr<Conta>>& Banco::getContas() { return contas; }
 std::vector<Transacao>& Banco::getTransacoes() { return transacoes; }
@@ -170,6 +173,50 @@ int Banco::validar_transacoes() {
         std::cout << "Nenhuma nova transacao aprovada automaticamente.\n";
     }
     return aprovadas;
+}
+
+int Banco::criar_cartao(){
+    Calendario novaData;
+    std::string id="";
+    std::string num = "";
+    int final=0;
+    int existente=0;
+
+    std::cout << "Informe o numero ID da conta : ";
+    std::cin >> id;
+    if (std::cin.fail()) throw EntradaInvalidaException();
+    //if(!std::stoi(id)) throw EntradaInvalidaException();
+
+    novaData.calcular_data();
+
+    num += novaData.get_data(2);
+    num += novaData.get_data(1);
+    num += novaData.get_data(0);
+    
+    while(1){
+        existente = 0;
+        {//gera aleatório
+            std::random_device rd; //fonte de entropia
+            std::mt19937 gen(rd()); //engine de números pseudoaleatórios
+            std::uniform_int_distribution<> dist(100, 999); //gera distribuiçao entre 100 e 999
+            final = dist(gen);
+        }
+        for(auto& cartao : cartoes){
+            if(cartao.numero == (num + std::to_string(final))) {
+                existente++;
+            }
+        }
+        if(!existente){
+            num+=std::to_string(final);
+            break;
+        }
+    }
+    Cartao novoCartao;
+    novoCartao.numero = num;
+    novoCartao.conta_cartao = std::stoi(id);
+    cartoes.push_back(novoCartao);
+    return 1;
+    //throw CartaoNaoEncontradoException(numero);
 }
 
 int Banco::bloquear_cartao() {

@@ -7,9 +7,10 @@ Conta::Conta(std::shared_ptr<Cliente> titular, double saldoInicial, double limit
     : _id(_proximoId++), _saldo(saldoInicial), _limite(limiteInicial),
       _ativo(true), _aprovada(false), _titular(titular) {}
 
-void Conta::depositar(double valor) {
+bool Conta::depositar(double valor) {
     if (valor <= 0) throw EntradaInvalidaException();
     _saldo += valor;
+    return true;
 }
 
 bool Conta::sacar(double valor) {

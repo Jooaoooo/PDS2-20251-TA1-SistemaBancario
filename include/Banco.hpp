@@ -32,6 +32,7 @@ public:
     int gerenciar_contas();
     void validar_transacao(Transacao &transacao);
     int validar_transacoes();
+    int criar_cartao();
     int bloquear_cartao();
     int gerar_relatorio();
     int realizar_transacoes(int id_destinatario, float valor);//conta origem = 1

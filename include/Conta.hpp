@@ -26,7 +26,7 @@ public:
     virtual std::string getNomeTitular() const = 0;
 
     // Métodos de operação
-    void depositar(double valor);
+    bool depositar(double valor);
     bool sacar(double valor);
     void aprovar();
     void definirLimite(double novoLimite);
