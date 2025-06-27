@@ -4,6 +4,7 @@
 #include "Cliente.hpp"
 #include "Conta.hpp"
 #include "RelatorioTemplate.hpp"
+#include "Exceções.hpp"
 
 #include<iostream>
 #include<vector>
