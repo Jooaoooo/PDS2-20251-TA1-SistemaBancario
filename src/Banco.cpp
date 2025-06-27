@@ -4,7 +4,7 @@
 #include "Cliente.hpp"
 #include "Conta.hpp"
 #include "RelatorioTemplate.hpp"
-#include "Exceções.hpp"
+#include "Calendario.hpp"
 
 #include<iostream>
 #include<vector>
@@ -64,6 +64,7 @@ int Banco::gerenciar_contas() {
         }
         case 2: { 
             std::string razao_social, cnpj, rg_responsavel, senha, endereco, email, telefone;
+            double saldoInicial;
             std::cout << "Razao Social (Nome empresa): ";
             std::getline(std::cin, razao_social);
             std::cout << "CNPJ: ";
@@ -78,9 +79,18 @@ int Banco::gerenciar_contas() {
             std::getline(std::cin, email);
             std::cout << "Telefone: ";
             std::getline(std::cin, telefone);
+            std::cout << "Quanto quer depositar inicialmente? (mínimo R$5000,00) ";
+            while(1){
+                std::cin >> saldoInicial;
+                if(saldoInicial < 5000){
+                    std::cout << "Saldo inicial inválido, digite novamente: " << std::endl;
+                }else{
+                    break;
+                }
+            }
 
             auto cliente = std::make_shared<Cliente>(razao_social, cnpj, rg_responsavel, senha, endereco, email, telefone);
-            auto conta = std::make_shared<ContaPj>(cliente, senha);
+            auto conta = std::make_shared<ContaPj>(cliente, senha, saldoInicial);
 
             this->clientes.push_back(cliente);
             this->contas.push_back(conta);

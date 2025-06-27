@@ -5,14 +5,19 @@
 
 #include "Conta.hpp"
 #include "Cliente.hpp"
+#include "Calendario.hpp"
 
 
 class ContaPj : public Conta {
 private:
     bool validarCnpj();
+    const double _anuidade = 100.0;
+    bool anuidadePaga = false;
+    Calendario _dataCriacao;
+
 
 public:
-    ContaPj(std::shared_ptr<Cliente> titular, const std::string& senha, double saldoInicial = 0.0);
+    ContaPj(std::shared_ptr<Cliente> titular, const std::string& senha, double saldoInicial);
 
     void bloquear() override;
     void ativar() override;
@@ -20,4 +25,5 @@ public:
 
     std::string getRazaoSocial() const;
     std::string getCnpj() const;
+    void verificaAnuidade();
 };
