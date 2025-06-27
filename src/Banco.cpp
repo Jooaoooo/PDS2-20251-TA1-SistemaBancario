@@ -5,6 +5,7 @@
 #include "Conta.hpp"
 #include "RelatorioTemplate.hpp"
 #include "Calendario.hpp"
+#include "Exceções.hpp"
 
 #include<iostream>
 #include<vector>
