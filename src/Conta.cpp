@@ -1,5 +1,5 @@
 #include"Conta.hpp"
-#include"Exceções.hpp"
+#include"Excecoes.hpp"
 
 int Conta::_proximoId = 1;
 

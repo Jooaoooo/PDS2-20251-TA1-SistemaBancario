@@ -1,6 +1,6 @@
 #include"ContaPj.hpp"
 #include <iostream>
-#include "Exceções.hpp"
+#include "Excecoes.hpp"
 
 ContaPj::ContaPj(std::shared_ptr<Cliente> titular, const std::string& senha, double saldoInicial)
     : Conta(titular, saldoInicial, 0.0) { 
@@ -33,17 +33,4 @@ std::string ContaPj::getCnpj() const {
 
 bool ContaPj::validarCnpj() {
     return _titular && !_titular->get_cpf_cnpj().empty();
-}
-
-void ContaPj::verificaAnuidade(){
-    Calendario atual;
-    atual.calcular_data();
-    if(atual.get_data(2) - this->_dataCriacao.get_data(2) == 0 
-        && atual.get_data(1) - this->_dataCriacao.get_data(1) == 0
-        && atual.get_data(0) > this->_dataCriacao.get_data(0)){
-        if(!anuidadePaga){
-            this->_saldo-=this->_anuidade;
-            anuidadePaga = true;
-        }
-    }
 }

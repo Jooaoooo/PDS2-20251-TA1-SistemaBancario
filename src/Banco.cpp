@@ -4,7 +4,7 @@
 #include "Cliente.hpp"
 #include "Conta.hpp"
 #include "RelatorioTemplate.hpp"
-#include "Exceções.hpp"
+#include "Excecoes.hpp"
 
 #include<iostream>
 #include<vector>
@@ -214,7 +214,7 @@ int Banco::gerar_relatorio() {
 int Banco::realizar_transacoes(int id_destinatario, float valor)
 {
     if (valor <= 0) throw EntradaInvalidaException();
-    if (id_destinatario >= contas.size()) throw ContaNaoEncontradaException(id_destinatario);
+    if (static_cast<size_t>(id_destinatario) >= contas.size()) throw ContaNaoEncontradaException(id_destinatario);
 
     Transacao transac;//cria transac
     transac.conta_origem = 1;
@@ -233,7 +233,7 @@ int Banco::realizar_transacoes(int id_destinatario, float valor)
 int Banco::receber_transacoes(int id_remetente, float valor){
 
     if (valor <= 0) throw EntradaInvalidaException();
-    if (id_remetente >= contas.size()) throw ContaNaoEncontradaException(id_remetente);
+    if (static_cast<size_t>(id_remetente) >= contas.size()) throw ContaNaoEncontradaException(id_remetente);
 
     Transacao transac;//cria transac
     transac.conta_origem = id_remetente;

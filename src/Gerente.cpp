@@ -4,7 +4,7 @@
 #include"ContaPj.hpp"
 #include"Cliente.hpp"
 #include"Conta.hpp"
-#include"Exceções.hpp"
+#include"Excecoes.hpp"
 
 #include<iostream>
 #include<vector>

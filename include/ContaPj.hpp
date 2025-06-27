@@ -11,7 +11,6 @@
 class ContaPj : public Conta {
 private:
     bool validarCnpj();
-    const double _anuidade = 100.0;
     bool anuidadePaga = false;
     Calendario _dataCriacao;
 
@@ -25,5 +24,4 @@ public:
 
     std::string getRazaoSocial() const;
     std::string getCnpj() const;
-    void verificaAnuidade();
 };

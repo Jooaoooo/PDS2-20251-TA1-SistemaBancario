@@ -5,7 +5,7 @@
 #include"Banco.hpp"
 #include"Gerente.hpp"
 #include"RelatorioTemplate.hpp"
-#include"Exceções.hpp"
+#include"Excecoes.hpp"
 #include <iostream>
 
 int main() {
