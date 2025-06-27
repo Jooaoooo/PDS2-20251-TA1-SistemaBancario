@@ -5,7 +5,7 @@ int Conta::_proximoId = 1;
 
 Conta::Conta(std::shared_ptr<Cliente> titular, int id, double saldoInicial, double limiteInicial)
     : _id(id), _saldo(saldoInicial), _limite(limiteInicial),
-      _ativo(true), _aprovada(false), _titular(titular) {
+      _ativo(true), _aprovada(false), _titular(titular){
     if (_proximoId <= id) {
         _proximoId = id + 1;
     }

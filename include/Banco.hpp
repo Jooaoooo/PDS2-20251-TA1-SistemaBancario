@@ -52,6 +52,7 @@ public:
     int realizar_deposito();
     int posicao_id(int id);//retorna a posição do ID no vetor contas
     bool verifica_id(int id);
+    bool autenticar_conta(int id_conta);
 
     // Getters para acesso controlado aos dados internos
     std::vector<std::shared_ptr<Conta>>& getContas();

@@ -24,6 +24,7 @@ std::vector<Transacao>& Banco::getTransacoes() { return transacoes; }
 void limparBuffer() {
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 }
+
 int Banco::posicao_id(int id){
     int pos = 0;
     int encontrado =0;
@@ -44,6 +45,24 @@ bool Banco::verifica_id(int id){
         }
     }
     throw CartaoNaoEncontradoException(std::to_string(id));
+}
+
+bool Banco::autenticar_conta(int id_conta) {
+    std::string senha, rg;
+    
+    std::cout << "Autenticação necessária\n";
+    std::cout << "Digite sua senha: ";
+    std::cin >> senha;
+    std::cout << "Digite seu RG: ";
+    std::cin >> rg;
+    
+    try {
+        int pos = posicao_id(id_conta);
+        auto titular = contas[pos]->getTitular();
+        return titular->autenticar_usuario(senha, rg);
+    } catch (...) {
+        return false;
+    }
 }
 
 int Banco::gerenciar_contas() {
@@ -156,6 +175,10 @@ int Banco::gerenciar_contas() {
             std::cin >> id;
             if (std::cin.fail()) throw EntradaInvalidaException();
 
+            if (!autenticar_conta(id)) {
+                std::cout << "Autenticação falhou. Operação cancelada.\n";
+                return 0;
+            }
             for (auto& conta : this->contas) {
                 if (conta->getId() == id) {
                     conta->bloquear();
@@ -306,6 +329,11 @@ int Banco::realizar_transacao(){
     if (std::cin.fail()) throw EntradaInvalidaException();
     verifica_id(id_origem);
 
+    if (!autenticar_conta(id_origem)) {
+        std::cout << "Autenticação falhou. Operação cancelada.\n";
+        return 0;
+    }
+
     std::cout << "Qual o ID do destinatario da transacao? ";
     std::cin >> id_destinatario;
     if (std::cin.fail()) throw EntradaInvalidaException();
@@ -351,6 +379,11 @@ int Banco::realizar_saque(){
     if (std::cin.fail()) throw EntradaInvalidaException();
     verifica_id(id_conta);
 
+    if (!autenticar_conta(id_conta)) {
+        std::cout << "Autenticação falhou. Operação cancelada.\n";
+        return 0;
+    }
+
     std::cout << "Digite o valor a sacar: ";
     std::cin >> valor;
     if (std::cin.fail()) throw EntradaInvalidaException();
@@ -371,7 +404,7 @@ int Banco::realizar_saque(){
     std::cout << "Saque realizado com sucesso!" << std::endl;
     return 1;
 }
-    int Banco::realizar_deposito() {
+int Banco::realizar_deposito() {
     int id_conta;
     float valor;
 
@@ -380,6 +413,11 @@ int Banco::realizar_saque(){
     std::cin >> id_conta;
     if (std::cin.fail()) throw EntradaInvalidaException();
     verifica_id(id_conta);
+
+    if (!autenticar_conta(id_conta)) {
+        std::cout << "Autenticação falhou. Operação cancelada.\n";
+        return 0;
+    }
 
     // Solicitar valor do depósito
     std::cout << "Digite o valor a depositar: ";
