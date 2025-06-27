@@ -2,8 +2,8 @@
     #include<math.h>
     #include "Excecoes.hpp"
 
-ContaPf::ContaPf(std::shared_ptr<Cliente> titular, const std::string& senha, double saldoInicial)
-    : Conta(titular, saldoInicial, 0.0) { 
+ContaPf::ContaPf(std::shared_ptr<Cliente> titular, int id, const std::string& senha, double saldoInicial)
+    : Conta(titular, id, saldoInicial, 0.0) {
     std::cout << "Conta PF criada para " << getNomeTitular() << " com ID " << _id << std::endl;
 }
 

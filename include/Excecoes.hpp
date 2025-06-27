@@ -12,10 +12,15 @@ class CartaoNaoEncontradoException : public std::runtime_error {
 public:
     CartaoNaoEncontradoException(const std::string& numero) : std::runtime_error("Cartão com número " + numero + " não encontrado.") {}
 };
-
+/*
 class EntradaInvalidaException : public std::runtime_error {
 public:
     EntradaInvalidaException() : std::runtime_error("Entrada inválida.") {}
+};*/
+class EntradaInvalidaException : public std::runtime_error {
+public:
+    EntradaInvalidaException(const std::string& msg = "Entrada inválida.") 
+        : std::runtime_error(msg) {}
 };
 
 class SaldoInsuficienteException : public std::runtime_error {

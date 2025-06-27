@@ -2,8 +2,8 @@
 #include <iostream>
 #include "Excecoes.hpp"
 
-ContaPj::ContaPj(std::shared_ptr<Cliente> titular, const std::string& senha, double saldoInicial)
-    : Conta(titular, saldoInicial, 0.0) { 
+ContaPj::ContaPj(std::shared_ptr<Cliente> titular, int id, const std::string& senha, double saldoInicial)
+    : Conta(titular, id, saldoInicial, 0.0) {
     this->_dataCriacao.calcular_data();
     std::cout << "Conta PJ criada para " << getRazaoSocial() << " com ID " << _id << std::endl;
 }

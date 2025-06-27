@@ -3,9 +3,13 @@
 
 int Conta::_proximoId = 1;
 
-Conta::Conta(std::shared_ptr<Cliente> titular, double saldoInicial, double limiteInicial)
-    : _id(_proximoId++), _saldo(saldoInicial), _limite(limiteInicial),
-      _ativo(true), _aprovada(false), _titular(titular) {}
+Conta::Conta(std::shared_ptr<Cliente> titular, int id, double saldoInicial, double limiteInicial)
+    : _id(id), _saldo(saldoInicial), _limite(limiteInicial),
+      _ativo(true), _aprovada(false), _titular(titular) {
+    if (_proximoId <= id) {
+        _proximoId = id + 1;
+    }
+}
 
 bool Conta::depositar(double valor) {
     if (valor <= 0) throw EntradaInvalidaException();
@@ -36,6 +40,6 @@ double Conta::getLimite() const { return _limite; }
 bool Conta::isAtivo() const { return _ativo; }
 bool Conta::isAprovada() const { return _aprovada; }
 std::shared_ptr<Cliente> Conta::getTitular() const { return _titular; }
-void Conta::set_num_cartao(int num){
+void Conta::set_num_cartao(std::string num){
     this->num_cartao = num;
 }

@@ -15,7 +15,7 @@ private:
 
 
 public:
-    ContaPj(std::shared_ptr<Cliente> titular, const std::string& senha, double saldoInicial);
+    ContaPj(std::shared_ptr<Cliente> titular, int id, const std::string& senha, double saldoInicial);
 
     void bloquear() override;
     void ativar() override;

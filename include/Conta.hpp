@@ -14,9 +14,9 @@ protected:
     bool _ativo;
     bool _aprovada;
     std::shared_ptr<Cliente> _titular;
-    int num_cartao;
+    std::string num_cartao;
 
-    Conta(std::shared_ptr<Cliente> titular, double saldoInicial, double limiteInicial);
+    Conta(std::shared_ptr<Cliente> titular,int id, double saldoInicial, double limiteInicial);
 
 public:
     virtual ~Conta() = default;
@@ -38,5 +38,5 @@ public:
     bool isAtivo() const;
     bool isAprovada() const;
     std::shared_ptr<Cliente> getTitular() const;
-    void set_num_cartao(int num);
+    void set_num_cartao(std::string num);
 };

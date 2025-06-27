@@ -73,6 +73,7 @@ int main() {
                 } catch(const std::exception& e){
                     std::cerr << "Erro: " << e.what() << std::endl;
                 }
+                break;
             case 7:
                 try {
                     banco.bloquear_cartao();

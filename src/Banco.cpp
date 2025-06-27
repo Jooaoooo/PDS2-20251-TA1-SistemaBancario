@@ -34,7 +34,7 @@ int Banco::posicao_id(int id){
         }
         pos++;
     }
-    if(encontrado) throw ContaNaoEncontradaException(id);
+    if(!encontrado) throw ContaNaoEncontradaException(id);
     return pos;
 }
 bool Banco::verifica_id(int id){
@@ -78,7 +78,11 @@ int Banco::gerenciar_contas() {
             std::getline(std::cin, telefone);
 
             auto cliente = std::make_shared<Cliente>(nome, cpf, rg, senha, endereco, email, telefone);
-            auto conta = std::make_shared<ContaPf>(cliente, senha);
+            
+            // Geração do ID - corrigido com ponto-e-vírgula
+            int id = contas.empty() ? 1 : (contas.back()->getId() + 1);
+            
+            auto conta = std::make_shared<ContaPf>(cliente, id, senha);
             
             this->clientes.push_back(cliente);
             this->contas.push_back(conta);
@@ -87,40 +91,50 @@ int Banco::gerenciar_contas() {
             return conta->getId();
         }
         case 2: { 
-            std::string razao_social, cnpj, rg_responsavel, senha, endereco, email, telefone;
-            double saldoInicial;
-            std::cout << "Razao Social (Nome empresa): ";
-            std::getline(std::cin, razao_social);
-            std::cout << "CNPJ: ";
-            std::getline(std::cin, cnpj);
-            std::cout << "RG do Responsavel: ";
-            std::getline(std::cin, rg_responsavel);
-            std::cout << "Senha: ";
-            std::getline(std::cin, senha);
-            std::cout << "Endereco: ";
-            std::getline(std::cin, endereco);
-            std::cout << "Email: ";
-            std::getline(std::cin, email);
-            std::cout << "Telefone: ";
-            std::getline(std::cin, telefone);
-            std::cout << "Quanto quer depositar inicialmente? (mínimo R$5000,00) ";
-            while(1){
-                std::cin >> saldoInicial;
-                if(saldoInicial < 5000){
-                    std::cout << "Saldo inicial inválido, digite novamente: " << std::endl;
-                }else{
-                    break;
-                }
+             std::string razao_social, cnpj, rg_responsavel, senha, endereco, email, telefone;
+    double saldoInicial;
+    
+    std::cout << "Razao Social (Nome empresa): ";
+    std::getline(std::cin, razao_social);
+    std::cout << "CNPJ: ";
+    std::getline(std::cin, cnpj);
+    std::cout << "RG do Responsavel: ";
+    std::getline(std::cin, rg_responsavel);
+    std::cout << "Senha: ";
+    std::getline(std::cin, senha);
+    std::cout << "Endereco: ";
+    std::getline(std::cin, endereco);
+    std::cout << "Email: ";
+    std::getline(std::cin, email);
+    std::cout << "Telefone: ";
+    std::getline(std::cin, telefone);
+    
+    std::cout << "Quanto quer depositar inicialmente? (mínimo R$5000,00) ";
+        while(true) {
+            std::cin >> saldoInicial;
+            if(std::cin.fail() || saldoInicial < 5000) {
+                std::cin.clear();
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+                std::cout << "Saldo inicial inválido, digite novamente (mínimo R$5000,00): ";
+            } else {
+                break;
             }
+        }
+        std::cin.ignore(); // Limpar buffer após o cin >>
 
-            auto cliente = std::make_shared<Cliente>(razao_social, cnpj, rg_responsavel, senha, endereco, email, telefone);
-            auto conta = std::make_shared<ContaPj>(cliente, senha, saldoInicial);
+        auto cliente = std::make_shared<Cliente>(razao_social, cnpj, rg_responsavel, senha, endereco, email, telefone);
+        
+        // Geração do ID - mesma lógica da PF
+        int id = contas.empty() ? 1 : (contas.back()->getId() + 1);
+        
+        auto conta = std::make_shared<ContaPj>(cliente, id, senha, saldoInicial);
+        
+        this->clientes.push_back(cliente);
+        this->contas.push_back(conta);
+        
+        std::cout << "Conta PJ criada com sucesso! ID: " << conta->getId() << std::endl;
+        return conta->getId();
 
-            this->clientes.push_back(cliente);
-            this->contas.push_back(conta);
-            
-            std::cout << "Conta PJ criada com sucesso! ID: " << conta->getId() << std::endl;
-            return conta->getId();
         }
         case 3: { 
             int id;
@@ -207,13 +221,13 @@ int Banco::criar_cartao(){
     std::cin >> id;
     if (std::cin.fail()) throw EntradaInvalidaException();
     //if(!std::stoi(id)) throw EntradaInvalidaException();
-    verifica_id(1);
+    verifica_id(id);
 
     novaData.calcular_data();
 
-    num += novaData.get_data(2);
-    num += novaData.get_data(1);
-    num += novaData.get_data(0);
+    num += std::to_string(novaData.get_data(2));
+    num += std::to_string(novaData.get_data(1));
+    num += std::to_string(novaData.get_data(0));
     
     while(1){//cria num do cartão
         existente = 0;
@@ -238,7 +252,7 @@ int Banco::criar_cartao(){
     novoCartao.conta_cartao = id;
     cartoes.push_back(novoCartao);
     int pos = posicao_id(id);
-    this->contas[pos]->set_num_cartao(std::stoi(novoCartao.numero));
+    this->contas[pos]->set_num_cartao(novoCartao.numero);
     std::cout << "Cartao criado com sucesso, o número do seu cartao é: " << 
     novoCartao.numero << std::endl;
     return 1;
@@ -283,47 +297,51 @@ int Banco::gerar_relatorio() {
     return 1;
 }
 
-    //int receber_transacoes(int id_remetente, float valor);//conta recebimentom = 1
 int Banco::realizar_transacao(){
-    int id_destinatario;
+    int id_origem, id_destinatario;
     float valor;
+
+    std::cout << "Qual o ID da conta de origem? ";
+    std::cin >> id_origem;
+    if (std::cin.fail()) throw EntradaInvalidaException();
+    verifica_id(id_origem);
 
     std::cout << "Qual o ID do destinatario da transacao? ";
     std::cin >> id_destinatario;
     if (std::cin.fail()) throw EntradaInvalidaException();
     verifica_id(id_destinatario);
-    
-    /*if(!encontrada){
-        std::cout << "Usuario nao cadastrado. " << std::endl;
-        return 0;
-    }*/
+
+    if(id_origem == id_destinatario) {
+        throw EntradaInvalidaException("Não pode transferir para a mesma conta");
+    }
 
     std::cout << "Digite o valor que deseja transferir: ";
-    
     std::cin >> valor;
     if (std::cin.fail()) throw EntradaInvalidaException();
  
     if (valor <= 0) throw EntradaInvalidaException();
-    if (static_cast<size_t>(id_destinatario) >= contas.size()) throw ContaNaoEncontradaException(id_destinatario);
 
-    Transacao transac;//cria transac
-    transac.conta_origem = 1;
+    Transacao transac;
+    transac.conta_origem = id_origem;
     transac.conta_destino = id_destinatario;
     transac.valor = valor;
     this->validar_transacao(transac);
-    if(transac.aprovada)
-    {
-        int pos1, pos2;
-        pos1 = posicao_id(1);
-        pos2 = posicao_id(id_destinatario);
-        this->transacoes.push_back(transac);//adiciona transac para a lista
-        this->contas[pos1]->sacar(valor);
-        this->contas[pos2]->depositar(valor);std::cout << "Transacao realizada com sucesso! " << std::endl;
+
+    if(transac.aprovada) {
+        int pos_origem = posicao_id(id_origem);
+        int pos_destino = posicao_id(id_destinatario);
+        
+        this->contas[pos_origem]->sacar(valor);
+        this->contas[pos_destino]->depositar(valor);
+        
+        this->transacoes.push_back(transac);
+        std::cout << "Transacao realizada com sucesso!" << std::endl;
         return 1;
     }
     
     return 0;
 }
+
 int Banco::receber_transacao(){
     int id_remetente;
     float valor;
@@ -358,47 +376,67 @@ int Banco::receber_transacao(){
     }
     return 0;
 }
+
 int Banco::realizar_saque(){
+    int id_conta;
     float valor;
-    std::cout << "Digite o valor a depositar: ";
+
+    std::cout << "Qual o ID da conta? ";
+    std::cin >> id_conta;
+    if (std::cin.fail()) throw EntradaInvalidaException();
+    verifica_id(id_conta);
+
+    std::cout << "Digite o valor a sacar: ";
     std::cin >> valor;
     if (std::cin.fail()) throw EntradaInvalidaException();
     if (valor <= 0) throw EntradaInvalidaException();
 
-    int pos = posicao_id(1);
+    int pos = posicao_id(id_conta);
     this->contas[pos]->sacar(valor);
+
     Calendario novaData;
     novaData.calcular_data();
     Saque novoSaque;
 
-    novoSaque.id_conta = 1;
+    novoSaque.id_conta = id_conta;
     novoSaque.data = novaData.get_data();
     novoSaque.valor = valor;
 
     this->saques.push_back(novoSaque);
-    std::cout << "Saque realizado com sucesso! " << std::endl;
+    std::cout << "Saque realizado com sucesso!" << std::endl;
     return 1;
 }
-int Banco::realizar_deposito(){
+    int Banco::realizar_deposito() {
+    int id_conta;
     float valor;
+
+    // Solicitar ID da conta
+    std::cout << "Qual o ID da conta para deposito? ";
+    std::cin >> id_conta;
+    if (std::cin.fail()) throw EntradaInvalidaException();
+    verifica_id(id_conta);
+
+    // Solicitar valor do depósito
     std::cout << "Digite o valor a depositar: ";
     std::cin >> valor;
     if (std::cin.fail()) throw EntradaInvalidaException();
-    if (valor <= 0) throw EntradaInvalidaException();
+    if (valor <= 0) throw EntradaInvalidaException("Valor deve ser positivo");
 
-    verifica_id(1);
-
-    int pos = posicao_id(1);
+    // Realizar o depósito
+    int pos = posicao_id(id_conta);
     this->contas[pos]->depositar(valor);
+
+    // Registrar o depósito
     Calendario novaData;
     novaData.calcular_data();
     Deposito novoDeposito;
 
-    novoDeposito.id_conta = 1;
+    novoDeposito.id_conta = id_conta;
     novoDeposito.data = novaData.get_data();
     novoDeposito.valor = valor;
 
     this->depositos.push_back(novoDeposito);
-    std::cout << "Deposito realizado com sucesso! " << std::endl;
+    std::cout << "Deposito realizado com sucesso na conta ID " << id_conta << "!" << std::endl;
+    
     return 1;
 }

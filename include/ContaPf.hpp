@@ -12,7 +12,7 @@ private:
     bool validarCpf();
 
 public:
-    ContaPf(std::shared_ptr<Cliente> titular, const std::string& senha, double saldoInicial = 0.0);
+    ContaPf(std::shared_ptr<Cliente> titular, int id, const std::string& senha, double saldoInicial = 0.0);
 
     void bloquear() override;
     void ativar() override;
