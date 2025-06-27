@@ -36,3 +36,6 @@ double Conta::getLimite() const { return _limite; }
 bool Conta::isAtivo() const { return _ativo; }
 bool Conta::isAprovada() const { return _aprovada; }
 std::shared_ptr<Cliente> Conta::getTitular() const { return _titular; }
+void Conta::set_num_cartao(int num){
+    this->num_cartao = num;
+}

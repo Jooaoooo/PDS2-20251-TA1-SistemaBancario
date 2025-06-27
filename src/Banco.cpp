@@ -24,6 +24,27 @@ std::vector<Transacao>& Banco::getTransacoes() { return transacoes; }
 void limparBuffer() {
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 }
+int Banco::posicao_id(int id){
+    int pos = 0;
+    int encontrado =0;
+    for(auto & c : this->contas){
+        if(id == c->getId()){
+            encontrado++;
+            break;
+        }
+        pos++;
+    }
+    if(encontrado) throw ContaNaoEncontradaException(id);
+    return pos;
+}
+bool Banco::verifica_id(int id){
+    for(auto & c : this->contas){
+        if(id == c->getId()){
+            return true;
+        }
+    }
+    throw CartaoNaoEncontradoException(std::to_string(id));
+}
 
 int Banco::gerenciar_contas() {
     int opcao;
@@ -39,7 +60,7 @@ int Banco::gerenciar_contas() {
     limparBuffer();
 
     switch (opcao) {
-        case 1: { 
+        case 1: {
             std::string nome, cpf, rg, senha, endereco, email, telefone;
             std::cout << "Nome completo: ";
             std::getline(std::cin, nome);
@@ -177,7 +198,7 @@ int Banco::validar_transacoes() {
 
 int Banco::criar_cartao(){
     Calendario novaData;
-    std::string id="";
+    int id;
     std::string num = "";
     int final=0;
     int existente=0;
@@ -186,6 +207,7 @@ int Banco::criar_cartao(){
     std::cin >> id;
     if (std::cin.fail()) throw EntradaInvalidaException();
     //if(!std::stoi(id)) throw EntradaInvalidaException();
+    verifica_id(1);
 
     novaData.calcular_data();
 
@@ -193,7 +215,7 @@ int Banco::criar_cartao(){
     num += novaData.get_data(1);
     num += novaData.get_data(0);
     
-    while(1){
+    while(1){//cria num do cartão
         existente = 0;
         {//gera aleatório
             std::random_device rd; //fonte de entropia
@@ -213,8 +235,12 @@ int Banco::criar_cartao(){
     }
     Cartao novoCartao;
     novoCartao.numero = num;
-    novoCartao.conta_cartao = std::stoi(id);
+    novoCartao.conta_cartao = id;
     cartoes.push_back(novoCartao);
+    int pos = posicao_id(id);
+    this->contas[pos]->set_num_cartao(std::stoi(novoCartao.numero));
+    std::cout << "Cartao criado com sucesso, o número do seu cartao é: " << 
+    novoCartao.numero << std::endl;
     return 1;
     //throw CartaoNaoEncontradoException(numero);
 }
@@ -258,8 +284,25 @@ int Banco::gerar_relatorio() {
 }
 
     //int receber_transacoes(int id_remetente, float valor);//conta recebimentom = 1
-int Banco::realizar_transacoes(int id_destinatario, float valor)
-{
+int Banco::realizar_transacao(){
+    int id_destinatario;
+    float valor;
+
+    std::cout << "Qual o ID do destinatario da transacao? ";
+    std::cin >> id_destinatario;
+    if (std::cin.fail()) throw EntradaInvalidaException();
+    verifica_id(id_destinatario);
+    
+    /*if(!encontrada){
+        std::cout << "Usuario nao cadastrado. " << std::endl;
+        return 0;
+    }*/
+
+    std::cout << "Digite o valor que deseja transferir: ";
+    
+    std::cin >> valor;
+    if (std::cin.fail()) throw EntradaInvalidaException();
+ 
     if (valor <= 0) throw EntradaInvalidaException();
     if (static_cast<size_t>(id_destinatario) >= contas.size()) throw ContaNaoEncontradaException(id_destinatario);
 
@@ -270,17 +313,32 @@ int Banco::realizar_transacoes(int id_destinatario, float valor)
     this->validar_transacao(transac);
     if(transac.aprovada)
     {
+        int pos1, pos2;
+        pos1 = posicao_id(1);
+        pos2 = posicao_id(id_destinatario);
         this->transacoes.push_back(transac);//adiciona transac para a lista
-        this->contas[1]->sacar(valor);
-        this->contas[id_destinatario]->depositar(valor);
+        this->contas[pos1]->sacar(valor);
+        this->contas[pos2]->depositar(valor);std::cout << "Transacao realizada com sucesso! " << std::endl;
         return 1;
     }
+    
     return 0;
 }
-int Banco::receber_transacoes(int id_remetente, float valor){
+int Banco::receber_transacao(){
+    int id_remetente;
+    float valor;
+
+    std::cout << "Digite o ID da conta remetente: ";
+    std::cin >> id_remetente;
+    //if (std::cin.fail()) throw EntradaInvalidaException();
+    verifica_id(id_remetente);
+
+    std::cout << "Digite o valor que esta sendo transferido: ";
+    std::cin >> valor;
+    if (std::cin.fail()) throw EntradaInvalidaException();
 
     if (valor <= 0) throw EntradaInvalidaException();
-    if (static_cast<size_t>(id_remetente) >= contas.size()) throw ContaNaoEncontradaException(id_remetente);
+    //if (static_cast<size_t>(id_remetente) >= contas.size()) throw ContaNaoEncontradaException(id_remetente);
 
     Transacao transac;//cria transac
     transac.conta_origem = id_remetente;
@@ -289,10 +347,58 @@ int Banco::receber_transacoes(int id_remetente, float valor){
     this->validar_transacao(transac);
     if(transac.aprovada)
     {   
+        int pos1, pos2;
+        pos1 = posicao_id(id_remetente);
+        pos2 = posicao_id(1);
         this->transacoes.push_back(transac);//adiciona transac para a lista
-        this->contas[id_remetente]->sacar(valor);
-        this->contas[1]->depositar(valor);
+        this->contas[pos1]->sacar(valor);
+        this->contas[pos2]->depositar(valor);
+        std::cout << "Transacao realizada com sucesso! " << std::endl;
         return 1;
     }
     return 0;
+}
+int Banco::realizar_saque(){
+    float valor;
+    std::cout << "Digite o valor a depositar: ";
+    std::cin >> valor;
+    if (std::cin.fail()) throw EntradaInvalidaException();
+    if (valor <= 0) throw EntradaInvalidaException();
+
+    int pos = posicao_id(1);
+    this->contas[pos]->sacar(valor);
+    Calendario novaData;
+    novaData.calcular_data();
+    Saque novoSaque;
+
+    novoSaque.id_conta = 1;
+    novoSaque.data = novaData.get_data();
+    novoSaque.valor = valor;
+
+    this->saques.push_back(novoSaque);
+    std::cout << "Saque realizado com sucesso! " << std::endl;
+    return 1;
+}
+int Banco::realizar_deposito(){
+    float valor;
+    std::cout << "Digite o valor a depositar: ";
+    std::cin >> valor;
+    if (std::cin.fail()) throw EntradaInvalidaException();
+    if (valor <= 0) throw EntradaInvalidaException();
+
+    verifica_id(1);
+
+    int pos = posicao_id(1);
+    this->contas[pos]->depositar(valor);
+    Calendario novaData;
+    novaData.calcular_data();
+    Deposito novoDeposito;
+
+    novoDeposito.id_conta = 1;
+    novoDeposito.data = novaData.get_data();
+    novoDeposito.valor = valor;
+
+    this->depositos.push_back(novoDeposito);
+    std::cout << "Deposito realizado com sucesso! " << std::endl;
+    return 1;
 }
