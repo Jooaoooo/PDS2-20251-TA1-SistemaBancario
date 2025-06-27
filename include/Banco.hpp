@@ -6,19 +6,19 @@
 #include "Conta.hpp"
 #include "Cliente.hpp"
 
-// Estruturas usadas pela classe Banco
+// Estruturas de dados do Banco
 struct Transacao {
     std::string data;
-    double valor;
+    double valor = 0;
     int conta_origem;
     int conta_destino;
-    bool aprovada = false; 
+    bool aprovada = false;
 };
 
 struct Cartao {
     std::string numero;
     int conta_cartao;
-    bool bloqueado;
+    bool bloqueado = false;
 };
 
 class Banco {
@@ -30,9 +30,14 @@ private:
 
 public:
     int gerenciar_contas();
+    void validar_transacao(Transacao &transacao);
     int validar_transacoes();
     int bloquear_cartao();
     int gerar_relatorio();
-    int processar_folha_pagamento();
-    std::vector<Transacao>& get_transacoes(); 
+    int realizar_transacoes(int id_destinatario, float valor);//conta origem = 1
+    int receber_transacoes(int id_remetente, float valor);//conta recebimentom = 1
+
+    // Getters para acesso controlado aos dados internos
+    std::vector<std::shared_ptr<Conta>>& getContas();
+    std::vector<Transacao>& getTransacoes();
 };
