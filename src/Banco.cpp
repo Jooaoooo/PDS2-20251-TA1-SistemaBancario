@@ -342,41 +342,6 @@ int Banco::realizar_transacao(){
     return 0;
 }
 
-int Banco::receber_transacao(){
-    int id_remetente;
-    float valor;
-
-    std::cout << "Digite o ID da conta remetente: ";
-    std::cin >> id_remetente;
-    //if (std::cin.fail()) throw EntradaInvalidaException();
-    verifica_id(id_remetente);
-
-    std::cout << "Digite o valor que esta sendo transferido: ";
-    std::cin >> valor;
-    if (std::cin.fail()) throw EntradaInvalidaException();
-
-    if (valor <= 0) throw EntradaInvalidaException();
-    //if (static_cast<size_t>(id_remetente) >= contas.size()) throw ContaNaoEncontradaException(id_remetente);
-
-    Transacao transac;//cria transac
-    transac.conta_origem = id_remetente;
-    transac.conta_destino = 1;
-    transac.valor = valor;
-    this->validar_transacao(transac);
-    if(transac.aprovada)
-    {   
-        int pos1, pos2;
-        pos1 = posicao_id(id_remetente);
-        pos2 = posicao_id(1);
-        this->transacoes.push_back(transac);//adiciona transac para a lista
-        this->contas[pos1]->sacar(valor);
-        this->contas[pos2]->depositar(valor);
-        std::cout << "Transacao realizada com sucesso! " << std::endl;
-        return 1;
-    }
-    return 0;
-}
-
 int Banco::realizar_saque(){
     int id_conta;
     float valor;

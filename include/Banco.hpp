@@ -48,7 +48,6 @@ public:
     int bloquear_cartao();
     int gerar_relatorio();
     int realizar_transacao();//conta origem = 1
-    int receber_transacao();//conta recebimentom = 1
     int realizar_saque();
     int realizar_deposito();
     int posicao_id(int id);//retorna a posição do ID no vetor contas
