@@ -20,6 +20,37 @@ std::vector<Transacao> transacoes;
 std::vector<Cartao> cartoes;
 std::vector<std::shared_ptr<Cliente>> clientes;
 
+Gerente::Gerente(std::string nome, std::string cpf, std::string rg, std::string senha)
+    :_nome(nome),_cpf(cpf), _rg(rg), _senha(senha) {};
+
+
+int Gerente::operacoes_gerente(Banco& banco){
+    std::cout << "Logado como " << this->_nome 
+                    << " Digite a operacao que deseja realizar: \n" << std::endl
+                    << "1. Aprovar pj\n"
+                    << "2. Aprovar gerar relatorio customizado\n"
+                    << "0. Sair\n"
+                    << "Opcao: ";
+    int opc;
+    std::cin >> opc;
+    if (std::cin.fail()) throw EntradaInvalidaException();
+    switch(opc){
+        case 1:
+            aprovar_pj(banco);
+            break;
+        case 2:
+            gerar_relatorio_customizado(banco)
+            break;
+        case 0:
+            return 1;
+        default:
+            break;
+    }
+
+
+    return 1;
+}
+
 int Gerente::aprovar_pj(Banco& banco) {
     std::cout << "\n==== APROVAR CONTA PJ ====\n";
     int count = 0;
@@ -193,3 +224,19 @@ void Gerente::gerar_relatorio_customizado(Banco& banco, const std::string& tipo_
     }
     std::cout << "===================================\n";
 }
+
+bool Gerente::autenticacao(std::string cpf, std::string rg, std::string senha){
+    if((this->_cpf == cpf) && (this->_rg == rg) && (this->_senha == senha)){
+        return true;
+    }
+    return false;
+}
+/*
+void Gerente::mostrar(){
+    std::cout << "Nome: " << this->_nome << "Cpf: " 
+    << this->_cpf << "Rg: " << this->_rg << "Senha: "
+    << this->_senha << std::endl;
+};*/
+
+std::string Gerente::get_nome(){return this->_nome;}
+

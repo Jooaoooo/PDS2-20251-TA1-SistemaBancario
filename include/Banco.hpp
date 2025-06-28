@@ -31,6 +31,8 @@ struct Cartao {
     bool bloqueado = false;
 };
 
+//class Gerente;
+
 class Banco {
 private:
     std::vector<std::shared_ptr<Conta>> contas;
@@ -39,6 +41,7 @@ private:
     std::vector<std::shared_ptr<Cliente>> clientes;
     std::vector<Saque> saques;
     std::vector<Deposito> depositos;
+//    std::vector<Gerente> gerentes;
 
 public:
     int gerenciar_contas();
@@ -55,6 +58,7 @@ public:
     bool autenticar_conta(int id_conta);
     bool verificar_cartao(int id_conta, const std::string& numero_cartao);
     void gerar_extrato(int id_conta);
+    //void capruta_gerentes();
     // Getters para acesso controlado aos dados internos
     std::vector<std::shared_ptr<Conta>>& getContas();
     std::vector<Transacao>& getTransacoes();

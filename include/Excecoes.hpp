@@ -7,6 +7,11 @@ class ContaNaoEncontradaException : public std::runtime_error {
 public:
     ContaNaoEncontradaException(int id) : std::runtime_error("Conta com ID " + std::to_string(id) + " não encontrada.") {}
 };
+class GerenteNaoEncontradaException : public std::runtime_error {
+public:
+    GerenteNaoEncontradaException()
+        : std::runtime_error("Gerente não encontrada.") {}  // <- lista de inicialização correta
+};
 
 class CartaoNaoEncontradoException : public std::runtime_error {
 public:

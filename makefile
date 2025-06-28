@@ -10,6 +10,7 @@ BIN_DIR = bin
 #Programa:
 ${BIN_DIR}/${TARGET}: ${BUILD_DIR}/Gerente.o ${BUILD_DIR}/Banco.o ${BUILD_DIR}/ContaPj.o ${BUILD_DIR}/ContaPf.o ${BUILD_DIR}/Conta.o ${BUILD_DIR}/Cliente.o ${BUILD_DIR}/Calendario.o ${BUILD_DIR}/main.o
 	@mkdir -p ${BIN_DIR}
+	@mkdir -p system_data
 	${CC} ${CFLAGS} ${BUILD_DIR}/*.o -o ${BIN_DIR}/${TARGET}
 #Compilações:
 ${BUILD_DIR}/Gerente.o : ${INCLUDE_DIR}/Gerente.hpp ${SRC_DIR}/Gerente.cpp
