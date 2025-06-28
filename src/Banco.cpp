@@ -25,7 +25,7 @@ std::vector<Transacao>& Banco::getTransacoes() { return transacoes; }
 void limparBuffer() {
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 }
-
+/*
 int Banco::posicao_id(int id){
     int pos = 0;
     int encontrado =0;
@@ -38,6 +38,14 @@ int Banco::posicao_id(int id){
     }
     if(!encontrado) throw ContaNaoEncontradaException(id);
     return pos;
+}*/
+int Banco::posicao_id(int id) {
+    for (size_t i = 0; i < contas.size(); ++i) {
+        if (contas[i] && contas[i]->getId() == id) {
+            return i;
+        }
+    }
+    throw ContaNaoEncontradaException(id);
 }
 bool Banco::verifica_id(int id){
     for(auto & c : this->contas){
@@ -50,8 +58,6 @@ bool Banco::verifica_id(int id){
 
 bool Banco::autenticar_conta(int id_conta) {
     std::string senha, rg;
-    
-    std::cout << "Autenticação necessária\n";
     std::cout << "Digite sua senha: ";
     std::cin >> senha;
     std::cout << "Digite seu RG: ";
@@ -196,7 +202,7 @@ int Banco::gerenciar_contas() {
             }
             throw ContaNaoEncontradaException(id);
         }
-        case 5: {
+        case 5: 
         std::cout << "Digite o id da conta: ";
         int id;
         std::cin >> id;
@@ -214,7 +220,8 @@ int Banco::gerenciar_contas() {
             return 0;
         }
         gerar_extrato(id);
-        }
+
+        break;
         case 6: { // Listar as contas
             if (contas.empty()) {
                 std::cout << "Nenhuma conta cadastrada.\n";
@@ -226,6 +233,7 @@ int Banco::gerenciar_contas() {
             }
             return contas.size();
         }
+        break;
         default:
             throw EntradaInvalidaException();
     }
@@ -381,6 +389,9 @@ int Banco::realizar_transacao(){
     transac.conta_origem = id_origem;
     transac.conta_destino = id_destinatario;
     transac.valor = valor;
+    Calendario data;
+    data.calcular_data();
+    transac.data = data.get_data_formatada();
     this->validar_transacao(transac);
 
     if(transac.aprovada) {
@@ -436,6 +447,9 @@ int Banco::realizar_saque(){
     novoSaque.id_conta = id_conta;
     novoSaque.data = novaData.get_data();
     novoSaque.valor = valor;
+    Calendario data;
+    data.calcular_data();
+    novoSaque.data = data.get_data_formatada();
 
     this->saques.push_back(novoSaque);
     std::cout << "Saque realizado com sucesso!" << std::endl;
@@ -478,6 +492,9 @@ int Banco::realizar_deposito() {
     Calendario novaData;
     novaData.calcular_data();
     Deposito novoDeposito;
+    Calendario data;
+    data.calcular_data();
+    data.get_data_formatada();
 
     novoDeposito.id_conta = id_conta;
     novoDeposito.data = novaData.get_data();
@@ -488,25 +505,21 @@ int Banco::realizar_deposito() {
     
     return 1;
 }
-void Banco::gerar_extrato(int id_conta) {
+void Banco::gerar_extrato(int id_conta){
     try {
         int pos = posicao_id(id_conta);
         auto conta = contas[pos];
         auto titular = conta->getTitular();
-
         std::string nomeArq = "Extrato-" + titular->get_nome() + ".txt";
         std::ofstream arquivo(nomeArq);
-
         if (!arquivo.is_open()) {
             throw std::runtime_error("Não foi possível criar o arquivo de extrato");
         }
-
         // Cabeçalho
         arquivo << "*** RESUMO PAGAMENTOS TOTAIS BANCO ESPECTRAL ***\n";
         arquivo << "Titular: " << titular->get_nome() << "\n";
         arquivo << "Conta ID: " << id_conta << "\n";
         arquivo << "Saldo atual: R$" << std::fixed << std::setprecision(2) << conta->getSaldo() << "\n\n";
-
         // Transações
         arquivo << "--- TRANSACOES ---\n";
         for (const auto& t : transacoes) {
@@ -518,7 +531,6 @@ void Banco::gerar_extrato(int id_conta) {
                 arquivo << "------------\n";
             }
         }
-
         // Saques
         arquivo << "\n--- SAQUES ---\n";
         for (const auto& s : saques) {
@@ -528,7 +540,6 @@ void Banco::gerar_extrato(int id_conta) {
                 arquivo << "------------\n";
             }
         }
-
         // Depósitos
         arquivo << "\n--- DEPOSITOS ---\n";
         for (const auto& d : depositos) {
@@ -538,10 +549,8 @@ void Banco::gerar_extrato(int id_conta) {
                 arquivo << "------------\n";
             }
         }
-
         arquivo.close();
         std::cout << "Extrato gerado com sucesso: " << nomeArq << std::endl;
-
     } catch (const std::exception& e) {
         std::cerr << "Erro ao gerar extrato: " << e.what() << std::endl;
     }
