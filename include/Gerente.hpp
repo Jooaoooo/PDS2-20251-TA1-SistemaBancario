@@ -12,9 +12,25 @@
 #include <vector>
 
 class Gerente {
+
+
+struct Contas_Liberadas{
+    int id;
+    std::string data;
+};
+private:
+    std::string _nome;
+    std::string _cpf;
+    std::string _rg;
+    std::string _senha;
+
 public:
+    Gerente(std::string nome, std::string cpf, std::string rg, std::string senha);
+    int operacoes_gerente(Banco& banco);
     int aprovar_pj(Banco& banco);
-    int liberar_limite(Banco& banco);
-    int aprovar_negocio(Banco& banco);
-    void gerar_relatorio_customizado(Banco& banco, const std::string& tipo_relatorio, int periodo);
+    void gerar_relatorio(Banco& banco);
+    void validar_transacoes(Banco& banco);
+    bool autenticacao(std::string cpf, std::string rg, std::string senha);
+    
+    std::vector<Contas_Liberadas>liberadas; 
 };

@@ -46,7 +46,7 @@ public:
     int validar_transacoes();
     int criar_cartao();
     int bloquear_cartao();
-    int gerar_relatorio();
+    int gerar_relatorio(std::string dados);
     int realizar_transacao();//conta origem = 1
     int realizar_saque();
     int realizar_deposito();
@@ -58,4 +58,9 @@ public:
     // Getters para acesso controlado aos dados internos
     std::vector<std::shared_ptr<Conta>>& getContas();
     std::vector<Transacao>& getTransacoes();
+
+    bool isContasEmpty();
+    const std::vector<std::shared_ptr<Conta>>& getContas() const;
+    int contasSize();
+
 };

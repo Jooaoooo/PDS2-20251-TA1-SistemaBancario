@@ -27,3 +27,11 @@ class SaldoInsuficienteException : public std::runtime_error {
 public:
     SaldoInsuficienteException() : std::runtime_error("Saldo insuficiente para a operação.") {}
 };
+class GerenteNaoEncontradaException : public std::runtime_error {
+public:
+    GerenteNaoEncontradaException() : std::runtime_error("Gerente nao encontrado.") {}
+};
+class ContaNaoAprovada : public std::runtime_error {
+public:
+    ContaNaoAprovada() : std::runtime_error("Conta nao aprovada.") {}
+};

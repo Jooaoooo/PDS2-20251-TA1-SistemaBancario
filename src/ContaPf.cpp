@@ -4,6 +4,7 @@
 
 ContaPf::ContaPf(std::shared_ptr<Cliente> titular, int id, const std::string& senha, double saldoInicial)
     : Conta(titular, id, saldoInicial, 0.0) {
+        this->_aprovada = true;
     std::cout << "Conta PF criada para " << getNomeTitular() << " com ID " << _id << std::endl;
 }
 

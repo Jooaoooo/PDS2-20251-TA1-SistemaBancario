@@ -5,20 +5,68 @@
 #include"Cliente.hpp"
 #include"Conta.hpp"
 #include"Excecoes.hpp"
+#include"Calendario.hpp"
 
-#include<iostream>
-#include<vector>
-#include<ctime>
-#include<fstream>
-#include<memory>
-#include<string>
-#include<algorithm>
+#include <iostream>
+#include <vector>
+#include <ctime>
+#include <fstream>
+#include <memory>
+#include <string>
+#include <algorithm>
 #include <limits>
 
 std::vector<std::shared_ptr<Conta>> contas;
 std::vector<Transacao> transacoes;
 std::vector<Cartao> cartoes;
 std::vector<std::shared_ptr<Cliente>> clientes;
+
+Gerente::Gerente(std::string nome, std::string cpf, std::string rg, std::string senha)
+    :_nome(nome),_cpf(cpf), _rg(rg), _senha(senha) {};
+
+
+int Gerente::operacoes_gerente(Banco& banco){
+    std::cout << "Logado como " << this->_nome << "\n" 
+                    << " Digite a operacao que deseja realizar: \n" << std::endl
+                    << "1 - Aprovar pj\n"
+                    << "2 - Validar transacoes\n"
+                    << "3 - Listar contas existentes\n"
+                    << "4 - Gerar relatorio\n"
+                    << "0. Sair\n"
+                    << "Opcao: ";
+    int opc;
+    std::cin >> opc;
+    if (std::cin.fail()) throw EntradaInvalidaException();
+    switch(opc){
+        case 1:
+            aprovar_pj(banco);
+            break;
+        case 2:
+            validar_transacoes(banco);
+            break;
+        case 3:
+            { // Listar as contas
+                if (banco.isContasEmpty()) {
+                    std::cout << "Nenhuma conta cadastrada.\n";
+                    return 0;
+                }
+                for (const auto& conta : banco.getContas()) {
+                    std::cout << "ID: " << conta->getId() << " - Titular: " << conta->getNomeTitular()
+                              << " - Saldo: R$" << conta->getSaldo() << " - Ativa: " << (conta->isAtivo() ? "Sim" : "Nao") << "\n";
+                }
+                return banco.contasSize();
+            }
+            break;
+        case 4:
+            gerar_relatorio(banco);
+            break;
+        default:
+            break;
+    }
+
+
+    return 1;
+}
 
 int Gerente::aprovar_pj(Banco& banco) {
     std::cout << "\n==== APROVAR CONTA PJ ====\n";
@@ -55,141 +103,32 @@ int Gerente::aprovar_pj(Banco& banco) {
                 pj->aprovar();
                 pj->definirLimite(15000); 
                 std::cout << "Conta PJ ID " << id << " aprovada com sucesso!\n";
+                Contas_Liberadas novaConta;
+                Calendario novaData;
+                novaData.calcular_data();
+                novaConta.data = novaData.get_data_formatada();
+                novaConta.id = pj->getId();
+                liberadas.push_back(novaConta);
                 return id;
             }
         }
     }
     throw ContaNaoEncontradaException(id);
 }
-
-int Gerente::liberar_limite(Banco& banco) {
-    std::cout << "\n=== LIBERAR LIMITE ===\n";
-    auto& contas = banco.getContas();
-
-    for (const auto& conta : contas) {
-        std::cout << "ID: " << conta->getId()
-                  << " | Titular: " << conta->getNomeTitular()
-                  << " | Limite atual: R$" << conta->getLimite() << std::endl;
+bool Gerente::autenticacao(std::string cpf, std::string rg, std::string senha){
+    if((this->_cpf == cpf) && (this->_rg == rg) && (this->_senha == senha)){
+        return true;
     }
-
-    int id;
-    double novo_limite;
-    std::cout << "\nDigite o ID da conta: ";
-    std::cin >> id;
-    if (std::cin.fail()) throw EntradaInvalidaException();
-    std::cout << "Digite o novo limite: ";
-    std::cin >> novo_limite;
-    if (std::cin.fail()) throw EntradaInvalidaException();
-
-    for (auto& conta : contas) {
-        if (conta->getId() == id) {
-            conta->definirLimite(novo_limite);
-            std::cout << "Limite da conta " << id << " atualizado para R$" << novo_limite << " com sucesso!\n";
-            return id;
-        }
-    }
-    throw ContaNaoEncontradaException(id);
+    return false;
 }
-
-int Gerente::aprovar_negocio(Banco& banco) {
-    std::cout << "\n==== APROVAR NEGOCIO/TRANSACAO ====\n";
-    auto& transacoes = banco.getTransacoes();
-    std::vector<int> indices_pendentes;
-
-    std::cout << "Transacoes pendentes de aprovacao (> R$5000):\n";
-    for (size_t i = 0; i < transacoes.size(); ++i) {
-        if (!transacoes[i].aprovada && transacoes[i].valor > 5000) {
-            const auto& t = transacoes[i];
-            std::cout << indices_pendentes.size() + 1 << ". Origem: " << t.conta_origem
-                      << " | Destino: " << t.conta_destino
-                      << " | Valor: R$" << t.valor << std::endl;
-            indices_pendentes.push_back(i);
-        }
+void Gerente::gerar_relatorio(Banco& banco){
+    std::string dados="--- Contas Aprovadas ---\n";
+    for(const auto& cont: liberadas){
+        dados+= "ID: " + std::to_string(cont.id)
+        + " | Data: " + cont.data + "\n";
     }
-
-    if (indices_pendentes.empty()) {
-        std::cout << "Nenhuma transacao pendente de aprovacao.\n";
-        return -1;
-    }
-
-    int escolha;
-    std::cout << "Digite o numero da transacao para aprovar (0 para cancelar): ";
-    std::cin >> escolha;
-
-    if (escolha <= 0 || escolha > static_cast<int>(indices_pendentes.size())) {
-        std::cout << "Operacao cancelada ou escolha invalida.\n";
-        return -1;
-    }
-
-    int index_transacao = indices_pendentes[escolha - 1];
-    transacoes[index_transacao].aprovada = true;
-    std::cout << "Transacao aprovada com sucesso!\n";
-    return 1;
+    banco.gerar_relatorio(dados);
 }
-
-void Gerente::gerar_relatorio_customizado(Banco& banco, const std::string& tipo_relatorio, int periodo) {
-     auto& contas = banco.getContas();
-    if (periodo <= 0) {
-        std::cout << "Periodo invalido. Deve ser maior que zero.\n";
-        return;
-    }
-
-    std::cout << "\n==== RELATORIO: " << tipo_relatorio << " (Periodo: " << periodo << " dias) ====\n";
-
-    if (tipo_relatorio == "contas_ativas") {
-        int total_contas = contas.size();
-        int contas_ativas = 0;
-        double saldo_total = 0.0;
-        for (const auto& conta : contas) {
-            if (conta->isAtivo()) {
-                contas_ativas++;
-                saldo_total += conta->getSaldo();
-            }
-        }
-        exibirTotal("Total de contas", total_contas);
-        exibirPercentual("Contas ativas", contas_ativas, total_contas);
-        exibirMedia("Saldo total nas contas ativas", saldo_total, 1);
-
-    } else if (tipo_relatorio == "contas_aprovadas") {
-        int total_contas = contas.size();
-        int contas_aprovadas = 0;
-        double limite_total = 0.0;
-        for (const auto& conta : contas) {
-            if (conta->isAprovada()) {
-                contas_aprovadas++;
-                limite_total += conta->getLimite();
-            }
-        }
-        exibirTotal("Total de contas", total_contas);
-        exibirPercentual("Contas aprovadas", contas_aprovadas, total_contas);
-        exibirTotal("Limite total concedido", limite_total);
-
-    } else if (tipo_relatorio == "saldo_medio") {
-        int contas_ativas = 0;
-        double saldo_total = 0.0;
-        for (const auto& conta : contas) {
-            if (conta->isAtivo()) {
-                contas_ativas++;
-                saldo_total += conta->getSaldo();
-            }
-        }
-        exibirTotal("Contas ativas consideradas", contas_ativas);
-        exibirMedia("Saldo medio", saldo_total, contas_ativas);
-
-    } else if (tipo_relatorio == "limite_medio") {
-        int contas_com_limite = 0;
-        double limite_total = 0.0;
-        for (const auto& conta : contas) {
-            if (conta->getLimite() > 0) {
-                contas_com_limite++;
-                limite_total += conta->getLimite();
-            }
-        }
-        exibirTotal("Contas com limite", contas_com_limite);
-        exibirMedia("Limite medio", limite_total, contas_com_limite);
-
-    } else {
-        std::cout << "Tipo de relatorio invalido.\n";
-    }
-    std::cout << "===================================\n";
-}
+void Gerente::validar_transacoes(Banco& banco){
+    banco.validar_transacoes();
+};

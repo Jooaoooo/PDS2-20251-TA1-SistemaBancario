@@ -75,7 +75,6 @@ int Banco::gerenciar_contas() {
               << "3 - Consultar conta existente\n"
               << "4 - Encerrar conta\n"
               << "5 - Gerar extrato da conta\n"
-              << "6 - Listar contas existentes\n"
               << "Opcao: ";
     std::cin >> opcao;
     if (std::cin.fail()) throw EntradaInvalidaException();
@@ -207,19 +206,6 @@ int Banco::gerenciar_contas() {
         gerar_extrato(id);
         return 1;
         }
-
-        case 6: { // Listar as contas
-            if (contas.empty()) {
-                std::cout << "Nenhuma conta cadastrada.\n";
-                return 0;
-            }
-            for (const auto& conta : this->contas) {
-                std::cout << "ID: " << conta->getId() << " - Titular: " << conta->getNomeTitular()
-                          << " - Saldo: R$" << conta->getSaldo() << " - Ativa: " << (conta->isAtivo() ? "Sim" : "Nao") << "\n";
-            }
-            return contas.size();
-        }
-        break;
         default:
             throw EntradaInvalidaException();
     }
@@ -297,6 +283,10 @@ int Banco::criar_cartao(){
     novoCartao.conta_id = id;
     cartoes.push_back(novoCartao);
     int pos = posicao_id(id);
+    if(!contas[pos]->isAprovada()){
+        throw ContaNaoAprovada();
+    }
+
     this->contas[pos]->set_num_cartao(novoCartao.numero);
     std::cout << "Cartao criado com sucesso, o número do seu cartao é: " << 
     novoCartao.numero << std::endl;
@@ -320,7 +310,7 @@ int Banco::bloquear_cartao() {
     throw CartaoNaoEncontradoException(numero);
 }
 
-int Banco::gerar_relatorio() {
+int Banco::gerar_relatorio(std::string dados) {
     std::ofstream relatorio("relatorio_banco.txt");
     if (!relatorio.is_open()) {
         std::cerr << "Erro ao criar arquivo de relatorio!\n";
@@ -336,6 +326,7 @@ int Banco::gerar_relatorio() {
         relatorio << "ID: " << conta->getId() << " | Titular: " << conta->getNomeTitular()
                   << " | Saldo: R$" << conta->getSaldo() << " | Ativa: " << (conta->isAtivo() ? "Sim" : "Nao") << "\n";
     }
+    relatorio << "\n\n" << dados;
 
     relatorio.close();
     std::cout << "Relatorio 'relatorio_banco.txt' gerado com sucesso!\n";
@@ -365,6 +356,15 @@ int Banco::realizar_transacao(){
         throw EntradaInvalidaException("Não pode transferir para a mesma conta");
     }
 
+    int pos_origem = posicao_id(id_origem);
+    if(!contas[pos_origem]->isAprovada()){
+        throw ContaNaoAprovada();
+    }
+
+    int pos_destino = posicao_id(id_destinatario);
+    if(!contas[pos_destino]->isAprovada()){
+        throw ContaNaoAprovada();
+    }
     std::cout << "Digite o valor que deseja transferir: ";
     std::cin >> valor;
     if (std::cin.fail()) throw EntradaInvalidaException();
@@ -381,8 +381,6 @@ int Banco::realizar_transacao(){
     this->validar_transacao(transac);
 
     if(transac.aprovada) {
-        int pos_origem = posicao_id(id_origem);
-        int pos_destino = posicao_id(id_destinatario);
         
         this->contas[pos_origem]->sacar(valor);
         this->contas[pos_destino]->depositar(valor);
@@ -408,6 +406,10 @@ int Banco::realizar_saque(){
         std::cout << "Autenticação falhou. Operação cancelada.\n";
         return 0;
     }
+    int pos = posicao_id(id_conta);
+    if(!contas[pos]->isAprovada()){
+        throw ContaNaoAprovada();
+    }
 
     std::cout << "Digite o numero do cartao: ";
     std::string numCartao;
@@ -423,7 +425,7 @@ int Banco::realizar_saque(){
     if (std::cin.fail()) throw EntradaInvalidaException();
     if (valor <= 0) throw EntradaInvalidaException();
 
-    int pos = posicao_id(id_conta);
+    
     this->contas[pos]->sacar(valor);
 
     Calendario novaData;
@@ -455,6 +457,10 @@ int Banco::realizar_deposito() {
         std::cout << "Autenticação falhou. Operação cancelada.\n";
         return 0;
     }
+    int pos = posicao_id(id_conta);
+    if(!contas[pos]->isAprovada()){
+        throw ContaNaoAprovada();
+    }
 
     std::cout << "Digite o numero do cartao: ";
     std::string numCartao;
@@ -471,7 +477,7 @@ int Banco::realizar_deposito() {
     if (valor <= 0) throw EntradaInvalidaException("Valor deve ser positivo");
 
     // Realizar o depósito
-    int pos = posicao_id(id_conta);
+    
     this->contas[pos]->depositar(valor);
 
     // Registrar o depósito
@@ -540,4 +546,14 @@ void Banco::gerar_extrato(int id_conta){
     } catch (const std::exception& e) {
         std::cerr << "Erro ao gerar extrato: " << e.what() << std::endl;
     }
+}
+
+const std::vector<std::shared_ptr<Conta>>& Banco::getContas() const {
+        return contas;
+}
+bool Banco::isContasEmpty(){
+    return contas.empty();
+};
+int Banco::contasSize(){
+    return contas.size();
 }
