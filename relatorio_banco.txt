@@ -1,7 +1,0 @@
---- Relatorio Geral do Banco ---
-
-
---- Detalhes das Contas ---
-ID: 1 | Titular: Valdisnei da Silva de Oliveira | Saldo: R$2898 | Ativa: Sim
-ID: 2 | Titular: Rei dos Cataventos | Saldo: R$2400 | Ativa: Sim
-ID: 3 | Titular: Darti Veiderson Scaiuouquer | Saldo: R$3000 | Ativa: Sim

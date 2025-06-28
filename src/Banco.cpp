@@ -25,20 +25,6 @@ std::vector<Transacao>& Banco::getTransacoes() { return transacoes; }
 void limparBuffer() {
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 }
-/*
-int Banco::posicao_id(int id){
-    int pos = 0;
-    int encontrado =0;
-    for(auto & c : this->contas){
-        if(id == c->getId()){
-            encontrado++;
-            break;
-        }
-        pos++;
-    }
-    if(!encontrado) throw ContaNaoEncontradaException(id);
-    return pos;
-}*/
 int Banco::posicao_id(int id) {
     for (size_t i = 0; i < contas.size(); ++i) {
         if (contas[i] && contas[i]->getId() == id) {
@@ -127,24 +113,24 @@ int Banco::gerenciar_contas() {
         }
         case 2: { 
              std::string razao_social, cnpj, rg_responsavel, senha, endereco, email, telefone;
-    double saldoInicial;
-    
-    std::cout << "Razao Social (Nome empresa): ";
-    std::getline(std::cin, razao_social);
-    std::cout << "CNPJ: ";
-    std::getline(std::cin, cnpj);
-    std::cout << "RG do Responsavel: ";
-    std::getline(std::cin, rg_responsavel);
-    std::cout << "Senha: ";
-    std::getline(std::cin, senha);
-    std::cout << "Endereco: ";
-    std::getline(std::cin, endereco);
-    std::cout << "Email: ";
-    std::getline(std::cin, email);
-    std::cout << "Telefone: ";
-    std::getline(std::cin, telefone);
-    
-    std::cout << "Quanto quer depositar inicialmente? (mínimo R$5000,00) ";
+            double saldoInicial;
+            
+            std::cout << "Razao Social (Nome empresa): ";
+            std::getline(std::cin, razao_social);
+            std::cout << "CNPJ: ";
+            std::getline(std::cin, cnpj);
+            std::cout << "RG do Responsavel: ";
+            std::getline(std::cin, rg_responsavel);
+            std::cout << "Senha: ";
+            std::getline(std::cin, senha);
+            std::cout << "Endereco: ";
+            std::getline(std::cin, endereco);
+            std::cout << "Email: ";
+            std::getline(std::cin, email);
+            std::cout << "Telefone: ";
+            std::getline(std::cin, telefone);
+            
+            std::cout << "Quanto quer depositar inicialmente? (mínimo R$5000,00) ";
         while(true) {
             std::cin >> saldoInicial;
             if(std::cin.fail() || saldoInicial < 5000) {
@@ -202,7 +188,7 @@ int Banco::gerenciar_contas() {
             }
             throw ContaNaoEncontradaException(id);
         }
-        case 5: 
+        case 5: {
         std::cout << "Digite o id da conta: ";
         int id;
         std::cin >> id;
@@ -212,7 +198,6 @@ int Banco::gerenciar_contas() {
             std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
             throw EntradaInvalidaException();
         }
-        
         verifica_id(id);
         
         if (!autenticar_conta(id)) {
@@ -220,8 +205,9 @@ int Banco::gerenciar_contas() {
             return 0;
         }
         gerar_extrato(id);
+        return 1;
+        }
 
-        break;
         case 6: { // Listar as contas
             if (contas.empty()) {
                 std::cout << "Nenhuma conta cadastrada.\n";
