@@ -1,0 +1,27 @@
+*** RESUMO PAGAMENTOS TOTAIS BANCO ESPECTRAL ***
+Titular: Valdisnei da Silva de Oliveira
+Conta ID: 1
+Saldo atual: R$2898
+
+--- TRANSACOES ---
+Data: 
+Enviado para: 2
+Valor: R$1200
+---
+Data: 
+Recebido de: 2
+Valor: R$1500
+---
+
+--- SAQUES ---
+Data:  junho é
+Valor: R$202
+---
+
+--- DEPOSITOS ---
+Data:  junho é
+Valor: R$1200
+---
+Data:  junho é
+Valor: R$1600
+---

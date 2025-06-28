@@ -54,7 +54,7 @@ public:
     bool verifica_id(int id);
     bool autenticar_conta(int id_conta);
     bool verificar_cartao(int id_conta, const std::string& numero_cartao);
-
+    void gerar_extrato(int id_conta);
     // Getters para acesso controlado aos dados internos
     std::vector<std::shared_ptr<Conta>>& getContas();
     std::vector<Transacao>& getTransacoes();

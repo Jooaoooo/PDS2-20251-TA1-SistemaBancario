@@ -66,6 +66,21 @@ int Calendario::get_data(int tipo){
 			//break;
 	}
 }
+
+std::string Calendario::get_data_formatada() {
+    std::ostringstream oss;
+    oss << std::setw(2) << std::setfill('0') << _dia << "/"
+        << std::setw(2) << std::setfill('0') << _mes << "/"
+        << _ano;
+    return oss.str();
+}
 std::string Calendario::get_data(){
 	return this->_data;
+}
+std::string Calendario::get_data(){
+    std::ostringstream oss;
+    oss << std::setw(2) << std::setfill('0') << _dia << "/"
+        << std::setw(2) << std::setfill('0') << _mes << "/"
+        << _ano;
+    return oss.str();
 }

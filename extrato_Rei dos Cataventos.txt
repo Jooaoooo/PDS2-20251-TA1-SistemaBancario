@@ -1,0 +1,22 @@
+*** RESUMO PAGAMENTOS TOTAIS BANCO ESPECTRAL ***
+Titular: Rei dos Cataventos
+Conta ID: 2
+Saldo atual: R$2400
+
+--- TRANSACOES ---
+Data: 
+Recebido de: 1
+Valor: R$1200
+---
+Data: 
+Enviado para: 1
+Valor: R$1500
+---
+Data: 
+Enviado para: 3
+Valor: R$3000
+---
+
+--- SAQUES ---
+
+--- DEPOSITOS ---

@@ -17,6 +17,7 @@
 #include <limits>
 #include <random>
 #include <string>
+#include <fstream>
 
 std::vector<std::shared_ptr<Conta>>& Banco::getContas() { return contas; }
 std::vector<Transacao>& Banco::getTransacoes() { return transacoes; }
@@ -81,7 +82,8 @@ int Banco::gerenciar_contas() {
               << "2 - Abrir conta PJ\n"
               << "3 - Consultar conta existente\n"
               << "4 - Encerrar conta\n"
-              << "5 - Listar contas existentes\n"
+              << "5 - Gerar extrato da conta\n"
+              << "6 - Listar contas existentes\n"
               << "Opcao: ";
     std::cin >> opcao;
     if (std::cin.fail()) throw EntradaInvalidaException();
@@ -115,7 +117,6 @@ int Banco::gerenciar_contas() {
             this->clientes.push_back(cliente);
             this->contas.push_back(conta);
             
-            std::cout << "Conta PF criada com sucesso! ID: " << conta->getId() << std::endl;
             return conta->getId();
         }
         case 2: { 
@@ -160,7 +161,6 @@ int Banco::gerenciar_contas() {
         this->clientes.push_back(cliente);
         this->contas.push_back(conta);
         
-        std::cout << "Conta PJ criada com sucesso! ID: " << conta->getId() << std::endl;
         return conta->getId();
 
         }
@@ -196,7 +196,26 @@ int Banco::gerenciar_contas() {
             }
             throw ContaNaoEncontradaException(id);
         }
-        case 5: { // Listar as contas
+        case 5: {
+        std::cout << "Digite o id da conta: ";
+        int id;
+        std::cin >> id;
+
+        if (std::cin.fail()) {
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            throw EntradaInvalidaException();
+        }
+        
+        verifica_id(id);
+        
+        if (!autenticar_conta(id)) {
+            std::cout << "Autenticação falhou. Operação cancelada.\n";
+            return 0;
+        }
+        gerar_extrato(id);
+        }
+        case 6: { // Listar as contas
             if (contas.empty()) {
                 std::cout << "Nenhuma conta cadastrada.\n";
                 return 0;
@@ -468,4 +487,62 @@ int Banco::realizar_deposito() {
     std::cout << "Deposito realizado com sucesso na conta ID " << id_conta << "!" << std::endl;
     
     return 1;
+}
+void Banco::gerar_extrato(int id_conta) {
+    try {
+        int pos = posicao_id(id_conta);
+        auto conta = contas[pos];
+        auto titular = conta->getTitular();
+
+        std::string nomeArq = "Extrato-" + titular->get_nome() + ".txt";
+        std::ofstream arquivo(nomeArq);
+
+        if (!arquivo.is_open()) {
+            throw std::runtime_error("Não foi possível criar o arquivo de extrato");
+        }
+
+        // Cabeçalho
+        arquivo << "*** RESUMO PAGAMENTOS TOTAIS BANCO ESPECTRAL ***\n";
+        arquivo << "Titular: " << titular->get_nome() << "\n";
+        arquivo << "Conta ID: " << id_conta << "\n";
+        arquivo << "Saldo atual: R$" << std::fixed << std::setprecision(2) << conta->getSaldo() << "\n\n";
+
+        // Transações
+        arquivo << "--- TRANSACOES ---\n";
+        for (const auto& t : transacoes) {
+            if (t.conta_origem == id_conta || t.conta_destino == id_conta) {
+                arquivo << "Data: " << t.data << "\n";
+                arquivo << (t.conta_origem == id_conta ? "Enviado para: " : "Recebido de: ");
+                arquivo << (t.conta_origem == id_conta ? t.conta_destino : t.conta_origem) << "\n";
+                arquivo << "Valor: R$" << t.valor << "\n";
+                arquivo << "------------\n";
+            }
+        }
+
+        // Saques
+        arquivo << "\n--- SAQUES ---\n";
+        for (const auto& s : saques) {
+            if (s.id_conta == id_conta) {
+                arquivo << "Data: " << s.data << "\n";
+                arquivo << "Valor: R$" << s.valor << "\n";
+                arquivo << "------------\n";
+            }
+        }
+
+        // Depósitos
+        arquivo << "\n--- DEPOSITOS ---\n";
+        for (const auto& d : depositos) {
+            if (d.id_conta == id_conta) {
+                arquivo << "Data: " << d.data << "\n";
+                arquivo << "Valor: R$" << d.valor << "\n";
+                arquivo << "------------\n";
+            }
+        }
+
+        arquivo.close();
+        std::cout << "Extrato gerado com sucesso: " << nomeArq << std::endl;
+
+    } catch (const std::exception& e) {
+        std::cerr << "Erro ao gerar extrato: " << e.what() << std::endl;
+    }
 }
