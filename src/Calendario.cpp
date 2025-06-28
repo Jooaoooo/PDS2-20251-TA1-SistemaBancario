@@ -1,4 +1,8 @@
 #include "Calendario.hpp"
+#include <iomanip>    
+#include <sstream>    
+#include <chrono> 
+#include <ctime> 
 
 void Calendario::calcular_data(){
 	auto agora = std::chrono::system_clock::now();
@@ -10,7 +14,7 @@ void Calendario::calcular_data(){
 	this->_dia = 1 + dataHora->tm_mday;
 
 	this->_data = "";
-	this->_data += this->_dia;
+	this->_data += std::to_string(this->_dia);
 	this->_data += " ";
 	switch(this->_mes){
 		case 1:
@@ -50,7 +54,7 @@ void Calendario::calcular_data(){
 			this->_data += "Dezembro ";
 			break;
 	}
-	this->_data += this->_ano;
+	this->_data += "de " + std::to_string(this->_ano);
 }
 int Calendario::get_data(int tipo){
 	switch(tipo){
@@ -76,11 +80,4 @@ std::string Calendario::get_data_formatada() {
 }
 std::string Calendario::get_data(){
 	return this->_data;
-}
-std::string Calendario::get_data(){
-    std::ostringstream oss;
-    oss << std::setw(2) << std::setfill('0') << _dia << "/"
-        << std::setw(2) << std::setfill('0') << _mes << "/"
-        << _ano;
-    return oss.str();
 }

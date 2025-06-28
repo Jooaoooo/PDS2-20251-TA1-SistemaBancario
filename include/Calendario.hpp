@@ -10,4 +10,5 @@ struct Calendario{
 	void calcular_data();//inteiro
 	int get_data(int tipo);//0: dia, 1: mes, 2: ano;
 	std::string get_data();//string
+	std::string get_data_formatada();
 };

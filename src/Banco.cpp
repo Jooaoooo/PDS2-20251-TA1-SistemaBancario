@@ -206,7 +206,6 @@ int Banco::gerenciar_contas() {
             std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
             throw EntradaInvalidaException();
         }
-        
         verifica_id(id);
         
         if (!autenticar_conta(id)) {
@@ -214,6 +213,7 @@ int Banco::gerenciar_contas() {
             return 0;
         }
         gerar_extrato(id);
+        return 1;
         }
         case 6: { // Listar as contas
             if (contas.empty()) {
