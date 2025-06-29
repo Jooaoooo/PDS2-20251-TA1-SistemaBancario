@@ -16,7 +16,7 @@ protected:
     std::shared_ptr<Cliente> _titular;
     std::string num_cartao;
 
-    Conta(std::shared_ptr<Cliente> titular,int id, double saldoInicial, double limiteInicial);
+    Conta(std::shared_ptr<Cliente> titular,int id, double saldoInicial, double limiteInicial);//V
 
 public:
     virtual ~Conta() = default;
@@ -27,10 +27,10 @@ public:
     virtual std::string getNomeTitular() const = 0;
 
     // Métodos de operação
-    bool depositar(double valor);
-    bool sacar(double valor);
-    void aprovar();
-    void definirLimite(double novoLimite);
+    bool depositar(double valor);//V
+    bool sacar(double valor);//V
+    void aprovar();//V
+    void definirLimite(double novoLimite);//V
 
     int getId() const;
     double getSaldo() const;

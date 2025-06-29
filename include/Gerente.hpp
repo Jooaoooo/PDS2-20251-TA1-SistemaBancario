@@ -25,12 +25,12 @@ private:
     std::string _senha;
 
 public:
-    Gerente(std::string nome, std::string cpf, std::string rg, std::string senha);
+    Gerente(std::string nome, std::string cpf, std::string rg, std::string senha);//O
     int operacoes_gerente(Banco& banco);
     int aprovar_pj(Banco& banco);
     void gerar_relatorio(Banco& banco);
     void validar_transacoes(Banco& banco);
-    bool autenticacao(std::string cpf, std::string rg, std::string senha);
+    bool autenticacao(std::string cpf, std::string rg, std::string senha);//O
     
     std::vector<Contas_Liberadas>liberadas; 
 };
