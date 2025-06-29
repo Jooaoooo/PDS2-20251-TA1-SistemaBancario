@@ -24,6 +24,10 @@ std::vector<std::shared_ptr<Cliente>> clientes;
 Gerente::Gerente(std::string nome, std::string cpf, std::string rg, std::string senha)
     :_nome(nome),_cpf(cpf), _rg(rg), _senha(senha) {};
 
+std::string Gerente::get_nome() const { return _nome; }
+std::string Gerente::get_cpf() const { return _cpf; }
+std::string Gerente::get_rg() const { return _rg; }
+
 
 int Gerente::operacoes_gerente(Banco& banco){
     std::cout << "Logado como " << this->_nome << "\n" 

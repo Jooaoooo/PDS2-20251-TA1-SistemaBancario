@@ -26,6 +26,10 @@ private:
 
 public:
     Gerente(std::string nome, std::string cpf, std::string rg, std::string senha);
+    std::string get_nome() const; 
+    std::string get_cpf() const;
+    std::string get_rg() const;
+
     int operacoes_gerente(Banco& banco);
     int aprovar_pj(Banco& banco);
     void gerar_relatorio(Banco& banco);
