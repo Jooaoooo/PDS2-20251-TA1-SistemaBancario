@@ -1,3 +1,19 @@
+/**
+ *@file main.cpp 
+ * @brief Software de sistema bancário 
+ * 
+ * Esse programa simula um software de sistema bancário, contendo
+ * operações básicas que um banco pode conter com contas do tipo 
+ * pessoa física, pessoa jurídica e também gerente.
+ * 
+ * @author Lucas Miller dos Santos Sousa
+ * @author João Augusto Rosa Cunha
+ * @author Alan Pessoa Silva
+ * @author Natan Inoue dos Reis
+ * 
+ * @date abril de 2025
+ * */
+
 #include "Conta.hpp"
 #include "Cliente.hpp"
 #include "ContaPf.hpp"
@@ -11,8 +27,22 @@
 #include <iostream>
 #include <sstream>
 
+
+/**
+ * @brief Realiza a leitura do arquivo de gerentes e armazena em um vector
+ * @param gerentes - referência para vector de clientes
+ * @return Retorna o tamanho do vector gerentes
+ * */ 
 int setup_gerentes(std::vector<Gerente>&gerentes);
 
+/**
+ * @brief Interface geral para o usuário
+ * 
+ * Contém a interfácie inicial para o cliente, contém 
+ * instância de Banco e Gerente, além de criar a ponte entre
+ * os dois
+ * 
+ * */
 int main() {
     Banco banco;
     std::vector<Gerente> gerentes;
