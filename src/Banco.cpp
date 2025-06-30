@@ -19,6 +19,8 @@
 #include <string>
 #include <fstream>
 
+//TESTE
+
 std::vector<std::shared_ptr<Conta>>& Banco::getContas() { return contas; }
 std::vector<Transacao>& Banco::getTransacoes() { return transacoes; }
 
