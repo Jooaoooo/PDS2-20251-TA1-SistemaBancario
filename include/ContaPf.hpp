@@ -17,6 +17,6 @@ public:
     void bloquear() override;
     void ativar() override;
     std::string getNomeTitular() const override;
-    float calcualarTesouro(int tempo, float investimento);
+    float calcularTesouro(int tempo, float investimento);
     std::string getCpf() const;
 };

@@ -31,7 +31,7 @@ std::string ContaPf::getCpf() const {
 bool ContaPf::validarCpf() {
     return _titular && !_titular->get_cpf_cnpj().empty();
 }
-float ContaPf::calcualarTesouro(int tempo, float investimento){
+float ContaPf::calcularTesouro(int tempo, float investimento){
     float montante;
     montante = investimento*pow((1+this->_taxaSelic),tempo);
     return montante;
