@@ -3,9 +3,10 @@
 
 #include <iostream>
 #include <string>
-#include <iomanip> // Para formatação de output
+#include <iomanip>
 
 template <typename T>
+
 void exibirTotal(const std::string& rotulo, T valor) {
     std::cout << rotulo << ": " << valor << std::endl;
 }
