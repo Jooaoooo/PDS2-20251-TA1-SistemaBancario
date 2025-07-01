@@ -1,0 +1,58 @@
+\doxysection{Referência ao ficheiro src/\+Gerente.cpp}
+\hypertarget{Gerente_8cpp}{}\label{Gerente_8cpp}\index{src/Gerente.cpp@{src/Gerente.cpp}}
+{\ttfamily \#include "{}Gerente.\+hpp"{}}\newline
+{\ttfamily \#include "{}Banco.\+hpp"{}}\newline
+{\ttfamily \#include "{}Conta\+Pf.\+hpp"{}}\newline
+{\ttfamily \#include "{}Conta\+Pj.\+hpp"{}}\newline
+{\ttfamily \#include "{}Cliente.\+hpp"{}}\newline
+{\ttfamily \#include "{}Conta.\+hpp"{}}\newline
+{\ttfamily \#include "{}Excecoes.\+hpp"{}}\newline
+{\ttfamily \#include "{}Calendario.\+hpp"{}}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$ctime$>$}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include $<$memory$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include $<$limits$>$}\newline
+\doxysubsubsection*{Variáveis}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classConta}{Conta}} $>$ $>$ \mbox{\hyperlink{Gerente_8cpp_a3135fc62a348b02f9afb01903b064ce1}{contas}}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{structTransacao}{Transacao}} $>$ \mbox{\hyperlink{Gerente_8cpp_a06087373a9c9b998baae9d71a5f56bc5}{transacoes}}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{structCartao}{Cartao}} $>$ \mbox{\hyperlink{Gerente_8cpp_abf1efda7464ed4250c6e5bb4a0cd295e}{cartoes}}
+\item 
+std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classCliente}{Cliente}} $>$ $>$ \mbox{\hyperlink{Gerente_8cpp_a87633f4b1a2af7aa658d0713f2bcef89}{clientes}}
+\end{DoxyCompactItemize}
+
+
+\label{doc-var-members}
+\Hypertarget{Gerente_8cpp_doc-var-members}
+\doxysubsection{Documentação das variáveis}
+\Hypertarget{Gerente_8cpp_abf1efda7464ed4250c6e5bb4a0cd295e}\index{Gerente.cpp@{Gerente.cpp}!cartoes@{cartoes}}
+\index{cartoes@{cartoes}!Gerente.cpp@{Gerente.cpp}}
+\doxysubsubsection{\texorpdfstring{cartoes}{cartoes}}
+{\footnotesize\ttfamily \label{Gerente_8cpp_abf1efda7464ed4250c6e5bb4a0cd295e} 
+std\+::vector$<$\mbox{\hyperlink{structCartao}{Cartao}}$>$ cartoes}
+
+\Hypertarget{Gerente_8cpp_a87633f4b1a2af7aa658d0713f2bcef89}\index{Gerente.cpp@{Gerente.cpp}!clientes@{clientes}}
+\index{clientes@{clientes}!Gerente.cpp@{Gerente.cpp}}
+\doxysubsubsection{\texorpdfstring{clientes}{clientes}}
+{\footnotesize\ttfamily \label{Gerente_8cpp_a87633f4b1a2af7aa658d0713f2bcef89} 
+std\+::vector$<$std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{classCliente}{Cliente}}$>$ $>$ clientes}
+
+\Hypertarget{Gerente_8cpp_a3135fc62a348b02f9afb01903b064ce1}\index{Gerente.cpp@{Gerente.cpp}!contas@{contas}}
+\index{contas@{contas}!Gerente.cpp@{Gerente.cpp}}
+\doxysubsubsection{\texorpdfstring{contas}{contas}}
+{\footnotesize\ttfamily \label{Gerente_8cpp_a3135fc62a348b02f9afb01903b064ce1} 
+std\+::vector$<$std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{classConta}{Conta}}$>$ $>$ contas}
+
+\Hypertarget{Gerente_8cpp_a06087373a9c9b998baae9d71a5f56bc5}\index{Gerente.cpp@{Gerente.cpp}!transacoes@{transacoes}}
+\index{transacoes@{transacoes}!Gerente.cpp@{Gerente.cpp}}
+\doxysubsubsection{\texorpdfstring{transacoes}{transacoes}}
+{\footnotesize\ttfamily \label{Gerente_8cpp_a06087373a9c9b998baae9d71a5f56bc5} 
+std\+::vector$<$\mbox{\hyperlink{structTransacao}{Transacao}}$>$ transacoes}
+

@@ -1,0 +1,63 @@
+\doxysection{Conta.\+hpp}
+\hypertarget{Conta_8hpp_source}{}\label{Conta_8hpp_source}\index{include/Conta.hpp@{include/Conta.hpp}}
+\mbox{\hyperlink{Conta_8hpp}{Ir para a documentação deste ficheiro.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{Cliente_8hpp}{Cliente.hpp}}"{}}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classConta_aa972efab7a6a2bf3c08d273e3b81ae1e}{Conta}}\ \{}
+\DoxyCodeLine{00014\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ \_proximoId;\ }
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classConta_a6ff03444e6d2f72fe0fc4cb951b0be04}{\_id}};\ }
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classConta_a27443b89b84f46db3e8172dce402d3b7}{\_saldo}};\ }
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classConta_a41c17e0eff2d296d6112d667b1b75cd2}{\_limite}};\ }
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classConta_a7ce93e58c3b8a5c2cce74448044ad94d}{\_ativo}};\ }
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classConta_a118d7c0bf7c1ba5de1a7a115ffbdd860}{\_aprovada}};\ }
+\DoxyCodeLine{00023\ \ \ \ \ std::shared\_ptr<Cliente>\ \mbox{\hyperlink{classConta_a09eabd706d320720a3a08f2e147ca9b6}{\_titular}};\ }
+\DoxyCodeLine{00024\ \ \ \ \ std::string\ \mbox{\hyperlink{classConta_a66180746c08845c991ab39b3ea276a4c}{num\_cartao}};\ }
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00033\ \ \ \ \ \mbox{\hyperlink{classConta_aa972efab7a6a2bf3c08d273e3b81ae1e}{Conta}}(std::shared\_ptr<Cliente>\ titular,\textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id},\ \textcolor{keywordtype}{double}\ saldoInicial,\ \textcolor{keywordtype}{double}\ limiteInicial);\textcolor{comment}{//V}}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classConta_a8d99ba6b834d1e39e3714dd7957a2d24}{\string~Conta}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{comment}{//\ Métodos\ virtuais\ puros}}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classConta_aa81639dceefbc47d96e34579fe4d73bf}{bloquear}}()\ =\ 0;}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classConta_acf0aaa3b47ff8d73ddc65fc65183b870}{ativar}}()\ =\ 0;}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keyword}{virtual}\ std::string\ \mbox{\hyperlink{classConta_ac87355dd359164954a6772674a810968}{getNomeTitular}}()\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{comment}{//\ Métodos\ de\ operação}}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classConta_ae34df55caecd2ece2b81250d04d57552}{depositar}}(\textcolor{keywordtype}{double}\ valor);}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classConta_ad7e30c17ce7c9fb342261dbf5c7f38a2}{sacar}}(\textcolor{keywordtype}{double}\ valor);}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classConta_a3660c8ab3df8d15e0d441e8e7d544e37}{aprovar}}();}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00085\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classConta_a53d062f48c8ce6223228d8d37a806363}{definirLimite}}(\textcolor{keywordtype}{double}\ novoLimite);}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classConta_a95665d5573c61bb77af85acf9039e2f1}{getId}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00097\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classConta_ad849088dfcc0087d08a8f7509585095c}{getSaldo}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00103\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classConta_a7f4aef05afce8fb0cc734cf8112efbbc}{getLimite}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00109\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classConta_ad9751eea1c3d75c1bc8a6481ba4a7d92}{isAtivo}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00115\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classConta_af7d46dbeb6deac1ad90204e123f20f9d}{isAprovada}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00121\ \ \ \ \ std::shared\_ptr<Cliente>\ \mbox{\hyperlink{classConta_a90f651100482a59abee75b02b10dcd29}{getTitular}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00122\ }
+\DoxyCodeLine{00127\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classConta_a9a13d3fcba8199cdc006b49c8fd0c94f}{set\_num\_cartao}}(std::string\ num);}
+\DoxyCodeLine{00128\ \};}
+
+\end{DoxyCode}

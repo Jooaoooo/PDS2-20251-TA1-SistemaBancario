@@ -1,0 +1,171 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.14.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>SpectralBank++: Código-Fonte de include/Gerente.hpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">SpectralBank++<span id="projectnumber">&#160;1.0</span>
+   </div>
+   <div id="projectbrief">Simulação de Sistema Bancário</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.14.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Localizar',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('Gerente_8hpp_source.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Carregando...</div>
+<div class="SRStatus" id="Searching">Procurando...</div>
+<div class="SRStatus" id="NoMatches">Nenhuma entrada encontrada</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Gerente.hpp</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="Gerente_8hpp.html">Ir para a documentação deste ficheiro.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;<a class="code" href="Banco_8hpp.html">Banco.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;<a class="code" href="ContaPf_8hpp.html">ContaPf.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;<a class="code" href="ContaPj_8hpp.html">ContaPj.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;<a class="code" href="RelatorioTemplate_8hpp.html">RelatorioTemplate.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;<a class="code" href="Cliente_8hpp.html">Cliente.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;<a class="code" href="Conta_8hpp.html">Conta.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
+<div class="foldopen" id="foldopen00022" data-start="{" data-end="};">
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="classGerente.html">   22</a></span><span class="keyword">class </span><a class="code hl_function" href="classGerente.html#a0573692f29d93e20f657808d166e18b8">Gerente</a> {</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="keyword">struct </span>Contas_Liberadas{</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <span class="keywordtype">int</span> id; </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    std::string data; </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>};</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    std::string _nome; </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    std::string _cpf; </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    std::string _rg; </div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    std::string _senha; </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    <a class="code hl_function" href="classGerente.html#a0573692f29d93e20f657808d166e18b8">Gerente</a>(std::string nome, std::string cpf, std::string rg, std::string senha);</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    </div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    std::string <a class="code hl_function" href="classGerente.html#a15f2e43e8e601e1228e131c6f0c0230b">get_nome</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    std::string <a class="code hl_function" href="classGerente.html#ac743f328dabeae32b3bb950abc4cf08c">get_cpf</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span></div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    std::string <a class="code hl_function" href="classGerente.html#ad89e735f5c1248db462981df15fe740b">get_rg</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span></div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    <span class="keywordtype">int</span> <a class="code hl_function" href="classGerente.html#ae032079beb5a26783a48fafcce99bb04">operacoes_gerente</a>(<a class="code hl_class" href="classBanco.html">Banco</a>&amp; banco);</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span></div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    <span class="keywordtype">int</span> <a class="code hl_function" href="classGerente.html#aa771923ed0f2aa32a207e17b61659f50">aprovar_pj</a>(<a class="code hl_class" href="classBanco.html">Banco</a>&amp; banco);</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span></div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classGerente.html#a61d6c6c8ee6f4dd5211a84664728f8f2">gerar_relatorio</a>(<a class="code hl_class" href="classBanco.html">Banco</a>&amp; banco);</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span></div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classGerente.html#a48877b96faef436e86ce7c35199778b9">validar_transacoes</a>(<a class="code hl_class" href="classBanco.html">Banco</a>&amp; banco);</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span></div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classGerente.html#ab986758c8077f2f70440259d7bb180fc">autenticacao</a>(std::string cpf, std::string rg, std::string senha);<span class="comment">//O</span></div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>    </div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno"><a class="line" href="classGerente.html#a80bf61759d8f81a47e05a51f34982450">  111</a></span>    std::vector&lt;Contas_Liberadas&gt;<a class="code hl_variable" href="classGerente.html#a80bf61759d8f81a47e05a51f34982450">liberadas</a>; </div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>};</div>
+</div>
+<div class="ttc" id="aBanco_8hpp_html"><div class="ttname"><a href="Banco_8hpp.html">Banco.hpp</a></div></div>
+<div class="ttc" id="aCliente_8hpp_html"><div class="ttname"><a href="Cliente_8hpp.html">Cliente.hpp</a></div></div>
+<div class="ttc" id="aContaPf_8hpp_html"><div class="ttname"><a href="ContaPf_8hpp.html">ContaPf.hpp</a></div></div>
+<div class="ttc" id="aContaPj_8hpp_html"><div class="ttname"><a href="ContaPj_8hpp.html">ContaPj.hpp</a></div></div>
+<div class="ttc" id="aConta_8hpp_html"><div class="ttname"><a href="Conta_8hpp.html">Conta.hpp</a></div></div>
+<div class="ttc" id="aRelatorioTemplate_8hpp_html"><div class="ttname"><a href="RelatorioTemplate_8hpp.html">RelatorioTemplate.hpp</a></div></div>
+<div class="ttc" id="aclassBanco_html"><div class="ttname"><a href="classBanco.html">Banco</a></div><div class="ttdoc">Contém operações e operações bancárias.</div><div class="ttdef"><b>Definição</b> Banco.hpp:61</div></div>
+<div class="ttc" id="aclassGerente_html_a0573692f29d93e20f657808d166e18b8"><div class="ttname"><a href="classGerente.html#a0573692f29d93e20f657808d166e18b8">Gerente::Gerente</a></div><div class="ttdeci">Gerente(std::string nome, std::string cpf, std::string rg, std::string senha)</div><div class="ttdoc">Armazena informações iniciais do Gerente.</div><div class="ttdef"><b>Definição</b> Gerente.cpp:24</div></div>
+<div class="ttc" id="aclassGerente_html_a15f2e43e8e601e1228e131c6f0c0230b"><div class="ttname"><a href="classGerente.html#a15f2e43e8e601e1228e131c6f0c0230b">Gerente::get_nome</a></div><div class="ttdeci">std::string get_nome() const</div><div class="ttdoc">Getter do nome do gerente.</div><div class="ttdef"><b>Definição</b> Gerente.cpp:27</div></div>
+<div class="ttc" id="aclassGerente_html_a48877b96faef436e86ce7c35199778b9"><div class="ttname"><a href="classGerente.html#a48877b96faef436e86ce7c35199778b9">Gerente::validar_transacoes</a></div><div class="ttdeci">void validar_transacoes(Banco &amp;banco)</div><div class="ttdoc">Permite ao gerente aprovar transações.</div><div class="ttdef"><b>Definição</b> Gerente.cpp:136</div></div>
+<div class="ttc" id="aclassGerente_html_a61d6c6c8ee6f4dd5211a84664728f8f2"><div class="ttname"><a href="classGerente.html#a61d6c6c8ee6f4dd5211a84664728f8f2">Gerente::gerar_relatorio</a></div><div class="ttdeci">void gerar_relatorio(Banco &amp;banco)</div><div class="ttdoc">Gera arquivo de relatório.</div><div class="ttdef"><b>Definição</b> Gerente.cpp:128</div></div>
+<div class="ttc" id="aclassGerente_html_a80bf61759d8f81a47e05a51f34982450"><div class="ttname"><a href="classGerente.html#a80bf61759d8f81a47e05a51f34982450">Gerente::liberadas</a></div><div class="ttdeci">std::vector&lt; Contas_Liberadas &gt; liberadas</div><div class="ttdoc">vector de contas liberadas pelo gerente</div><div class="ttdef"><b>Definição</b> Gerente.hpp:111</div></div>
+<div class="ttc" id="aclassGerente_html_aa771923ed0f2aa32a207e17b61659f50"><div class="ttname"><a href="classGerente.html#aa771923ed0f2aa32a207e17b61659f50">Gerente::aprovar_pj</a></div><div class="ttdeci">int aprovar_pj(Banco &amp;banco)</div><div class="ttdoc">Permite o gerente aprovar uma conta Pj.</div><div class="ttdef"><b>Definição</b> Gerente.cpp:75</div></div>
+<div class="ttc" id="aclassGerente_html_ab986758c8077f2f70440259d7bb180fc"><div class="ttname"><a href="classGerente.html#ab986758c8077f2f70440259d7bb180fc">Gerente::autenticacao</a></div><div class="ttdeci">bool autenticacao(std::string cpf, std::string rg, std::string senha)</div><div class="ttdoc">Realiza processo de autenticação do Gerente para login.</div><div class="ttdef"><b>Definição</b> Gerente.cpp:122</div></div>
+<div class="ttc" id="aclassGerente_html_ac743f328dabeae32b3bb950abc4cf08c"><div class="ttname"><a href="classGerente.html#ac743f328dabeae32b3bb950abc4cf08c">Gerente::get_cpf</a></div><div class="ttdeci">std::string get_cpf() const</div><div class="ttdoc">Getter do cpf do gerente.</div><div class="ttdef"><b>Definição</b> Gerente.cpp:28</div></div>
+<div class="ttc" id="aclassGerente_html_ad89e735f5c1248db462981df15fe740b"><div class="ttname"><a href="classGerente.html#ad89e735f5c1248db462981df15fe740b">Gerente::get_rg</a></div><div class="ttdeci">std::string get_rg() const</div><div class="ttdoc">Getter do rg do gerente.</div><div class="ttdef"><b>Definição</b> Gerente.cpp:29</div></div>
+<div class="ttc" id="aclassGerente_html_ae032079beb5a26783a48fafcce99bb04"><div class="ttname"><a href="classGerente.html#ae032079beb5a26783a48fafcce99bb04">Gerente::operacoes_gerente</a></div><div class="ttdeci">int operacoes_gerente(Banco &amp;banco)</div><div class="ttdoc">Interface para execução de ações do gerente.</div><div class="ttdef"><b>Definição</b> Gerente.cpp:32</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a href="Gerente_8hpp.html">Gerente.hpp</a></li>
+    <li class="footer">Gerado por <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.14.0 </li>
+  </ul>
+</div>
+</body>
+</html>

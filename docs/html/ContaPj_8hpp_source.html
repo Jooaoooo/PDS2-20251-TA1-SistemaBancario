@@ -1,0 +1,149 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.14.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>SpectralBank++: Código-Fonte de include/ContaPj.hpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">SpectralBank++<span id="projectnumber">&#160;1.0</span>
+   </div>
+   <div id="projectbrief">Simulação de Sistema Bancário</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.14.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Localizar',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('ContaPj_8hpp_source.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Carregando...</div>
+<div class="SRStatus" id="Searching">Procurando...</div>
+<div class="SRStatus" id="NoMatches">Nenhuma entrada encontrada</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">ContaPj.hpp</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="ContaPj_8hpp.html">Ir para a documentação deste ficheiro.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;<a class="code" href="Conta_8hpp.html">Conta.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;<a class="code" href="Cliente_8hpp.html">Cliente.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;<a class="code" href="Calendario_8hpp.html">Calendario.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span></div>
+<div class="foldopen" id="foldopen00016" data-start="{" data-end="};">
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="classContaPj.html">   16</a></span><span class="keyword">class </span><a class="code hl_function" href="classContaPj.html#a448f86cf9ac5674d320400189bb999d2">ContaPj</a> : <span class="keyword">public</span> <a class="code hl_function" href="classConta.html#aa972efab7a6a2bf3c08d273e3b81ae1e">Conta</a> {</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <span class="keywordtype">bool</span> validarCnpj();</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <a class="code hl_struct" href="structCalendario.html">Calendario</a> _dataCriacao; </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <a class="code hl_function" href="classContaPj.html#a448f86cf9ac5674d320400189bb999d2">ContaPj</a>(std::shared_ptr&lt;Cliente&gt; titular, <span class="keywordtype">int</span> <span class="keywordtype">id</span>, <span class="keyword">const</span> std::string&amp; senha, <span class="keywordtype">double</span> saldoInicial);<span class="comment">//V</span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classContaPj.html#a799bdf83bada88218b0250a25161bca1">bloquear</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classContaPj.html#a574d1d27a50a78f90cff2da165682952">ativar</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    std::string <a class="code hl_function" href="classContaPj.html#ab348f0dec01fe38b48ecbb406e94f7bb">getNomeTitular</a>() <span class="keyword">const override</span>;</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span></div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    std::string <a class="code hl_function" href="classContaPj.html#a7cdfd7db6ae0401913e66ebb47ddfa5a">getRazaoSocial</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span></div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    std::string <a class="code hl_function" href="classContaPj.html#aaed2413275b5a45c594a0bbce077f06f">getCnpj</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>};</div>
+</div>
+<div class="ttc" id="aCalendario_8hpp_html"><div class="ttname"><a href="Calendario_8hpp.html">Calendario.hpp</a></div></div>
+<div class="ttc" id="aCliente_8hpp_html"><div class="ttname"><a href="Cliente_8hpp.html">Cliente.hpp</a></div></div>
+<div class="ttc" id="aConta_8hpp_html"><div class="ttname"><a href="Conta_8hpp.html">Conta.hpp</a></div></div>
+<div class="ttc" id="aclassContaPj_html_a448f86cf9ac5674d320400189bb999d2"><div class="ttname"><a href="classContaPj.html#a448f86cf9ac5674d320400189bb999d2">ContaPj::ContaPj</a></div><div class="ttdeci">ContaPj(std::shared_ptr&lt; Cliente &gt; titular, int id, const std::string &amp;senha, double saldoInicial)</div><div class="ttdoc">Armazena informações iniciais da conta Pj.</div><div class="ttdef"><b>Definição</b> ContaPj.cpp:5</div></div>
+<div class="ttc" id="aclassContaPj_html_a574d1d27a50a78f90cff2da165682952"><div class="ttname"><a href="classContaPj.html#a574d1d27a50a78f90cff2da165682952">ContaPj::ativar</a></div><div class="ttdeci">void ativar() override</div><div class="ttdoc">Método para obter o nome do titular da conta Pj.</div><div class="ttdef"><b>Definição</b> ContaPj.cpp:16</div></div>
+<div class="ttc" id="aclassContaPj_html_a799bdf83bada88218b0250a25161bca1"><div class="ttname"><a href="classContaPj.html#a799bdf83bada88218b0250a25161bca1">ContaPj::bloquear</a></div><div class="ttdeci">void bloquear() override</div><div class="ttdoc">Método para bloquear a conta Pj.</div><div class="ttdef"><b>Definição</b> ContaPj.cpp:12</div></div>
+<div class="ttc" id="aclassContaPj_html_a7cdfd7db6ae0401913e66ebb47ddfa5a"><div class="ttname"><a href="classContaPj.html#a7cdfd7db6ae0401913e66ebb47ddfa5a">ContaPj::getRazaoSocial</a></div><div class="ttdeci">std::string getRazaoSocial() const</div><div class="ttdoc">Método para obter a razão social da conta Pj.</div><div class="ttdef"><b>Definição</b> ContaPj.cpp:25</div></div>
+<div class="ttc" id="aclassContaPj_html_aaed2413275b5a45c594a0bbce077f06f"><div class="ttname"><a href="classContaPj.html#aaed2413275b5a45c594a0bbce077f06f">ContaPj::getCnpj</a></div><div class="ttdeci">std::string getCnpj() const</div><div class="ttdoc">Método para obter o CNPJ da conta Pj.</div><div class="ttdef"><b>Definição</b> ContaPj.cpp:30</div></div>
+<div class="ttc" id="aclassContaPj_html_ab348f0dec01fe38b48ecbb406e94f7bb"><div class="ttname"><a href="classContaPj.html#ab348f0dec01fe38b48ecbb406e94f7bb">ContaPj::getNomeTitular</a></div><div class="ttdeci">std::string getNomeTitular() const override</div><div class="ttdoc">Método para obter o nome do titular da conta Pj.</div><div class="ttdef"><b>Definição</b> ContaPj.cpp:21</div></div>
+<div class="ttc" id="aclassConta_html_aa972efab7a6a2bf3c08d273e3b81ae1e"><div class="ttname"><a href="classConta.html#aa972efab7a6a2bf3c08d273e3b81ae1e">Conta::Conta</a></div><div class="ttdeci">Conta(std::shared_ptr&lt; Cliente &gt; titular, int id, double saldoInicial, double limiteInicial)</div><div class="ttdoc">Armazena informações iniciais da conta.</div><div class="ttdef"><b>Definição</b> Conta.cpp:7</div></div>
+<div class="ttc" id="astructCalendario_html"><div class="ttname"><a href="structCalendario.html">Calendario</a></div><div class="ttdoc">armazena informações de Data</div><div class="ttdef"><b>Definição</b> Calendario.hpp:11</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a href="ContaPj_8hpp.html">ContaPj.hpp</a></li>
+    <li class="footer">Gerado por <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.14.0 </li>
+  </ul>
+</div>
+</body>
+</html>

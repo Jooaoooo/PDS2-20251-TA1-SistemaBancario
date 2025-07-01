@@ -1,0 +1,47 @@
+\doxysection{Cliente.\+hpp}
+\hypertarget{Cliente_8hpp_source}{}\label{Cliente_8hpp_source}\index{include/Cliente.hpp@{include/Cliente.hpp}}
+\mbox{\hyperlink{Cliente_8hpp}{Ir para a documentação deste ficheiro.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classCliente_a9dc1d3f09fe73a504be0461f724b374e}{Cliente}}\ \{}
+\DoxyCodeLine{00013\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00014\ \ \ \ \ std::string\ \_nome;\ }
+\DoxyCodeLine{00015\ \ \ \ \ std::string\ \_cpf\_cnpj;\ }
+\DoxyCodeLine{00016\ \ \ \ \ std::string\ \_rg;\ }
+\DoxyCodeLine{00017\ \ \ \ \ std::string\ \_senha;\ }
+\DoxyCodeLine{00018\ \ \ \ \ std::string\ \_endereco;\ }
+\DoxyCodeLine{00019\ \ \ \ \ std::string\ \_email;\ }
+\DoxyCodeLine{00020\ \ \ \ \ std::string\ \_telefone;\ }
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00034\ \ \ \ \ \mbox{\hyperlink{classCliente_a9dc1d3f09fe73a504be0461f724b374e}{Cliente}}(std::string\ nome,\ std::string\ cpf\_cnpj,\ std::string\ rg,\ std::string\ senha,}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ endereco,\ std::string\ email,\ std::string\ telefone);}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classCliente_a6c0fb863a4a1bfc3f88dd75b62a3ff38}{autenticar\_usuario}}(\textcolor{keyword}{const}\ std::string\&\ senha,\ \textcolor{keyword}{const}\ std::string\&\ rg)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00042\ \ \ \ \ }
+\DoxyCodeLine{00056\ \ \ \ \ std::string\ \mbox{\hyperlink{classCliente_a3104d12022f1bad10f1ec0a634b69a5f}{get\_dados}}(\textcolor{keywordtype}{int}\ dado)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCliente_a3c52f7a3d68a4ef203a778e2fbf7799e}{atualizar\_metodos\_contato}}(\textcolor{keyword}{const}\ std::string\&\ endereco,\ \textcolor{keyword}{const}\ std::string\&\ email,\ \textcolor{keyword}{const}\ std::string\&\ telefone);}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{comment}{//\ Getters}}
+\DoxyCodeLine{00069\ \ \ \ \ }
+\DoxyCodeLine{00074\ \ \ \ \ std::string\ \mbox{\hyperlink{classCliente_ae3d38164dffb1a932171595d59ee46c5}{get\_nome}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00075\ \ \ \ \ }
+\DoxyCodeLine{00080\ \ \ \ \ std::string\ \mbox{\hyperlink{classCliente_ae7b5882aa85a9828d78e16d34544ce65}{get\_cpf\_cnpj}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00081\ \ \ \ \ }
+\DoxyCodeLine{00086\ \ \ \ \ std::string\ \mbox{\hyperlink{classCliente_a85f0df75fe925eb759a5f9468cb3d38d}{get\_rg}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00087\ \ \ \ \ }
+\DoxyCodeLine{00092\ \ \ \ \ std::string\ \mbox{\hyperlink{classCliente_a705f103ac898ca24ce91acf75c93bfd9}{get\_senha}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00093\ \ \ \ \ }
+\DoxyCodeLine{00098\ \ \ \ \ std::string\ \mbox{\hyperlink{classCliente_aac25c8696e072a4e8887ecdc86c859ff}{get\_endereco}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00099\ \ \ \ \ }
+\DoxyCodeLine{00104\ \ \ \ \ std::string\ \mbox{\hyperlink{classCliente_a7e7a07bb5221ae3a974cce7824e41794}{get\_email}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00105\ \ \ \ \ }
+\DoxyCodeLine{00110\ \ \ \ \ std::string\ \mbox{\hyperlink{classCliente_a81d40e3530f7d1daad6f9d42d2da4bfc}{get\_telefone}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00111\ \};}
+
+\end{DoxyCode}

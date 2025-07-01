@@ -1,0 +1,38 @@
+\doxysection{Relatorio\+Template.\+hpp}
+\hypertarget{RelatorioTemplate_8hpp_source}{}\label{RelatorioTemplate_8hpp_source}\index{include/RelatorioTemplate.hpp@{include/RelatorioTemplate.hpp}}
+\mbox{\hyperlink{RelatorioTemplate_8hpp}{Ir para a documentação deste ficheiro.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ RELATORIO\_UTILS\_HPP}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ RELATORIO\_UTILS\_HPP}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <iomanip>}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{RelatorioTemplate_8hpp_a2396b58797b451859b8b9e631c7cb638}{exibirTotal}}(\textcolor{keyword}{const}\ std::string\&\ rotulo,\ T\ valor)\ \{}
+\DoxyCodeLine{00011\ \ \ \ \ std::cout\ <<\ rotulo\ <<\ \textcolor{stringliteral}{"{}:\ "{}}\ <<\ valor\ <<\ std::endl;}
+\DoxyCodeLine{00012\ \}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00015\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{RelatorioTemplate_8hpp_a558fd324d4ef3f7917df9b41e5d18457}{exibirPercentual}}(\textcolor{keyword}{const}\ std::string\&\ rotulo,\ T\ parte,\ T\ total)\ \{}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keywordtype}{double}\ percentual\ =\ 0.0;}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordflow}{if}\ (total\ !=\ 0)\ \{}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ percentual\ =\ (\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{double}\textcolor{keyword}{>}(parte)\ /\ total)\ *\ 100.0;}
+\DoxyCodeLine{00019\ \ \ \ \ \}}
+\DoxyCodeLine{00020\ \ \ \ \ std::cout\ <<\ rotulo\ <<\ \textcolor{stringliteral}{"{}:\ "{}}\ <<\ parte\ <<\ \textcolor{stringliteral}{"{}\ ("{}}\ <<\ std::fixed\ <<\ std::setprecision(2)\ <<\ percentual\ <<\ \textcolor{stringliteral}{"{}\%)"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00021\ \}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T1,\ \textcolor{keyword}{typename}\ T2>}
+\DoxyCodeLine{00024\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{RelatorioTemplate_8hpp_a999b29cd241d0a3b8bae46c82a924cdd}{exibirMedia}}(\textcolor{keyword}{const}\ std::string\&\ rotulo,\ T1\ soma,\ T2\ quantidade)\ \{}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{double}\ media\ =\ 0.0;}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordflow}{if}\ (quantidade\ !=\ 0)\ \{}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ media\ =\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{double}\textcolor{keyword}{>}(soma)\ /\ quantidade;}
+\DoxyCodeLine{00028\ \ \ \ \ \}}
+\DoxyCodeLine{00029\ \ \ \ \ std::cout\ <<\ rotulo\ <<\ \textcolor{stringliteral}{"{}:\ R\$\ "{}}\ <<\ std::fixed\ <<\ std::setprecision(2)\ <<\ media\ <<\ std::endl;}
+\DoxyCodeLine{00030\ \}}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#endif\ }}
+
+\end{DoxyCode}

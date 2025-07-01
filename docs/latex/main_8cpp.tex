@@ -1,0 +1,78 @@
+\doxysection{Referência ao ficheiro src/main.cpp}
+\hypertarget{main_8cpp}{}\label{main_8cpp}\index{src/main.cpp@{src/main.cpp}}
+
+
+Software de sistema bancário.  
+
+
+{\ttfamily \#include "{}Conta.\+hpp"{}}\newline
+{\ttfamily \#include "{}Cliente.\+hpp"{}}\newline
+{\ttfamily \#include "{}Conta\+Pf.\+hpp"{}}\newline
+{\ttfamily \#include "{}Conta\+Pj.\+hpp"{}}\newline
+{\ttfamily \#include "{}Banco.\+hpp"{}}\newline
+{\ttfamily \#include "{}Gerente.\+hpp"{}}\newline
+{\ttfamily \#include "{}Relatorio\+Template.\+hpp"{}}\newline
+{\ttfamily \#include "{}Excecoes.\+hpp"{}}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$sstream$>$}\newline
+\doxysubsubsection*{Funções}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{main_8cpp_a6487a4d1d6f2d5f0bf21b702400a5b44}{setup\+\_\+gerentes}} (std\+::vector$<$ \mbox{\hyperlink{classGerente}{Gerente}} $>$ \&gerentes)
+\begin{DoxyCompactList}\small\item\em Realiza a leitura do arquivo de gerentes e armazena em um vector. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\begin{DoxyCompactList}\small\item\em Interface geral para o usuário. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descrição detalhada}
+Software de sistema bancário. 
+
+Esse programa simula um software de sistema bancário, contendo operações básicas que um banco pode conter com contas do tipo pessoa física, pessoa jurídica e também gerente.
+
+\begin{DoxyAuthor}{Autor}
+Lucas Miller dos Santos Sousa 
+
+João Augusto Rosa Cunha 
+
+Alan Pessoa Silva 
+
+Natan Inoue dos Reis
+\end{DoxyAuthor}
+\begin{DoxyDate}{Data}
+abril de 2025 
+\end{DoxyDate}
+
+
+\label{doc-func-members}
+\Hypertarget{main_8cpp_doc-func-members}
+\doxysubsection{Documentação das funções}
+\Hypertarget{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{main.cpp@{main.cpp}!main@{main}}
+\index{main@{main}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Interface geral para o usuário. 
+
+Contém a interfácie inicial para o cliente, contém instância de \doxylink{classBanco}{Banco} e \doxylink{classGerente}{Gerente}, além de criar a ponte entre os dois \Hypertarget{main_8cpp_a6487a4d1d6f2d5f0bf21b702400a5b44}\index{main.cpp@{main.cpp}!setup\_gerentes@{setup\_gerentes}}
+\index{setup\_gerentes@{setup\_gerentes}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{setup\_gerentes()}{setup\_gerentes()}}
+{\footnotesize\ttfamily \label{main_8cpp_a6487a4d1d6f2d5f0bf21b702400a5b44} 
+int setup\+\_\+gerentes (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{classGerente}{Gerente}} $>$ \&}]{gerentes}{}\end{DoxyParamCaption})}
+
+
+
+Realiza a leitura do arquivo de gerentes e armazena em um vector. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em gerentes} & -\/ referência para vector de clientes \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+Retorna o tamanho do vector gerentes 
+\end{DoxyReturn}

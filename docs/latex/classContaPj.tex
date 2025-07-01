@@ -1,0 +1,200 @@
+\doxysection{Referência à classe Conta\+Pj}
+\hypertarget{classContaPj}{}\label{classContaPj}\index{ContaPj@{ContaPj}}
+
+
+Armazena informações específicas para a conta Pj.  
+
+
+
+
+{\ttfamily \#include $<$Conta\+Pj.\+hpp$>$}
+
+Diagrama de heranças da classe Conta\+Pj\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classContaPj}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Membros públicos}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classContaPj_a448f86cf9ac5674d320400189bb999d2}{Conta\+Pj}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classCliente}{Cliente}} $>$ titular, int id, const std\+::string \&senha, double saldo\+Inicial)
+\begin{DoxyCompactList}\small\item\em Armazena informações iniciais da conta Pj. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classContaPj_a799bdf83bada88218b0250a25161bca1}{bloquear}} () override
+\begin{DoxyCompactList}\small\item\em Método para bloquear a conta Pj. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classContaPj_a574d1d27a50a78f90cff2da165682952}{ativar}} () override
+\begin{DoxyCompactList}\small\item\em Método para obter o nome do titular da conta Pj. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classContaPj_ab348f0dec01fe38b48ecbb406e94f7bb}{get\+Nome\+Titular}} () const override
+\begin{DoxyCompactList}\small\item\em Método para obter o nome do titular da conta Pj. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classContaPj_a7cdfd7db6ae0401913e66ebb47ddfa5a}{get\+Razao\+Social}} () const
+\begin{DoxyCompactList}\small\item\em Método para obter a razão social da conta Pj. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classContaPj_aaed2413275b5a45c594a0bbce077f06f}{get\+Cnpj}} () const
+\begin{DoxyCompactList}\small\item\em Método para obter o CNPJ da conta Pj. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Membros públicos herdados de \mbox{\hyperlink{classConta}{Conta}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{classConta_a8d99ba6b834d1e39e3714dd7957a2d24}{\texorpdfstring{$\sim$}{\string~}\+Conta}} ()=default
+\begin{DoxyCompactList}\small\item\em Destrutor padrão da classe \doxylink{classConta}{Conta}. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classConta_ae34df55caecd2ece2b81250d04d57552}{depositar}} (double valor)
+\begin{DoxyCompactList}\small\item\em Realiza um depósito. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classConta_ad7e30c17ce7c9fb342261dbf5c7f38a2}{sacar}} (double valor)
+\begin{DoxyCompactList}\small\item\em Realiza um saque. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classConta_a3660c8ab3df8d15e0d441e8e7d544e37}{aprovar}} ()
+\begin{DoxyCompactList}\small\item\em Aprova a conta. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classConta_a53d062f48c8ce6223228d8d37a806363}{definir\+Limite}} (double novo\+Limite)
+\begin{DoxyCompactList}\small\item\em Define um novo limite para a conta. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classConta_a95665d5573c61bb77af85acf9039e2f1}{get\+Id}} () const
+\begin{DoxyCompactList}\small\item\em Retorna id da conta. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classConta_ad849088dfcc0087d08a8f7509585095c}{get\+Saldo}} () const
+\begin{DoxyCompactList}\small\item\em Retorna saldo da conta. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classConta_a7f4aef05afce8fb0cc734cf8112efbbc}{get\+Limite}} () const
+\begin{DoxyCompactList}\small\item\em Retorna limite da conta. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classConta_ad9751eea1c3d75c1bc8a6481ba4a7d92}{is\+Ativo}} () const
+\begin{DoxyCompactList}\small\item\em Retorna se a conta está ou não ativa. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classConta_af7d46dbeb6deac1ad90204e123f20f9d}{is\+Aprovada}} () const
+\begin{DoxyCompactList}\small\item\em Retorna se a conta está ou não aprovada. \end{DoxyCompactList}\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classCliente}{Cliente}} $>$ \mbox{\hyperlink{classConta_a90f651100482a59abee75b02b10dcd29}{get\+Titular}} () const
+\begin{DoxyCompactList}\small\item\em Retorna o nome do titulardaconta. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classConta_a9a13d3fcba8199cdc006b49c8fd0c94f}{set\+\_\+num\+\_\+cartao}} (std\+::string num)
+\begin{DoxyCompactList}\small\item\em Define o número do cartão. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Outros membros herdados}
+\doxysubsection*{Membros protegidos herdados de \mbox{\hyperlink{classConta}{Conta}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classConta_aa972efab7a6a2bf3c08d273e3b81ae1e}{Conta}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classCliente}{Cliente}} $>$ titular, int id, double saldo\+Inicial, double limite\+Inicial)
+\begin{DoxyCompactList}\small\item\em Armazena informações iniciais da conta. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Atributos Protegidos herdados de \mbox{\hyperlink{classConta}{Conta}}}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{classConta_a6ff03444e6d2f72fe0fc4cb951b0be04}{\+\_\+id}}
+\begin{DoxyCompactList}\small\item\em id da conta \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classConta_a27443b89b84f46db3e8172dce402d3b7}{\+\_\+saldo}}
+\begin{DoxyCompactList}\small\item\em saldo da conta \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classConta_a41c17e0eff2d296d6112d667b1b75cd2}{\+\_\+limite}}
+\begin{DoxyCompactList}\small\item\em limite da conta \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classConta_a7ce93e58c3b8a5c2cce74448044ad94d}{\+\_\+ativo}}
+\begin{DoxyCompactList}\small\item\em diz se a conta está ou não ativa \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classConta_a118d7c0bf7c1ba5de1a7a115ffbdd860}{\+\_\+aprovada}}
+\begin{DoxyCompactList}\small\item\em diz se a conta está ou não aprovada \end{DoxyCompactList}\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classCliente}{Cliente}} $>$ \mbox{\hyperlink{classConta_a09eabd706d320720a3a08f2e147ca9b6}{\+\_\+titular}}
+\begin{DoxyCompactList}\small\item\em cliente que possui a conta \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classConta_a66180746c08845c991ab39b3ea276a4c}{num\+\_\+cartao}}
+\begin{DoxyCompactList}\small\item\em número do cartão da conta do cliente \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descrição detalhada}
+Armazena informações específicas para a conta Pj. 
+
+@\+Class \doxylink{classContaPj}{Conta\+Pj} 
+
+armazena informações específicas para a conta Pj como o CNPJ 
+
+\label{doc-constructors}
+\Hypertarget{classContaPj_doc-constructors}
+\doxysubsection{Documentação dos Construtores \& Destrutor}
+\Hypertarget{classContaPj_a448f86cf9ac5674d320400189bb999d2}\index{ContaPj@{ContaPj}!ContaPj@{ContaPj}}
+\index{ContaPj@{ContaPj}!ContaPj@{ContaPj}}
+\doxysubsubsection{\texorpdfstring{ContaPj()}{ContaPj()}}
+{\footnotesize\ttfamily \label{classContaPj_a448f86cf9ac5674d320400189bb999d2} 
+Conta\+Pj\+::\+Conta\+Pj (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classCliente}{Cliente}} $>$}]{titular}{, }\item[{int}]{id}{, }\item[{const std\+::string \&}]{senha}{, }\item[{double}]{saldo\+Inicial}{}\end{DoxyParamCaption})}
+
+
+
+Armazena informações iniciais da conta Pj. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em titular} & cliente que possui a conta Pj \\
+\hline
+{\em id} & id da conta Pj \\
+\hline
+{\em senha} & senha da conta Pj \\
+\hline
+{\em saldo\+Inicial} & saldo inicial da conta Pj \\
+\hline
+\end{DoxyParams}
+
+
+\label{doc-func-members}
+\Hypertarget{classContaPj_doc-func-members}
+\doxysubsection{Documentação das funções}
+\Hypertarget{classContaPj_a574d1d27a50a78f90cff2da165682952}\index{ContaPj@{ContaPj}!ativar@{ativar}}
+\index{ativar@{ativar}!ContaPj@{ContaPj}}
+\doxysubsubsection{\texorpdfstring{ativar()}{ativar()}}
+{\footnotesize\ttfamily \label{classContaPj_a574d1d27a50a78f90cff2da165682952} 
+void Conta\+Pj\+::ativar (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Método para obter o nome do titular da conta Pj. 
+
+\begin{DoxyReturn}{Retorna}
+nome do titular da conta Pj 
+\end{DoxyReturn}
+
+
+Implementa \mbox{\hyperlink{classConta_acf0aaa3b47ff8d73ddc65fc65183b870}{Conta}}.
+
+\Hypertarget{classContaPj_a799bdf83bada88218b0250a25161bca1}\index{ContaPj@{ContaPj}!bloquear@{bloquear}}
+\index{bloquear@{bloquear}!ContaPj@{ContaPj}}
+\doxysubsubsection{\texorpdfstring{bloquear()}{bloquear()}}
+{\footnotesize\ttfamily \label{classContaPj_a799bdf83bada88218b0250a25161bca1} 
+void Conta\+Pj\+::bloquear (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Método para bloquear a conta Pj. 
+
+
+
+Implementa \mbox{\hyperlink{classConta_aa81639dceefbc47d96e34579fe4d73bf}{Conta}}.
+
+\Hypertarget{classContaPj_aaed2413275b5a45c594a0bbce077f06f}\index{ContaPj@{ContaPj}!getCnpj@{getCnpj}}
+\index{getCnpj@{getCnpj}!ContaPj@{ContaPj}}
+\doxysubsubsection{\texorpdfstring{getCnpj()}{getCnpj()}}
+{\footnotesize\ttfamily \label{classContaPj_aaed2413275b5a45c594a0bbce077f06f} 
+std\+::string Conta\+Pj\+::get\+Cnpj (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Método para obter o CNPJ da conta Pj. 
+
+\begin{DoxyReturn}{Retorna}
+CNPJ da conta Pj 
+\end{DoxyReturn}
+\Hypertarget{classContaPj_ab348f0dec01fe38b48ecbb406e94f7bb}\index{ContaPj@{ContaPj}!getNomeTitular@{getNomeTitular}}
+\index{getNomeTitular@{getNomeTitular}!ContaPj@{ContaPj}}
+\doxysubsubsection{\texorpdfstring{getNomeTitular()}{getNomeTitular()}}
+{\footnotesize\ttfamily \label{classContaPj_ab348f0dec01fe38b48ecbb406e94f7bb} 
+std\+::string Conta\+Pj\+::get\+Nome\+Titular (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Método para obter o nome do titular da conta Pj. 
+
+\begin{DoxyReturn}{Retorna}
+nome do titular da conta Pj 
+\end{DoxyReturn}
+
+
+Implementa \mbox{\hyperlink{classConta_ac87355dd359164954a6772674a810968}{Conta}}.
+
+\Hypertarget{classContaPj_a7cdfd7db6ae0401913e66ebb47ddfa5a}\index{ContaPj@{ContaPj}!getRazaoSocial@{getRazaoSocial}}
+\index{getRazaoSocial@{getRazaoSocial}!ContaPj@{ContaPj}}
+\doxysubsubsection{\texorpdfstring{getRazaoSocial()}{getRazaoSocial()}}
+{\footnotesize\ttfamily \label{classContaPj_a7cdfd7db6ae0401913e66ebb47ddfa5a} 
+std\+::string Conta\+Pj\+::get\+Razao\+Social (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Método para obter a razão social da conta Pj. 
+
+\begin{DoxyReturn}{Retorna}
+razão social da conta Pj 
+\end{DoxyReturn}
+
+
+A documentação para esta classe foi gerada a partir dos seguintes ficheiros\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{ContaPj_8hpp}{Conta\+Pj.\+hpp}}\item 
+src/\mbox{\hyperlink{ContaPj_8cpp}{Conta\+Pj.\+cpp}}\end{DoxyCompactItemize}

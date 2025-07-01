@@ -1,0 +1,52 @@
+\doxysection{Gerente.\+hpp}
+\hypertarget{Gerente_8hpp_source}{}\label{Gerente_8hpp_source}\index{include/Gerente.hpp@{include/Gerente.hpp}}
+\mbox{\hyperlink{Gerente_8hpp}{Ir para a documentação deste ficheiro.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{Banco_8hpp}{Banco.hpp}}"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{ContaPf_8hpp}{ContaPf.hpp}}"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{ContaPj_8hpp}{ContaPj.hpp}}"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{RelatorioTemplate_8hpp}{RelatorioTemplate.hpp}}"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{Cliente_8hpp}{Cliente.hpp}}"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{Conta_8hpp}{Conta.hpp}}"{}}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00013\ \ }
+\DoxyCodeLine{00022\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classGerente_a0573692f29d93e20f657808d166e18b8}{Gerente}}\ \{}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00028\ \textcolor{keyword}{struct\ }Contas\_Liberadas\{}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordtype}{int}\ id;\ }
+\DoxyCodeLine{00030\ \ \ \ \ std::string\ data;\ }
+\DoxyCodeLine{00031\ \};}
+\DoxyCodeLine{00032\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00033\ \ \ \ \ std::string\ \_nome;\ }
+\DoxyCodeLine{00034\ \ \ \ \ std::string\ \_cpf;\ }
+\DoxyCodeLine{00035\ \ \ \ \ std::string\ \_rg;\ }
+\DoxyCodeLine{00036\ \ \ \ \ std::string\ \_senha;\ }
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00046\ \ \ \ \ \mbox{\hyperlink{classGerente_a0573692f29d93e20f657808d166e18b8}{Gerente}}(std::string\ nome,\ std::string\ cpf,\ std::string\ rg,\ std::string\ senha);}
+\DoxyCodeLine{00047\ \ \ \ \ }
+\DoxyCodeLine{00052\ \ \ \ \ std::string\ \mbox{\hyperlink{classGerente_a15f2e43e8e601e1228e131c6f0c0230b}{get\_nome}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00053\ \ }
+\DoxyCodeLine{00058\ \ \ \ \ std::string\ \mbox{\hyperlink{classGerente_ac743f328dabeae32b3bb950abc4cf08c}{get\_cpf}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00064\ \ \ \ \ std::string\ \mbox{\hyperlink{classGerente_ad89e735f5c1248db462981df15fe740b}{get\_rg}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classGerente_ae032079beb5a26783a48fafcce99bb04}{operacoes\_gerente}}(\mbox{\hyperlink{classBanco}{Banco}}\&\ banco);}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classGerente_aa771923ed0f2aa32a207e17b61659f50}{aprovar\_pj}}(\mbox{\hyperlink{classBanco}{Banco}}\&\ banco);}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classGerente_a61d6c6c8ee6f4dd5211a84664728f8f2}{gerar\_relatorio}}(\mbox{\hyperlink{classBanco}{Banco}}\&\ banco);}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00100\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classGerente_a48877b96faef436e86ce7c35199778b9}{validar\_transacoes}}(\mbox{\hyperlink{classBanco}{Banco}}\&\ banco);}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00109\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classGerente_ab986758c8077f2f70440259d7bb180fc}{autenticacao}}(std::string\ cpf,\ std::string\ rg,\ std::string\ senha);\textcolor{comment}{//O}}
+\DoxyCodeLine{00110\ \ \ \ \ }
+\DoxyCodeLine{00111\ \ \ \ \ std::vector<Contas\_Liberadas>\mbox{\hyperlink{classGerente_a80bf61759d8f81a47e05a51f34982450}{liberadas}};\ }
+\DoxyCodeLine{00112\ \};}
+
+\end{DoxyCode}

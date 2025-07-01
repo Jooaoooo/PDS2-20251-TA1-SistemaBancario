@@ -1,0 +1,332 @@
+\doxysection{Referência à classe Banco}
+\hypertarget{classBanco}{}\label{classBanco}\index{Banco@{Banco}}
+
+
+Contém operações e operações bancárias.  
+
+
+
+
+{\ttfamily \#include $<$Banco.\+hpp$>$}
+
+\doxysubsubsection*{Membros públicos}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{classBanco_ab54aaf69a3c89a7dcc3dce0e420b1476}{gerenciar\+\_\+contas}} ()
+\begin{DoxyCompactList}\small\item\em Interfácie para operações nas contas. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classBanco_ae48a49cfa1fb0f1094235958b52f44cc}{validar\+\_\+transacao}} (\mbox{\hyperlink{structTransacao}{Transacao}} \&transacao)
+\begin{DoxyCompactList}\small\item\em Tem o poder de validar transações. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classBanco_ab3d9176bfe39dd1bd70bf400d77db5de}{validar\+\_\+transacoes}} ()
+\begin{DoxyCompactList}\small\item\em Permite que o gerente aprove as transações. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classBanco_a211793cd76d2f53d9abe6d4d1693d702}{criar\+\_\+cartao}} ()
+\begin{DoxyCompactList}\small\item\em Permite criação de cartão para determinado ID. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classBanco_aa6e1d9b91523e3892284e7d805e2ea0e}{bloquear\+\_\+cartao}} ()
+\begin{DoxyCompactList}\small\item\em Bloqueia o cartão do ID informado através do número do mesmo. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classBanco_a391c192fb6159444c41c23968b2487b6}{gerar\+\_\+relatorio}} (std\+::string dados)
+\begin{DoxyCompactList}\small\item\em Gera relatório geral de operações que ocorreram no banco de feitas pelo gerente. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classBanco_a2d979095bc806d68d48418df77fb0016}{realizar\+\_\+transacao}} ()
+\begin{DoxyCompactList}\small\item\em Permite realizar uma transação de um ID para outro ID. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classBanco_ae5f54a65ee8f5a291b780cc1d7cf99b6}{realizar\+\_\+saque}} ()
+\begin{DoxyCompactList}\small\item\em Permite realização de saque no ID informado. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classBanco_ad1e5dcf7d20c345c31efeead857c596d}{realizar\+\_\+deposito}} ()
+\begin{DoxyCompactList}\small\item\em Permite realização de depósito no ID informado. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classBanco_ac20e373111a26fe3887fc0821a30884b}{posicao\+\_\+id}} (int id)
+\begin{DoxyCompactList}\small\item\em localiza a posição do ID, no vector de contas \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classBanco_a4ebb1c750cb9c2b4c2234c4bb431f751}{verifica\+\_\+id}} (int id)
+\begin{DoxyCompactList}\small\item\em Verifica a existência de certo ID em contas. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classBanco_a2a03a17a7da4e0709fe18b29c1f24dde}{autenticar\+\_\+conta}} (int id\+\_\+conta)
+\begin{DoxyCompactList}\small\item\em Realiza autenticação da conta com ID informado. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classBanco_a04aac586c117c8ba81428691223f4400}{verificar\+\_\+cartao}} (int id\+\_\+conta, const std\+::string \&numero\+\_\+cartao)
+\begin{DoxyCompactList}\small\item\em Verifica se o cartão existe e está acossiado à conta escolhida. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classBanco_aee8a042418c3b714106de8cabd324135}{gerar\+\_\+extrato}} (int id\+\_\+conta)
+\begin{DoxyCompactList}\small\item\em Permite cliente gerar extrato da conta. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classConta}{Conta}} $>$ $>$ \& \mbox{\hyperlink{classBanco_a9520a5ad7bf9d83ba9e60241ddcfa03e}{get\+Contas}} ()
+\begin{DoxyCompactList}\small\item\em Retorna o vector de contas. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{structTransacao}{Transacao}} $>$ \& \mbox{\hyperlink{classBanco_a6a004d503f372e5e25c945bdb2a83f07}{get\+Transacoes}} ()
+\begin{DoxyCompactList}\small\item\em Retorna o vector de transações. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classBanco_a55b7a30fbcbc1e5724f4c128599742d4}{is\+Contas\+Empty}} ()
+\begin{DoxyCompactList}\small\item\em Retorna o vector se o vector de Contas está vazio. \end{DoxyCompactList}\item 
+const std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classConta}{Conta}} $>$ $>$ \& \mbox{\hyperlink{classBanco_aa7feb65d1175a3afca12e82e33c2afed}{get\+Contas}} () const
+\begin{DoxyCompactList}\small\item\em Retorna o vector de contas. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classBanco_a5bc6df2e9d439ac561c28d308411ac88}{contas\+Size}} ()
+\begin{DoxyCompactList}\small\item\em Retorna o tamanho do vector de contas. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descrição detalhada}
+Contém operações e operações bancárias. 
+
+Responsável por parte da interfácie do usuário e armazenamento e manipulação de contas, \texorpdfstring{$\ast$}{*} cartões, transações, clientes, saques e depósitos 
+
+\label{doc-func-members}
+\Hypertarget{classBanco_doc-func-members}
+\doxysubsection{Documentação das funções}
+\Hypertarget{classBanco_a2a03a17a7da4e0709fe18b29c1f24dde}\index{Banco@{Banco}!autenticar\_conta@{autenticar\_conta}}
+\index{autenticar\_conta@{autenticar\_conta}!Banco@{Banco}}
+\doxysubsubsection{\texorpdfstring{autenticar\_conta()}{autenticar\_conta()}}
+{\footnotesize\ttfamily \label{classBanco_a2a03a17a7da4e0709fe18b29c1f24dde} 
+bool Banco\+::autenticar\+\_\+conta (\begin{DoxyParamCaption}\item[{int}]{id\+\_\+conta}{}\end{DoxyParamCaption})}
+
+
+
+Realiza autenticação da conta com ID informado. 
+
+\begin{DoxyReturn}{Retorna}
+Retorna se operações foram bem sucedidas ou não 
+\end{DoxyReturn}
+\Hypertarget{classBanco_aa6e1d9b91523e3892284e7d805e2ea0e}\index{Banco@{Banco}!bloquear\_cartao@{bloquear\_cartao}}
+\index{bloquear\_cartao@{bloquear\_cartao}!Banco@{Banco}}
+\doxysubsubsection{\texorpdfstring{bloquear\_cartao()}{bloquear\_cartao()}}
+{\footnotesize\ttfamily \label{classBanco_aa6e1d9b91523e3892284e7d805e2ea0e} 
+int Banco\+::bloquear\+\_\+cartao (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Bloqueia o cartão do ID informado através do número do mesmo. 
+
+\begin{DoxyReturn}{Retorna}
+Retorna se operações foram bem sucedidas ou não 
+\end{DoxyReturn}
+\Hypertarget{classBanco_a5bc6df2e9d439ac561c28d308411ac88}\index{Banco@{Banco}!contasSize@{contasSize}}
+\index{contasSize@{contasSize}!Banco@{Banco}}
+\doxysubsubsection{\texorpdfstring{contasSize()}{contasSize()}}
+{\footnotesize\ttfamily \label{classBanco_a5bc6df2e9d439ac561c28d308411ac88} 
+int Banco\+::contas\+Size (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Retorna o tamanho do vector de contas. 
+
+\begin{DoxyReturn}{Retorna}
+Tamanho do vector de contas 
+\end{DoxyReturn}
+\Hypertarget{classBanco_a211793cd76d2f53d9abe6d4d1693d702}\index{Banco@{Banco}!criar\_cartao@{criar\_cartao}}
+\index{criar\_cartao@{criar\_cartao}!Banco@{Banco}}
+\doxysubsubsection{\texorpdfstring{criar\_cartao()}{criar\_cartao()}}
+{\footnotesize\ttfamily \label{classBanco_a211793cd76d2f53d9abe6d4d1693d702} 
+int Banco\+::criar\+\_\+cartao (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Permite criação de cartão para determinado ID. 
+
+\begin{DoxyReturn}{Retorna}
+Retorna se operações foram bem sucedidas ou não 
+\end{DoxyReturn}
+\Hypertarget{classBanco_aee8a042418c3b714106de8cabd324135}\index{Banco@{Banco}!gerar\_extrato@{gerar\_extrato}}
+\index{gerar\_extrato@{gerar\_extrato}!Banco@{Banco}}
+\doxysubsubsection{\texorpdfstring{gerar\_extrato()}{gerar\_extrato()}}
+{\footnotesize\ttfamily \label{classBanco_aee8a042418c3b714106de8cabd324135} 
+void Banco\+::gerar\+\_\+extrato (\begin{DoxyParamCaption}\item[{int}]{id\+\_\+conta}{}\end{DoxyParamCaption})}
+
+
+
+Permite cliente gerar extrato da conta. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em informa} & Id para realizar extrato \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+Retorna se operações foram bem sucedidas ou não 
+\end{DoxyReturn}
+\Hypertarget{classBanco_a391c192fb6159444c41c23968b2487b6}\index{Banco@{Banco}!gerar\_relatorio@{gerar\_relatorio}}
+\index{gerar\_relatorio@{gerar\_relatorio}!Banco@{Banco}}
+\doxysubsubsection{\texorpdfstring{gerar\_relatorio()}{gerar\_relatorio()}}
+{\footnotesize\ttfamily \label{classBanco_a391c192fb6159444c41c23968b2487b6} 
+int Banco\+::gerar\+\_\+relatorio (\begin{DoxyParamCaption}\item[{std\+::string}]{dados}{}\end{DoxyParamCaption})}
+
+
+
+Gera relatório geral de operações que ocorreram no banco de feitas pelo gerente. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em mudanças} & feitas pelo gerente \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+Retorna se operações foram bem sucedidas ou não 
+\end{DoxyReturn}
+\Hypertarget{classBanco_ab54aaf69a3c89a7dcc3dce0e420b1476}\index{Banco@{Banco}!gerenciar\_contas@{gerenciar\_contas}}
+\index{gerenciar\_contas@{gerenciar\_contas}!Banco@{Banco}}
+\doxysubsubsection{\texorpdfstring{gerenciar\_contas()}{gerenciar\_contas()}}
+{\footnotesize\ttfamily \label{classBanco_ab54aaf69a3c89a7dcc3dce0e420b1476} 
+int Banco\+::gerenciar\+\_\+contas (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Interfácie para operações nas contas. 
+
+\begin{DoxyReturn}{Retorna}
+Retorna se a operação foi bem sucedida 
+\end{DoxyReturn}
+\Hypertarget{classBanco_a9520a5ad7bf9d83ba9e60241ddcfa03e}\index{Banco@{Banco}!getContas@{getContas}}
+\index{getContas@{getContas}!Banco@{Banco}}
+\doxysubsubsection{\texorpdfstring{getContas()}{getContas()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classBanco_a9520a5ad7bf9d83ba9e60241ddcfa03e} 
+std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classConta}{Conta}} $>$ $>$ \& Banco\+::get\+Contas (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Retorna o vector de contas. 
+
+\begin{DoxyReturn}{Retorna}
+Endereço do vector de contas 
+\end{DoxyReturn}
+\Hypertarget{classBanco_aa7feb65d1175a3afca12e82e33c2afed}\index{Banco@{Banco}!getContas@{getContas}}
+\index{getContas@{getContas}!Banco@{Banco}}
+\doxysubsubsection{\texorpdfstring{getContas()}{getContas()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classBanco_aa7feb65d1175a3afca12e82e33c2afed} 
+const std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classConta}{Conta}} $>$ $>$ \& Banco\+::get\+Contas (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Retorna o vector de contas. 
+
+\begin{DoxyReturn}{Retorna}
+Endereço do vector de contas 
+\end{DoxyReturn}
+\Hypertarget{classBanco_a6a004d503f372e5e25c945bdb2a83f07}\index{Banco@{Banco}!getTransacoes@{getTransacoes}}
+\index{getTransacoes@{getTransacoes}!Banco@{Banco}}
+\doxysubsubsection{\texorpdfstring{getTransacoes()}{getTransacoes()}}
+{\footnotesize\ttfamily \label{classBanco_a6a004d503f372e5e25c945bdb2a83f07} 
+std\+::vector$<$ \mbox{\hyperlink{structTransacao}{Transacao}} $>$ \& Banco\+::get\+Transacoes (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Retorna o vector de transações. 
+
+\begin{DoxyReturn}{Retorna}
+Endereço do vector de transações 
+\end{DoxyReturn}
+\Hypertarget{classBanco_a55b7a30fbcbc1e5724f4c128599742d4}\index{Banco@{Banco}!isContasEmpty@{isContasEmpty}}
+\index{isContasEmpty@{isContasEmpty}!Banco@{Banco}}
+\doxysubsubsection{\texorpdfstring{isContasEmpty()}{isContasEmpty()}}
+{\footnotesize\ttfamily \label{classBanco_a55b7a30fbcbc1e5724f4c128599742d4} 
+bool Banco\+::is\+Contas\+Empty (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Retorna o vector se o vector de Contas está vazio. 
+
+\begin{DoxyReturn}{Retorna}
+Retorna true se estver vazio e false em caso contrário 
+\end{DoxyReturn}
+\Hypertarget{classBanco_ac20e373111a26fe3887fc0821a30884b}\index{Banco@{Banco}!posicao\_id@{posicao\_id}}
+\index{posicao\_id@{posicao\_id}!Banco@{Banco}}
+\doxysubsubsection{\texorpdfstring{posicao\_id()}{posicao\_id()}}
+{\footnotesize\ttfamily \label{classBanco_ac20e373111a26fe3887fc0821a30884b} 
+int Banco\+::posicao\+\_\+id (\begin{DoxyParamCaption}\item[{int}]{id}{}\end{DoxyParamCaption})}
+
+
+
+localiza a posição do ID, no vector de contas 
+
+\begin{DoxyReturn}{Retorna}
+Se encontrado, retorna a posição, caso contrário, emite mensagem de erro 
+\end{DoxyReturn}
+\Hypertarget{classBanco_ad1e5dcf7d20c345c31efeead857c596d}\index{Banco@{Banco}!realizar\_deposito@{realizar\_deposito}}
+\index{realizar\_deposito@{realizar\_deposito}!Banco@{Banco}}
+\doxysubsubsection{\texorpdfstring{realizar\_deposito()}{realizar\_deposito()}}
+{\footnotesize\ttfamily \label{classBanco_ad1e5dcf7d20c345c31efeead857c596d} 
+int Banco\+::realizar\+\_\+deposito (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Permite realização de depósito no ID informado. 
+
+\begin{DoxyReturn}{Retorna}
+Retorna se operações foram bem sucedidas ou não 
+\end{DoxyReturn}
+\Hypertarget{classBanco_ae5f54a65ee8f5a291b780cc1d7cf99b6}\index{Banco@{Banco}!realizar\_saque@{realizar\_saque}}
+\index{realizar\_saque@{realizar\_saque}!Banco@{Banco}}
+\doxysubsubsection{\texorpdfstring{realizar\_saque()}{realizar\_saque()}}
+{\footnotesize\ttfamily \label{classBanco_ae5f54a65ee8f5a291b780cc1d7cf99b6} 
+int Banco\+::realizar\+\_\+saque (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Permite realização de saque no ID informado. 
+
+\begin{DoxyReturn}{Retorna}
+Retorna se operações foram bem sucedidas ou não 
+\end{DoxyReturn}
+\Hypertarget{classBanco_a2d979095bc806d68d48418df77fb0016}\index{Banco@{Banco}!realizar\_transacao@{realizar\_transacao}}
+\index{realizar\_transacao@{realizar\_transacao}!Banco@{Banco}}
+\doxysubsubsection{\texorpdfstring{realizar\_transacao()}{realizar\_transacao()}}
+{\footnotesize\ttfamily \label{classBanco_a2d979095bc806d68d48418df77fb0016} 
+int Banco\+::realizar\+\_\+transacao (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Permite realizar uma transação de um ID para outro ID. 
+
+\begin{DoxyReturn}{Retorna}
+Retorna se operações foram bem sucedidas ou não 
+\end{DoxyReturn}
+\Hypertarget{classBanco_ae48a49cfa1fb0f1094235958b52f44cc}\index{Banco@{Banco}!validar\_transacao@{validar\_transacao}}
+\index{validar\_transacao@{validar\_transacao}!Banco@{Banco}}
+\doxysubsubsection{\texorpdfstring{validar\_transacao()}{validar\_transacao()}}
+{\footnotesize\ttfamily \label{classBanco_ae48a49cfa1fb0f1094235958b52f44cc} 
+void Banco\+::validar\+\_\+transacao (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structTransacao}{Transacao}} \&}]{transacao}{}\end{DoxyParamCaption})}
+
+
+
+Tem o poder de validar transações. 
+
+No caso de a transação for de valor menor de 50000, a transação é aprovada automáticamente, em caso contrário, deve ser aprovada pelo gerente \begin{DoxyReturn}{Retorna}
+Retorna se foi aprovada ou não 
+\end{DoxyReturn}
+\Hypertarget{classBanco_ab3d9176bfe39dd1bd70bf400d77db5de}\index{Banco@{Banco}!validar\_transacoes@{validar\_transacoes}}
+\index{validar\_transacoes@{validar\_transacoes}!Banco@{Banco}}
+\doxysubsubsection{\texorpdfstring{validar\_transacoes()}{validar\_transacoes()}}
+{\footnotesize\ttfamily \label{classBanco_ab3d9176bfe39dd1bd70bf400d77db5de} 
+int Banco\+::validar\+\_\+transacoes (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Permite que o gerente aprove as transações. 
+
+\begin{DoxyReturn}{Retorna}
+Retorna se operações foram bem sucedidas ou não 
+\end{DoxyReturn}
+\Hypertarget{classBanco_a4ebb1c750cb9c2b4c2234c4bb431f751}\index{Banco@{Banco}!verifica\_id@{verifica\_id}}
+\index{verifica\_id@{verifica\_id}!Banco@{Banco}}
+\doxysubsubsection{\texorpdfstring{verifica\_id()}{verifica\_id()}}
+{\footnotesize\ttfamily \label{classBanco_a4ebb1c750cb9c2b4c2234c4bb431f751} 
+bool Banco\+::verifica\+\_\+id (\begin{DoxyParamCaption}\item[{int}]{id}{}\end{DoxyParamCaption})}
+
+
+
+Verifica a existência de certo ID em contas. 
+
+\begin{DoxyReturn}{Retorna}
+Se ID encontrado, retorna true, caso contrário, mensagem de erro 
+\end{DoxyReturn}
+\Hypertarget{classBanco_a04aac586c117c8ba81428691223f4400}\index{Banco@{Banco}!verificar\_cartao@{verificar\_cartao}}
+\index{verificar\_cartao@{verificar\_cartao}!Banco@{Banco}}
+\doxysubsubsection{\texorpdfstring{verificar\_cartao()}{verificar\_cartao()}}
+{\footnotesize\ttfamily \label{classBanco_a04aac586c117c8ba81428691223f4400} 
+bool Banco\+::verificar\+\_\+cartao (\begin{DoxyParamCaption}\item[{int}]{id\+\_\+conta}{, }\item[{const std\+::string \&}]{numero\+\_\+cartao}{}\end{DoxyParamCaption})}
+
+
+
+Verifica se o cartão existe e está acossiado à conta escolhida. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em id\+\_\+conta} & Id da conta que qeur-\/se analizar \\
+\hline
+{\em numero\+\_\+cartao} & número do cartão qeu se deseja conferir \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+Retorna true, se carão existe e está acossiado à conta, em caso contrário, false 
+\end{DoxyReturn}
+
+
+A documentação para esta classe foi gerada a partir dos seguintes ficheiros\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{Banco_8hpp}{Banco.\+hpp}}\item 
+src/\mbox{\hyperlink{Banco_8cpp}{Banco.\+cpp}}\end{DoxyCompactItemize}

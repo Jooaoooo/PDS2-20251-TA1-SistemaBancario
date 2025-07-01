@@ -1,0 +1,400 @@
+\doxysection{Referência à classe Conta}
+\hypertarget{classConta}{}\label{classConta}\index{Conta@{Conta}}
+
+
+Armazena informações da conta.  
+
+
+
+
+{\ttfamily \#include $<$Conta.\+hpp$>$}
+
+Diagrama de heranças da classe Conta\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classConta}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Membros públicos}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{classConta_a8d99ba6b834d1e39e3714dd7957a2d24}{\texorpdfstring{$\sim$}{\string~}\+Conta}} ()=default
+\begin{DoxyCompactList}\small\item\em Destrutor padrão da classe \doxylink{classConta}{Conta}. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classConta_aa81639dceefbc47d96e34579fe4d73bf}{bloquear}} ()=0
+\begin{DoxyCompactList}\small\item\em Método virtual puro para bloquear a conta. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classConta_acf0aaa3b47ff8d73ddc65fc65183b870}{ativar}} ()=0
+\begin{DoxyCompactList}\small\item\em Método virtual puro para ativar a conta. \end{DoxyCompactList}\item 
+virtual std\+::string \mbox{\hyperlink{classConta_ac87355dd359164954a6772674a810968}{get\+Nome\+Titular}} () const =0
+\begin{DoxyCompactList}\small\item\em Método virtual puro para obter o nome do titular da conta. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classConta_ae34df55caecd2ece2b81250d04d57552}{depositar}} (double valor)
+\begin{DoxyCompactList}\small\item\em Realiza um depósito. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classConta_ad7e30c17ce7c9fb342261dbf5c7f38a2}{sacar}} (double valor)
+\begin{DoxyCompactList}\small\item\em Realiza um saque. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classConta_a3660c8ab3df8d15e0d441e8e7d544e37}{aprovar}} ()
+\begin{DoxyCompactList}\small\item\em Aprova a conta. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classConta_a53d062f48c8ce6223228d8d37a806363}{definir\+Limite}} (double novo\+Limite)
+\begin{DoxyCompactList}\small\item\em Define um novo limite para a conta. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classConta_a95665d5573c61bb77af85acf9039e2f1}{get\+Id}} () const
+\begin{DoxyCompactList}\small\item\em Retorna id da conta. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classConta_ad849088dfcc0087d08a8f7509585095c}{get\+Saldo}} () const
+\begin{DoxyCompactList}\small\item\em Retorna saldo da conta. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classConta_a7f4aef05afce8fb0cc734cf8112efbbc}{get\+Limite}} () const
+\begin{DoxyCompactList}\small\item\em Retorna limite da conta. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classConta_ad9751eea1c3d75c1bc8a6481ba4a7d92}{is\+Ativo}} () const
+\begin{DoxyCompactList}\small\item\em Retorna se a conta está ou não ativa. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classConta_af7d46dbeb6deac1ad90204e123f20f9d}{is\+Aprovada}} () const
+\begin{DoxyCompactList}\small\item\em Retorna se a conta está ou não aprovada. \end{DoxyCompactList}\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classCliente}{Cliente}} $>$ \mbox{\hyperlink{classConta_a90f651100482a59abee75b02b10dcd29}{get\+Titular}} () const
+\begin{DoxyCompactList}\small\item\em Retorna o nome do titulardaconta. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classConta_a9a13d3fcba8199cdc006b49c8fd0c94f}{set\+\_\+num\+\_\+cartao}} (std\+::string num)
+\begin{DoxyCompactList}\small\item\em Define o número do cartão. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Membros protegidos}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classConta_aa972efab7a6a2bf3c08d273e3b81ae1e}{Conta}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classCliente}{Cliente}} $>$ titular, int id, double saldo\+Inicial, double limite\+Inicial)
+\begin{DoxyCompactList}\small\item\em Armazena informações iniciais da conta. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Atributos Protegidos}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{classConta_a6ff03444e6d2f72fe0fc4cb951b0be04}{\+\_\+id}}
+\begin{DoxyCompactList}\small\item\em id da conta \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classConta_a27443b89b84f46db3e8172dce402d3b7}{\+\_\+saldo}}
+\begin{DoxyCompactList}\small\item\em saldo da conta \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classConta_a41c17e0eff2d296d6112d667b1b75cd2}{\+\_\+limite}}
+\begin{DoxyCompactList}\small\item\em limite da conta \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classConta_a7ce93e58c3b8a5c2cce74448044ad94d}{\+\_\+ativo}}
+\begin{DoxyCompactList}\small\item\em diz se a conta está ou não ativa \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classConta_a118d7c0bf7c1ba5de1a7a115ffbdd860}{\+\_\+aprovada}}
+\begin{DoxyCompactList}\small\item\em diz se a conta está ou não aprovada \end{DoxyCompactList}\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classCliente}{Cliente}} $>$ \mbox{\hyperlink{classConta_a09eabd706d320720a3a08f2e147ca9b6}{\+\_\+titular}}
+\begin{DoxyCompactList}\small\item\em cliente que possui a conta \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classConta_a66180746c08845c991ab39b3ea276a4c}{num\+\_\+cartao}}
+\begin{DoxyCompactList}\small\item\em número do cartão da conta do cliente \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descrição detalhada}
+Armazena informações da conta. 
+
+@\+Class \doxylink{classConta}{Conta} 
+
+armazena informações da conta como saldo, limite e número do cartão 
+
+\label{doc-constructors}
+\Hypertarget{classConta_doc-constructors}
+\doxysubsection{Documentação dos Construtores \& Destrutor}
+\Hypertarget{classConta_aa972efab7a6a2bf3c08d273e3b81ae1e}\index{Conta@{Conta}!Conta@{Conta}}
+\index{Conta@{Conta}!Conta@{Conta}}
+\doxysubsubsection{\texorpdfstring{Conta()}{Conta()}}
+{\footnotesize\ttfamily \label{classConta_aa972efab7a6a2bf3c08d273e3b81ae1e} 
+Conta\+::\+Conta (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classCliente}{Cliente}} $>$}]{titular}{, }\item[{int}]{id}{, }\item[{double}]{saldo\+Inicial}{, }\item[{double}]{limite\+Inicial}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Armazena informações iniciais da conta. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em titular} & cliente que possui a conta \\
+\hline
+{\em id} & id da conta \\
+\hline
+{\em saldo\+Inicial} & saldo inicial da conta \\
+\hline
+{\em limite\+Inicial} & limite inicial da conta \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classConta_a8d99ba6b834d1e39e3714dd7957a2d24}\index{Conta@{Conta}!````~Conta@{\texorpdfstring{$\sim$}{\string~}Conta}}
+\index{````~Conta@{\texorpdfstring{$\sim$}{\string~}Conta}!Conta@{Conta}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}Conta()}{\string~Conta()}}
+{\footnotesize\ttfamily \label{classConta_a8d99ba6b834d1e39e3714dd7957a2d24} 
+virtual Conta\+::\texorpdfstring{$\sim$}{\string~}\+Conta (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [default]}}
+
+
+
+Destrutor padrão da classe \doxylink{classConta}{Conta}. 
+
+
+
+\label{doc-func-members}
+\Hypertarget{classConta_doc-func-members}
+\doxysubsection{Documentação das funções}
+\Hypertarget{classConta_a3660c8ab3df8d15e0d441e8e7d544e37}\index{Conta@{Conta}!aprovar@{aprovar}}
+\index{aprovar@{aprovar}!Conta@{Conta}}
+\doxysubsubsection{\texorpdfstring{aprovar()}{aprovar()}}
+{\footnotesize\ttfamily \label{classConta_a3660c8ab3df8d15e0d441e8e7d544e37} 
+void Conta\+::aprovar (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Aprova a conta. 
+
+\Hypertarget{classConta_acf0aaa3b47ff8d73ddc65fc65183b870}\index{Conta@{Conta}!ativar@{ativar}}
+\index{ativar@{ativar}!Conta@{Conta}}
+\doxysubsubsection{\texorpdfstring{ativar()}{ativar()}}
+{\footnotesize\ttfamily \label{classConta_acf0aaa3b47ff8d73ddc65fc65183b870} 
+virtual void Conta\+::ativar (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Método virtual puro para ativar a conta. 
+
+
+
+Implementado em \mbox{\hyperlink{classContaPf_a3abbc9a125e83eb4a269ddf61a5ebf38}{Conta\+Pf}} e \mbox{\hyperlink{classContaPj_a574d1d27a50a78f90cff2da165682952}{Conta\+Pj}}.
+
+\Hypertarget{classConta_aa81639dceefbc47d96e34579fe4d73bf}\index{Conta@{Conta}!bloquear@{bloquear}}
+\index{bloquear@{bloquear}!Conta@{Conta}}
+\doxysubsubsection{\texorpdfstring{bloquear()}{bloquear()}}
+{\footnotesize\ttfamily \label{classConta_aa81639dceefbc47d96e34579fe4d73bf} 
+virtual void Conta\+::bloquear (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Método virtual puro para bloquear a conta. 
+
+
+
+Implementado em \mbox{\hyperlink{classContaPf_a1a547c5d5f4e69086eca8c54df5f6e44}{Conta\+Pf}} e \mbox{\hyperlink{classContaPj_a799bdf83bada88218b0250a25161bca1}{Conta\+Pj}}.
+
+\Hypertarget{classConta_a53d062f48c8ce6223228d8d37a806363}\index{Conta@{Conta}!definirLimite@{definirLimite}}
+\index{definirLimite@{definirLimite}!Conta@{Conta}}
+\doxysubsubsection{\texorpdfstring{definirLimite()}{definirLimite()}}
+{\footnotesize\ttfamily \label{classConta_a53d062f48c8ce6223228d8d37a806363} 
+void Conta\+::definir\+Limite (\begin{DoxyParamCaption}\item[{double}]{novo\+Limite}{}\end{DoxyParamCaption})}
+
+
+
+Define um novo limite para a conta. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em novo\+Limite} & Valor a ser definido como novo limite da conta \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classConta_ae34df55caecd2ece2b81250d04d57552}\index{Conta@{Conta}!depositar@{depositar}}
+\index{depositar@{depositar}!Conta@{Conta}}
+\doxysubsubsection{\texorpdfstring{depositar()}{depositar()}}
+{\footnotesize\ttfamily \label{classConta_ae34df55caecd2ece2b81250d04d57552} 
+bool Conta\+::depositar (\begin{DoxyParamCaption}\item[{double}]{valor}{}\end{DoxyParamCaption})}
+
+
+
+Realiza um depósito. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em valor} & Valor a ser depositado \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+se o depósito foi realizado com sucesso 
+\end{DoxyReturn}
+\Hypertarget{classConta_a95665d5573c61bb77af85acf9039e2f1}\index{Conta@{Conta}!getId@{getId}}
+\index{getId@{getId}!Conta@{Conta}}
+\doxysubsubsection{\texorpdfstring{getId()}{getId()}}
+{\footnotesize\ttfamily \label{classConta_a95665d5573c61bb77af85acf9039e2f1} 
+int Conta\+::get\+Id (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Retorna id da conta. 
+
+\begin{DoxyReturn}{Retorna}
+id 
+\end{DoxyReturn}
+\Hypertarget{classConta_a7f4aef05afce8fb0cc734cf8112efbbc}\index{Conta@{Conta}!getLimite@{getLimite}}
+\index{getLimite@{getLimite}!Conta@{Conta}}
+\doxysubsubsection{\texorpdfstring{getLimite()}{getLimite()}}
+{\footnotesize\ttfamily \label{classConta_a7f4aef05afce8fb0cc734cf8112efbbc} 
+double Conta\+::get\+Limite (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Retorna limite da conta. 
+
+\begin{DoxyReturn}{Retorna}
+limite 
+\end{DoxyReturn}
+\Hypertarget{classConta_ac87355dd359164954a6772674a810968}\index{Conta@{Conta}!getNomeTitular@{getNomeTitular}}
+\index{getNomeTitular@{getNomeTitular}!Conta@{Conta}}
+\doxysubsubsection{\texorpdfstring{getNomeTitular()}{getNomeTitular()}}
+{\footnotesize\ttfamily \label{classConta_ac87355dd359164954a6772674a810968} 
+virtual std\+::string Conta\+::get\+Nome\+Titular (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Método virtual puro para obter o nome do titular da conta. 
+
+\begin{DoxyReturn}{Retorna}
+nome do titular da conta 
+\end{DoxyReturn}
+
+
+Implementado em \mbox{\hyperlink{classContaPf_ae7b84a5f68d7f0f1d10201ef644cc643}{Conta\+Pf}} e \mbox{\hyperlink{classContaPj_ab348f0dec01fe38b48ecbb406e94f7bb}{Conta\+Pj}}.
+
+\Hypertarget{classConta_ad849088dfcc0087d08a8f7509585095c}\index{Conta@{Conta}!getSaldo@{getSaldo}}
+\index{getSaldo@{getSaldo}!Conta@{Conta}}
+\doxysubsubsection{\texorpdfstring{getSaldo()}{getSaldo()}}
+{\footnotesize\ttfamily \label{classConta_ad849088dfcc0087d08a8f7509585095c} 
+double Conta\+::get\+Saldo (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Retorna saldo da conta. 
+
+\begin{DoxyReturn}{Retorna}
+saldo 
+\end{DoxyReturn}
+\Hypertarget{classConta_a90f651100482a59abee75b02b10dcd29}\index{Conta@{Conta}!getTitular@{getTitular}}
+\index{getTitular@{getTitular}!Conta@{Conta}}
+\doxysubsubsection{\texorpdfstring{getTitular()}{getTitular()}}
+{\footnotesize\ttfamily \label{classConta_a90f651100482a59abee75b02b10dcd29} 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classCliente}{Cliente}} $>$ Conta\+::get\+Titular (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Retorna o nome do titulardaconta. 
+
+\begin{DoxyReturn}{Retorna}
+Nome do titular da conta 
+\end{DoxyReturn}
+\Hypertarget{classConta_af7d46dbeb6deac1ad90204e123f20f9d}\index{Conta@{Conta}!isAprovada@{isAprovada}}
+\index{isAprovada@{isAprovada}!Conta@{Conta}}
+\doxysubsubsection{\texorpdfstring{isAprovada()}{isAprovada()}}
+{\footnotesize\ttfamily \label{classConta_af7d46dbeb6deac1ad90204e123f20f9d} 
+bool Conta\+::is\+Aprovada (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Retorna se a conta está ou não aprovada. 
+
+\begin{DoxyReturn}{Retorna}
+Retorna se a conta está ou não aprovada 
+\end{DoxyReturn}
+\Hypertarget{classConta_ad9751eea1c3d75c1bc8a6481ba4a7d92}\index{Conta@{Conta}!isAtivo@{isAtivo}}
+\index{isAtivo@{isAtivo}!Conta@{Conta}}
+\doxysubsubsection{\texorpdfstring{isAtivo()}{isAtivo()}}
+{\footnotesize\ttfamily \label{classConta_ad9751eea1c3d75c1bc8a6481ba4a7d92} 
+bool Conta\+::is\+Ativo (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Retorna se a conta está ou não ativa. 
+
+\begin{DoxyReturn}{Retorna}
+Retorna se a conta está ou não ativa 
+\end{DoxyReturn}
+\Hypertarget{classConta_ad7e30c17ce7c9fb342261dbf5c7f38a2}\index{Conta@{Conta}!sacar@{sacar}}
+\index{sacar@{sacar}!Conta@{Conta}}
+\doxysubsubsection{\texorpdfstring{sacar()}{sacar()}}
+{\footnotesize\ttfamily \label{classConta_ad7e30c17ce7c9fb342261dbf5c7f38a2} 
+bool Conta\+::sacar (\begin{DoxyParamCaption}\item[{double}]{valor}{}\end{DoxyParamCaption})}
+
+
+
+Realiza um saque. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em valor} & Valor a ser sacado \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+se o saque foi realizado com sucesso 
+\end{DoxyReturn}
+\Hypertarget{classConta_a9a13d3fcba8199cdc006b49c8fd0c94f}\index{Conta@{Conta}!set\_num\_cartao@{set\_num\_cartao}}
+\index{set\_num\_cartao@{set\_num\_cartao}!Conta@{Conta}}
+\doxysubsubsection{\texorpdfstring{set\_num\_cartao()}{set\_num\_cartao()}}
+{\footnotesize\ttfamily \label{classConta_a9a13d3fcba8199cdc006b49c8fd0c94f} 
+void Conta\+::set\+\_\+num\+\_\+cartao (\begin{DoxyParamCaption}\item[{std\+::string}]{num}{}\end{DoxyParamCaption})}
+
+
+
+Define o número do cartão. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em num} & Numero do cartão a ser definido \\
+\hline
+\end{DoxyParams}
+
+
+\label{doc-variable-members}
+\Hypertarget{classConta_doc-variable-members}
+\doxysubsection{Documentação dos dados membro}
+\Hypertarget{classConta_a118d7c0bf7c1ba5de1a7a115ffbdd860}\index{Conta@{Conta}!\_aprovada@{\_aprovada}}
+\index{\_aprovada@{\_aprovada}!Conta@{Conta}}
+\doxysubsubsection{\texorpdfstring{\_aprovada}{\_aprovada}}
+{\footnotesize\ttfamily \label{classConta_a118d7c0bf7c1ba5de1a7a115ffbdd860} 
+bool Conta\+::\+\_\+aprovada\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+diz se a conta está ou não aprovada 
+
+\Hypertarget{classConta_a7ce93e58c3b8a5c2cce74448044ad94d}\index{Conta@{Conta}!\_ativo@{\_ativo}}
+\index{\_ativo@{\_ativo}!Conta@{Conta}}
+\doxysubsubsection{\texorpdfstring{\_ativo}{\_ativo}}
+{\footnotesize\ttfamily \label{classConta_a7ce93e58c3b8a5c2cce74448044ad94d} 
+bool Conta\+::\+\_\+ativo\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+diz se a conta está ou não ativa 
+
+\Hypertarget{classConta_a6ff03444e6d2f72fe0fc4cb951b0be04}\index{Conta@{Conta}!\_id@{\_id}}
+\index{\_id@{\_id}!Conta@{Conta}}
+\doxysubsubsection{\texorpdfstring{\_id}{\_id}}
+{\footnotesize\ttfamily \label{classConta_a6ff03444e6d2f72fe0fc4cb951b0be04} 
+int Conta\+::\+\_\+id\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+id da conta 
+
+\Hypertarget{classConta_a41c17e0eff2d296d6112d667b1b75cd2}\index{Conta@{Conta}!\_limite@{\_limite}}
+\index{\_limite@{\_limite}!Conta@{Conta}}
+\doxysubsubsection{\texorpdfstring{\_limite}{\_limite}}
+{\footnotesize\ttfamily \label{classConta_a41c17e0eff2d296d6112d667b1b75cd2} 
+double Conta\+::\+\_\+limite\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+limite da conta 
+
+\Hypertarget{classConta_a27443b89b84f46db3e8172dce402d3b7}\index{Conta@{Conta}!\_saldo@{\_saldo}}
+\index{\_saldo@{\_saldo}!Conta@{Conta}}
+\doxysubsubsection{\texorpdfstring{\_saldo}{\_saldo}}
+{\footnotesize\ttfamily \label{classConta_a27443b89b84f46db3e8172dce402d3b7} 
+double Conta\+::\+\_\+saldo\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+saldo da conta 
+
+\Hypertarget{classConta_a09eabd706d320720a3a08f2e147ca9b6}\index{Conta@{Conta}!\_titular@{\_titular}}
+\index{\_titular@{\_titular}!Conta@{Conta}}
+\doxysubsubsection{\texorpdfstring{\_titular}{\_titular}}
+{\footnotesize\ttfamily \label{classConta_a09eabd706d320720a3a08f2e147ca9b6} 
+std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{classCliente}{Cliente}}$>$ Conta\+::\+\_\+titular\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+cliente que possui a conta 
+
+\Hypertarget{classConta_a66180746c08845c991ab39b3ea276a4c}\index{Conta@{Conta}!num\_cartao@{num\_cartao}}
+\index{num\_cartao@{num\_cartao}!Conta@{Conta}}
+\doxysubsubsection{\texorpdfstring{num\_cartao}{num\_cartao}}
+{\footnotesize\ttfamily \label{classConta_a66180746c08845c991ab39b3ea276a4c} 
+std\+::string Conta\+::num\+\_\+cartao\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+número do cartão da conta do cliente 
+
+
+
+A documentação para esta classe foi gerada a partir dos seguintes ficheiros\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{Conta_8hpp}{Conta.\+hpp}}\item 
+src/\mbox{\hyperlink{Conta_8cpp}{Conta.\+cpp}}\end{DoxyCompactItemize}

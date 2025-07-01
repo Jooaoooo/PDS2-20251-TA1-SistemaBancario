@@ -1,0 +1,36 @@
+\doxysection{Conta\+Pj.\+hpp}
+\hypertarget{ContaPj_8hpp_source}{}\label{ContaPj_8hpp_source}\index{include/ContaPj.hpp@{include/ContaPj.hpp}}
+\mbox{\hyperlink{ContaPj_8hpp}{Ir para a documentação deste ficheiro.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{Conta_8hpp}{Conta.hpp}}"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{Cliente_8hpp}{Cliente.hpp}}"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{Calendario_8hpp}{Calendario.hpp}}"{}}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00016\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classContaPj_a448f86cf9ac5674d320400189bb999d2}{ContaPj}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classConta_aa972efab7a6a2bf3c08d273e3b81ae1e}{Conta}}\ \{}
+\DoxyCodeLine{00017\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{bool}\ validarCnpj();}
+\DoxyCodeLine{00024\ \ \ \ \ \mbox{\hyperlink{structCalendario}{Calendario}}\ \_dataCriacao;\ }
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00036\ \ \ \ \ \mbox{\hyperlink{classContaPj_a448f86cf9ac5674d320400189bb999d2}{ContaPj}}(std::shared\_ptr<Cliente>\ titular,\ \textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id},\ \textcolor{keyword}{const}\ std::string\&\ senha,\ \textcolor{keywordtype}{double}\ saldoInicial);\textcolor{comment}{//V}}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classContaPj_a799bdf83bada88218b0250a25161bca1}{bloquear}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classContaPj_a574d1d27a50a78f90cff2da165682952}{ativar}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00053\ \ \ \ \ std::string\ \mbox{\hyperlink{classContaPj_ab348f0dec01fe38b48ecbb406e94f7bb}{getNomeTitular}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00059\ \ \ \ \ std::string\ \mbox{\hyperlink{classContaPj_a7cdfd7db6ae0401913e66ebb47ddfa5a}{getRazaoSocial}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00065\ \ \ \ \ std::string\ \mbox{\hyperlink{classContaPj_aaed2413275b5a45c594a0bbce077f06f}{getCnpj}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00066\ \};}
+
+\end{DoxyCode}

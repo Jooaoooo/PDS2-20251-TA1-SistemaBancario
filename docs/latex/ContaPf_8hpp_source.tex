@@ -1,0 +1,36 @@
+\doxysection{Conta\+Pf.\+hpp}
+\hypertarget{ContaPf_8hpp_source}{}\label{ContaPf_8hpp_source}\index{include/ContaPf.hpp@{include/ContaPf.hpp}}
+\mbox{\hyperlink{ContaPf_8hpp}{Ir para a documentação deste ficheiro.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{Conta_8hpp}{Conta.hpp}}"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{Cliente_8hpp}{Cliente.hpp}}"{}}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classContaPf_aad7011dc006e418d5dba7b1561a7a52b}{ContaPf}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classConta_aa972efab7a6a2bf3c08d273e3b81ae1e}{Conta}}\ \{}
+\DoxyCodeLine{00016\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ \_taxaSelic\ =\ 0.0125;\ }
+\DoxyCodeLine{00020\ \ \ \ \ }
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{bool}\ validarCpf();}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00036\ \ \ \ \ \mbox{\hyperlink{classContaPf_aad7011dc006e418d5dba7b1561a7a52b}{ContaPf}}(std::shared\_ptr<Cliente>\ titular,\ \textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id},\ \textcolor{keyword}{const}\ std::string\&\ senha,\ \textcolor{keywordtype}{double}\ saldoInicial\ =\ 0.0);\textcolor{comment}{//V}}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classContaPf_a1a547c5d5f4e69086eca8c54df5f6e44}{bloquear}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classContaPf_a3abbc9a125e83eb4a269ddf61a5ebf38}{ativar}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00052\ \ \ \ \ std::string\ \mbox{\hyperlink{classContaPf_ae7b84a5f68d7f0f1d10201ef644cc643}{getNomeTitular}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classContaPf_a0a730297af3d0225dc8bc1ff90af2efd}{calcularTesouro}}(\textcolor{keywordtype}{int}\ tempo,\ \textcolor{keywordtype}{float}\ investimento);}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00066\ \ \ \ \ std::string\ \mbox{\hyperlink{classContaPf_a9e2b9aab69660331927294518663d5a5}{getCpf}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00067\ \};}
+
+\end{DoxyCode}

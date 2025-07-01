@@ -1,0 +1,216 @@
+\doxysection{Referência à classe Gerente}
+\hypertarget{classGerente}{}\label{classGerente}\index{Gerente@{Gerente}}
+
+
+Armazena informações do gerente e realiza suas respectivas operações.  
+
+
+
+
+{\ttfamily \#include $<$Gerente.\+hpp$>$}
+
+\doxysubsubsection*{Membros públicos}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classGerente_a0573692f29d93e20f657808d166e18b8}{Gerente}} (std\+::string nome, std\+::string cpf, std\+::string rg, std\+::string senha)
+\begin{DoxyCompactList}\small\item\em Armazena informações iniciais do \doxylink{classGerente}{Gerente}. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classGerente_a15f2e43e8e601e1228e131c6f0c0230b}{get\+\_\+nome}} () const
+\begin{DoxyCompactList}\small\item\em Getter do nome do gerente. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classGerente_ac743f328dabeae32b3bb950abc4cf08c}{get\+\_\+cpf}} () const
+\begin{DoxyCompactList}\small\item\em Getter do cpf do gerente. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classGerente_ad89e735f5c1248db462981df15fe740b}{get\+\_\+rg}} () const
+\begin{DoxyCompactList}\small\item\em Getter do rg do gerente. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classGerente_ae032079beb5a26783a48fafcce99bb04}{operacoes\+\_\+gerente}} (\mbox{\hyperlink{classBanco}{Banco}} \&banco)
+\begin{DoxyCompactList}\small\item\em Interface para execução de ações do gerente. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classGerente_aa771923ed0f2aa32a207e17b61659f50}{aprovar\+\_\+pj}} (\mbox{\hyperlink{classBanco}{Banco}} \&banco)
+\begin{DoxyCompactList}\small\item\em Permite o gerente aprovar uma conta Pj. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGerente_a61d6c6c8ee6f4dd5211a84664728f8f2}{gerar\+\_\+relatorio}} (\mbox{\hyperlink{classBanco}{Banco}} \&banco)
+\begin{DoxyCompactList}\small\item\em Gera arquivo de relatório. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGerente_a48877b96faef436e86ce7c35199778b9}{validar\+\_\+transacoes}} (\mbox{\hyperlink{classBanco}{Banco}} \&banco)
+\begin{DoxyCompactList}\small\item\em Permite ao gerente aprovar transações. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classGerente_ab986758c8077f2f70440259d7bb180fc}{autenticacao}} (std\+::string cpf, std\+::string rg, std\+::string senha)
+\begin{DoxyCompactList}\small\item\em Realiza processo de autenticação do \doxylink{classGerente}{Gerente} para login. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Atributos Públicos}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ Contas\+\_\+\+Liberadas $>$ \mbox{\hyperlink{classGerente_a80bf61759d8f81a47e05a51f34982450}{liberadas}}
+\begin{DoxyCompactList}\small\item\em vector de contas liberadas pelo gerente \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descrição detalhada}
+Armazena informações do gerente e realiza suas respectivas operações. 
+
+Possui uma pequena interfaze para manipulações de gerente como aprovar pj, gerar relatórios e validar transações. O gerente também tem suas informações pessoais e operaç\texorpdfstring{$\sim$}{\string~}çoes de autenticação 
+
+\label{doc-constructors}
+\Hypertarget{classGerente_doc-constructors}
+\doxysubsection{Documentação dos Construtores \& Destrutor}
+\Hypertarget{classGerente_a0573692f29d93e20f657808d166e18b8}\index{Gerente@{Gerente}!Gerente@{Gerente}}
+\index{Gerente@{Gerente}!Gerente@{Gerente}}
+\doxysubsubsection{\texorpdfstring{Gerente()}{Gerente()}}
+{\footnotesize\ttfamily \label{classGerente_a0573692f29d93e20f657808d166e18b8} 
+Gerente\+::\+Gerente (\begin{DoxyParamCaption}\item[{std\+::string}]{nome}{, }\item[{std\+::string}]{cpf}{, }\item[{std\+::string}]{rg}{, }\item[{std\+::string}]{senha}{}\end{DoxyParamCaption})}
+
+
+
+Armazena informações iniciais do \doxylink{classGerente}{Gerente}. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em nome} & nome do gerente \\
+\hline
+{\em cpf} & cpf do gerente \\
+\hline
+{\em rg} & rg do gerente \\
+\hline
+{\em senha} & senha do gerente \\
+\hline
+\end{DoxyParams}
+
+
+\label{doc-func-members}
+\Hypertarget{classGerente_doc-func-members}
+\doxysubsection{Documentação das funções}
+\Hypertarget{classGerente_aa771923ed0f2aa32a207e17b61659f50}\index{Gerente@{Gerente}!aprovar\_pj@{aprovar\_pj}}
+\index{aprovar\_pj@{aprovar\_pj}!Gerente@{Gerente}}
+\doxysubsubsection{\texorpdfstring{aprovar\_pj()}{aprovar\_pj()}}
+{\footnotesize\ttfamily \label{classGerente_aa771923ed0f2aa32a207e17b61659f50} 
+int Gerente\+::aprovar\+\_\+pj (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classBanco}{Banco}} \&}]{banco}{}\end{DoxyParamCaption})}
+
+
+
+Permite o gerente aprovar uma conta Pj. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em banco} & endereço da instância do banco \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+Retorna se operação foi bem sucedida 
+\end{DoxyReturn}
+\Hypertarget{classGerente_ab986758c8077f2f70440259d7bb180fc}\index{Gerente@{Gerente}!autenticacao@{autenticacao}}
+\index{autenticacao@{autenticacao}!Gerente@{Gerente}}
+\doxysubsubsection{\texorpdfstring{autenticacao()}{autenticacao()}}
+{\footnotesize\ttfamily \label{classGerente_ab986758c8077f2f70440259d7bb180fc} 
+bool Gerente\+::autenticacao (\begin{DoxyParamCaption}\item[{std\+::string}]{cpf}{, }\item[{std\+::string}]{rg}{, }\item[{std\+::string}]{senha}{}\end{DoxyParamCaption})}
+
+
+
+Realiza processo de autenticação do \doxylink{classGerente}{Gerente} para login. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em cpf} & Cpf do gerente \\
+\hline
+{\em rg} & Rg do gerente \\
+\hline
+{\em senha} & Senha do gerente \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+Retorna se encontrou o gerente com os dados informados 
+\end{DoxyReturn}
+\Hypertarget{classGerente_a61d6c6c8ee6f4dd5211a84664728f8f2}\index{Gerente@{Gerente}!gerar\_relatorio@{gerar\_relatorio}}
+\index{gerar\_relatorio@{gerar\_relatorio}!Gerente@{Gerente}}
+\doxysubsubsection{\texorpdfstring{gerar\_relatorio()}{gerar\_relatorio()}}
+{\footnotesize\ttfamily \label{classGerente_a61d6c6c8ee6f4dd5211a84664728f8f2} 
+void Gerente\+::gerar\+\_\+relatorio (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classBanco}{Banco}} \&}]{banco}{}\end{DoxyParamCaption})}
+
+
+
+Gera arquivo de relatório. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em banco} & endereço da instância do banco\\
+\hline
+\end{DoxyParams}
+Gera arquivo de relatório sorbe as operações realizadas no banco \Hypertarget{classGerente_ac743f328dabeae32b3bb950abc4cf08c}\index{Gerente@{Gerente}!get\_cpf@{get\_cpf}}
+\index{get\_cpf@{get\_cpf}!Gerente@{Gerente}}
+\doxysubsubsection{\texorpdfstring{get\_cpf()}{get\_cpf()}}
+{\footnotesize\ttfamily \label{classGerente_ac743f328dabeae32b3bb950abc4cf08c} 
+std\+::string Gerente\+::get\+\_\+cpf (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Getter do cpf do gerente. 
+
+\begin{DoxyReturn}{Retorna}
+Retorna cpf do gerente 
+\end{DoxyReturn}
+\Hypertarget{classGerente_a15f2e43e8e601e1228e131c6f0c0230b}\index{Gerente@{Gerente}!get\_nome@{get\_nome}}
+\index{get\_nome@{get\_nome}!Gerente@{Gerente}}
+\doxysubsubsection{\texorpdfstring{get\_nome()}{get\_nome()}}
+{\footnotesize\ttfamily \label{classGerente_a15f2e43e8e601e1228e131c6f0c0230b} 
+std\+::string Gerente\+::get\+\_\+nome (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Getter do nome do gerente. 
+
+\begin{DoxyReturn}{Retorna}
+Retorna nome do gerente 
+\end{DoxyReturn}
+\Hypertarget{classGerente_ad89e735f5c1248db462981df15fe740b}\index{Gerente@{Gerente}!get\_rg@{get\_rg}}
+\index{get\_rg@{get\_rg}!Gerente@{Gerente}}
+\doxysubsubsection{\texorpdfstring{get\_rg()}{get\_rg()}}
+{\footnotesize\ttfamily \label{classGerente_ad89e735f5c1248db462981df15fe740b} 
+std\+::string Gerente\+::get\+\_\+rg (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Getter do rg do gerente. 
+
+\begin{DoxyReturn}{Retorna}
+Retorna rg do gerente 
+\end{DoxyReturn}
+\Hypertarget{classGerente_ae032079beb5a26783a48fafcce99bb04}\index{Gerente@{Gerente}!operacoes\_gerente@{operacoes\_gerente}}
+\index{operacoes\_gerente@{operacoes\_gerente}!Gerente@{Gerente}}
+\doxysubsubsection{\texorpdfstring{operacoes\_gerente()}{operacoes\_gerente()}}
+{\footnotesize\ttfamily \label{classGerente_ae032079beb5a26783a48fafcce99bb04} 
+int Gerente\+::operacoes\+\_\+gerente (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classBanco}{Banco}} \&}]{banco}{}\end{DoxyParamCaption})}
+
+
+
+Interface para execução de ações do gerente. 
+
+Permite\+: \texorpdfstring{$>$}{>}Aprovar conta Pj \texorpdfstring{$>$}{>}Validar transações \texorpdfstring{$>$}{>}Gerar relatório \begin{DoxyReturn}{Retorna}
+Retorna se operação foi bem sucedida 
+\end{DoxyReturn}
+\Hypertarget{classGerente_a48877b96faef436e86ce7c35199778b9}\index{Gerente@{Gerente}!validar\_transacoes@{validar\_transacoes}}
+\index{validar\_transacoes@{validar\_transacoes}!Gerente@{Gerente}}
+\doxysubsubsection{\texorpdfstring{validar\_transacoes()}{validar\_transacoes()}}
+{\footnotesize\ttfamily \label{classGerente_a48877b96faef436e86ce7c35199778b9} 
+void Gerente\+::validar\+\_\+transacoes (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classBanco}{Banco}} \&}]{banco}{}\end{DoxyParamCaption})}
+
+
+
+Permite ao gerente aprovar transações. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em banco} & endereço da instância do banco\\
+\hline
+\end{DoxyParams}
+Permite ao gerente aprovar transações de valor superior a 5000 reais 
+
+\label{doc-variable-members}
+\Hypertarget{classGerente_doc-variable-members}
+\doxysubsection{Documentação dos dados membro}
+\Hypertarget{classGerente_a80bf61759d8f81a47e05a51f34982450}\index{Gerente@{Gerente}!liberadas@{liberadas}}
+\index{liberadas@{liberadas}!Gerente@{Gerente}}
+\doxysubsubsection{\texorpdfstring{liberadas}{liberadas}}
+{\footnotesize\ttfamily \label{classGerente_a80bf61759d8f81a47e05a51f34982450} 
+std\+::vector$<$Contas\+\_\+\+Liberadas$>$ Gerente\+::liberadas}
+
+
+
+vector de contas liberadas pelo gerente 
+
+
+
+A documentação para esta classe foi gerada a partir dos seguintes ficheiros\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{Gerente_8hpp}{Gerente.\+hpp}}\item 
+src/\mbox{\hyperlink{Gerente_8cpp}{Gerente.\+cpp}}\end{DoxyCompactItemize}

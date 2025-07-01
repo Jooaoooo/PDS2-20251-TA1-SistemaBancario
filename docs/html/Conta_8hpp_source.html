@@ -1,0 +1,189 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.14.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>SpectralBank++: Código-Fonte de include/Conta.hpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">SpectralBank++<span id="projectnumber">&#160;1.0</span>
+   </div>
+   <div id="projectbrief">Simulação de Sistema Bancário</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.14.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Localizar',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('Conta_8hpp_source.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Carregando...</div>
+<div class="SRStatus" id="Searching">Procurando...</div>
+<div class="SRStatus" id="NoMatches">Nenhuma entrada encontrada</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Conta.hpp</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="Conta_8hpp.html">Ir para a documentação deste ficheiro.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;memory&gt;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;<a class="code" href="Cliente_8hpp.html">Cliente.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span></div>
+<div class="foldopen" id="foldopen00013" data-start="{" data-end="};">
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="classConta.html">   13</a></span><span class="keyword">class </span><a class="code hl_function" href="classConta.html#aa972efab7a6a2bf3c08d273e3b81ae1e">Conta</a> {</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    <span class="keyword">static</span> <span class="keywordtype">int</span> _proximoId; </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="classConta.html#a6ff03444e6d2f72fe0fc4cb951b0be04">   18</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="classConta.html#a6ff03444e6d2f72fe0fc4cb951b0be04">_id</a>; </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="classConta.html#a27443b89b84f46db3e8172dce402d3b7">   19</a></span>    <span class="keywordtype">double</span> <a class="code hl_variable" href="classConta.html#a27443b89b84f46db3e8172dce402d3b7">_saldo</a>; </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="classConta.html#a41c17e0eff2d296d6112d667b1b75cd2">   20</a></span>    <span class="keywordtype">double</span> <a class="code hl_variable" href="classConta.html#a41c17e0eff2d296d6112d667b1b75cd2">_limite</a>; </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="classConta.html#a7ce93e58c3b8a5c2cce74448044ad94d">   21</a></span>    <span class="keywordtype">bool</span> <a class="code hl_variable" href="classConta.html#a7ce93e58c3b8a5c2cce74448044ad94d">_ativo</a>; </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="classConta.html#a118d7c0bf7c1ba5de1a7a115ffbdd860">   22</a></span>    <span class="keywordtype">bool</span> <a class="code hl_variable" href="classConta.html#a118d7c0bf7c1ba5de1a7a115ffbdd860">_aprovada</a>; </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="classConta.html#a09eabd706d320720a3a08f2e147ca9b6">   23</a></span>    std::shared_ptr&lt;Cliente&gt; <a class="code hl_variable" href="classConta.html#a09eabd706d320720a3a08f2e147ca9b6">_titular</a>; </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="classConta.html#a66180746c08845c991ab39b3ea276a4c">   24</a></span>    std::string <a class="code hl_variable" href="classConta.html#a66180746c08845c991ab39b3ea276a4c">num_cartao</a>; </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <a class="code hl_function" href="classConta.html#aa972efab7a6a2bf3c08d273e3b81ae1e">Conta</a>(std::shared_ptr&lt;Cliente&gt; titular,<span class="keywordtype">int</span> <span class="keywordtype">id</span>, <span class="keywordtype">double</span> saldoInicial, <span class="keywordtype">double</span> limiteInicial);<span class="comment">//V</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="classConta.html#a8d99ba6b834d1e39e3714dd7957a2d24">   40</a></span>    <span class="keyword">virtual</span> <a class="code hl_function" href="classConta.html#a8d99ba6b834d1e39e3714dd7957a2d24">~Conta</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <span class="comment">// Métodos virtuais puros</span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="classConta.html#aa81639dceefbc47d96e34579fe4d73bf">   47</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classConta.html#aa81639dceefbc47d96e34579fe4d73bf">bloquear</a>() = 0;</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="classConta.html#acf0aaa3b47ff8d73ddc65fc65183b870">   52</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classConta.html#acf0aaa3b47ff8d73ddc65fc65183b870">ativar</a>() = 0;</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span></div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="classConta.html#ac87355dd359164954a6772674a810968">   58</a></span>    <span class="keyword">virtual</span> std::string <a class="code hl_function" href="classConta.html#ac87355dd359164954a6772674a810968">getNomeTitular</a>() <span class="keyword">const</span> = 0;</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    <span class="comment">// Métodos de operação</span></div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span></div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classConta.html#ae34df55caecd2ece2b81250d04d57552">depositar</a>(<span class="keywordtype">double</span> valor);</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span></div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classConta.html#ad7e30c17ce7c9fb342261dbf5c7f38a2">sacar</a>(<span class="keywordtype">double</span> valor);</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span></div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classConta.html#a3660c8ab3df8d15e0d441e8e7d544e37">aprovar</a>();</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span></div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classConta.html#a53d062f48c8ce6223228d8d37a806363">definirLimite</a>(<span class="keywordtype">double</span> novoLimite);</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span></div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    <span class="keywordtype">int</span> <a class="code hl_function" href="classConta.html#a95665d5573c61bb77af85acf9039e2f1">getId</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span></div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    <span class="keywordtype">double</span> <a class="code hl_function" href="classConta.html#ad849088dfcc0087d08a8f7509585095c">getSaldo</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span></div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    <span class="keywordtype">double</span> <a class="code hl_function" href="classConta.html#a7f4aef05afce8fb0cc734cf8112efbbc">getLimite</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span></div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classConta.html#ad9751eea1c3d75c1bc8a6481ba4a7d92">isAtivo</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span></div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classConta.html#af7d46dbeb6deac1ad90204e123f20f9d">isAprovada</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span></div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>    std::shared_ptr&lt;Cliente&gt; <a class="code hl_function" href="classConta.html#a90f651100482a59abee75b02b10dcd29">getTitular</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span></div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classConta.html#a9a13d3fcba8199cdc006b49c8fd0c94f">set_num_cartao</a>(std::string num);</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>};</div>
+</div>
+<div class="ttc" id="aCliente_8hpp_html"><div class="ttname"><a href="Cliente_8hpp.html">Cliente.hpp</a></div></div>
+<div class="ttc" id="aclassConta_html_a09eabd706d320720a3a08f2e147ca9b6"><div class="ttname"><a href="classConta.html#a09eabd706d320720a3a08f2e147ca9b6">Conta::_titular</a></div><div class="ttdeci">std::shared_ptr&lt; Cliente &gt; _titular</div><div class="ttdoc">cliente que possui a conta</div><div class="ttdef"><b>Definição</b> Conta.hpp:23</div></div>
+<div class="ttc" id="aclassConta_html_a118d7c0bf7c1ba5de1a7a115ffbdd860"><div class="ttname"><a href="classConta.html#a118d7c0bf7c1ba5de1a7a115ffbdd860">Conta::_aprovada</a></div><div class="ttdeci">bool _aprovada</div><div class="ttdoc">diz se a conta está ou não aprovada</div><div class="ttdef"><b>Definição</b> Conta.hpp:22</div></div>
+<div class="ttc" id="aclassConta_html_a27443b89b84f46db3e8172dce402d3b7"><div class="ttname"><a href="classConta.html#a27443b89b84f46db3e8172dce402d3b7">Conta::_saldo</a></div><div class="ttdeci">double _saldo</div><div class="ttdoc">saldo da conta</div><div class="ttdef"><b>Definição</b> Conta.hpp:19</div></div>
+<div class="ttc" id="aclassConta_html_a3660c8ab3df8d15e0d441e8e7d544e37"><div class="ttname"><a href="classConta.html#a3660c8ab3df8d15e0d441e8e7d544e37">Conta::aprovar</a></div><div class="ttdeci">void aprovar()</div><div class="ttdoc">Aprova a conta.</div><div class="ttdef"><b>Definição</b> Conta.cpp:32</div></div>
+<div class="ttc" id="aclassConta_html_a41c17e0eff2d296d6112d667b1b75cd2"><div class="ttname"><a href="classConta.html#a41c17e0eff2d296d6112d667b1b75cd2">Conta::_limite</a></div><div class="ttdeci">double _limite</div><div class="ttdoc">limite da conta</div><div class="ttdef"><b>Definição</b> Conta.hpp:20</div></div>
+<div class="ttc" id="aclassConta_html_a53d062f48c8ce6223228d8d37a806363"><div class="ttname"><a href="classConta.html#a53d062f48c8ce6223228d8d37a806363">Conta::definirLimite</a></div><div class="ttdeci">void definirLimite(double novoLimite)</div><div class="ttdoc">Define um novo limite para a conta.</div><div class="ttdef"><b>Definição</b> Conta.cpp:33</div></div>
+<div class="ttc" id="aclassConta_html_a66180746c08845c991ab39b3ea276a4c"><div class="ttname"><a href="classConta.html#a66180746c08845c991ab39b3ea276a4c">Conta::num_cartao</a></div><div class="ttdeci">std::string num_cartao</div><div class="ttdoc">número do cartão da conta do cliente</div><div class="ttdef"><b>Definição</b> Conta.hpp:24</div></div>
+<div class="ttc" id="aclassConta_html_a6ff03444e6d2f72fe0fc4cb951b0be04"><div class="ttname"><a href="classConta.html#a6ff03444e6d2f72fe0fc4cb951b0be04">Conta::_id</a></div><div class="ttdeci">int _id</div><div class="ttdoc">id da conta</div><div class="ttdef"><b>Definição</b> Conta.hpp:18</div></div>
+<div class="ttc" id="aclassConta_html_a7ce93e58c3b8a5c2cce74448044ad94d"><div class="ttname"><a href="classConta.html#a7ce93e58c3b8a5c2cce74448044ad94d">Conta::_ativo</a></div><div class="ttdeci">bool _ativo</div><div class="ttdoc">diz se a conta está ou não ativa</div><div class="ttdef"><b>Definição</b> Conta.hpp:21</div></div>
+<div class="ttc" id="aclassConta_html_a7f4aef05afce8fb0cc734cf8112efbbc"><div class="ttname"><a href="classConta.html#a7f4aef05afce8fb0cc734cf8112efbbc">Conta::getLimite</a></div><div class="ttdeci">double getLimite() const</div><div class="ttdoc">Retorna limite da conta.</div><div class="ttdef"><b>Definição</b> Conta.cpp:40</div></div>
+<div class="ttc" id="aclassConta_html_a8d99ba6b834d1e39e3714dd7957a2d24"><div class="ttname"><a href="classConta.html#a8d99ba6b834d1e39e3714dd7957a2d24">Conta::~Conta</a></div><div class="ttdeci">virtual ~Conta()=default</div><div class="ttdoc">Destrutor padrão da classe Conta.</div></div>
+<div class="ttc" id="aclassConta_html_a90f651100482a59abee75b02b10dcd29"><div class="ttname"><a href="classConta.html#a90f651100482a59abee75b02b10dcd29">Conta::getTitular</a></div><div class="ttdeci">std::shared_ptr&lt; Cliente &gt; getTitular() const</div><div class="ttdoc">Retorna o nome do titulardaconta.</div><div class="ttdef"><b>Definição</b> Conta.cpp:43</div></div>
+<div class="ttc" id="aclassConta_html_a95665d5573c61bb77af85acf9039e2f1"><div class="ttname"><a href="classConta.html#a95665d5573c61bb77af85acf9039e2f1">Conta::getId</a></div><div class="ttdeci">int getId() const</div><div class="ttdoc">Retorna id da conta.</div><div class="ttdef"><b>Definição</b> Conta.cpp:38</div></div>
+<div class="ttc" id="aclassConta_html_a9a13d3fcba8199cdc006b49c8fd0c94f"><div class="ttname"><a href="classConta.html#a9a13d3fcba8199cdc006b49c8fd0c94f">Conta::set_num_cartao</a></div><div class="ttdeci">void set_num_cartao(std::string num)</div><div class="ttdoc">Define o número do cartão.</div><div class="ttdef"><b>Definição</b> Conta.cpp:44</div></div>
+<div class="ttc" id="aclassConta_html_aa81639dceefbc47d96e34579fe4d73bf"><div class="ttname"><a href="classConta.html#aa81639dceefbc47d96e34579fe4d73bf">Conta::bloquear</a></div><div class="ttdeci">virtual void bloquear()=0</div><div class="ttdoc">Método virtual puro para bloquear a conta.</div></div>
+<div class="ttc" id="aclassConta_html_aa972efab7a6a2bf3c08d273e3b81ae1e"><div class="ttname"><a href="classConta.html#aa972efab7a6a2bf3c08d273e3b81ae1e">Conta::Conta</a></div><div class="ttdeci">Conta(std::shared_ptr&lt; Cliente &gt; titular, int id, double saldoInicial, double limiteInicial)</div><div class="ttdoc">Armazena informações iniciais da conta.</div><div class="ttdef"><b>Definição</b> Conta.cpp:7</div></div>
+<div class="ttc" id="aclassConta_html_ac87355dd359164954a6772674a810968"><div class="ttname"><a href="classConta.html#ac87355dd359164954a6772674a810968">Conta::getNomeTitular</a></div><div class="ttdeci">virtual std::string getNomeTitular() const =0</div><div class="ttdoc">Método virtual puro para obter o nome do titular da conta.</div></div>
+<div class="ttc" id="aclassConta_html_acf0aaa3b47ff8d73ddc65fc65183b870"><div class="ttname"><a href="classConta.html#acf0aaa3b47ff8d73ddc65fc65183b870">Conta::ativar</a></div><div class="ttdeci">virtual void ativar()=0</div><div class="ttdoc">Método virtual puro para ativar a conta.</div></div>
+<div class="ttc" id="aclassConta_html_ad7e30c17ce7c9fb342261dbf5c7f38a2"><div class="ttname"><a href="classConta.html#ad7e30c17ce7c9fb342261dbf5c7f38a2">Conta::sacar</a></div><div class="ttdeci">bool sacar(double valor)</div><div class="ttdoc">Realiza um saque.</div><div class="ttdef"><b>Definição</b> Conta.cpp:21</div></div>
+<div class="ttc" id="aclassConta_html_ad849088dfcc0087d08a8f7509585095c"><div class="ttname"><a href="classConta.html#ad849088dfcc0087d08a8f7509585095c">Conta::getSaldo</a></div><div class="ttdeci">double getSaldo() const</div><div class="ttdoc">Retorna saldo da conta.</div><div class="ttdef"><b>Definição</b> Conta.cpp:39</div></div>
+<div class="ttc" id="aclassConta_html_ad9751eea1c3d75c1bc8a6481ba4a7d92"><div class="ttname"><a href="classConta.html#ad9751eea1c3d75c1bc8a6481ba4a7d92">Conta::isAtivo</a></div><div class="ttdeci">bool isAtivo() const</div><div class="ttdoc">Retorna se a conta está ou não ativa.</div><div class="ttdef"><b>Definição</b> Conta.cpp:41</div></div>
+<div class="ttc" id="aclassConta_html_ae34df55caecd2ece2b81250d04d57552"><div class="ttname"><a href="classConta.html#ae34df55caecd2ece2b81250d04d57552">Conta::depositar</a></div><div class="ttdeci">bool depositar(double valor)</div><div class="ttdoc">Realiza um depósito.</div><div class="ttdef"><b>Definição</b> Conta.cpp:15</div></div>
+<div class="ttc" id="aclassConta_html_af7d46dbeb6deac1ad90204e123f20f9d"><div class="ttname"><a href="classConta.html#af7d46dbeb6deac1ad90204e123f20f9d">Conta::isAprovada</a></div><div class="ttdeci">bool isAprovada() const</div><div class="ttdoc">Retorna se a conta está ou não aprovada.</div><div class="ttdef"><b>Definição</b> Conta.cpp:42</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a href="Conta_8hpp.html">Conta.hpp</a></li>
+    <li class="footer">Gerado por <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.14.0 </li>
+  </ul>
+</div>
+</body>
+</html>

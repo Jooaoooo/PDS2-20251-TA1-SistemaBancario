@@ -1,0 +1,94 @@
+\doxysection{Banco.\+hpp}
+\hypertarget{Banco_8hpp_source}{}\label{Banco_8hpp_source}\index{include/Banco.hpp@{include/Banco.hpp}}
+\mbox{\hyperlink{Banco_8hpp}{Ir para a documentação deste ficheiro.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{Conta_8hpp}{Conta.hpp}}"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{Cliente_8hpp}{Cliente.hpp}}"{}}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{comment}{//\ Estruturas\ de\ dados\ do\ Banco}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structTransacao}{Transacao}}\ \{}
+\DoxyCodeLine{00016\ \ \ \ \ std::string\ \mbox{\hyperlink{structTransacao_a4a045c3ba2c61e255f9c6c37e97c36ff}{data}};\ }
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structTransacao_a99f80a3b3dc162bd261a1971c1d067f2}{valor}}\ =\ 0;\ }
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structTransacao_a347157ff3335b3208160da18e0eff4c0}{conta\_origem}};\ }
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structTransacao_a61f8bcc207b9a758909c5ca7260703c6}{conta\_destino}};\ }
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structTransacao_a73cb7188405c079918a906ad5ae98fd7}{aprovada}}\ =\ \textcolor{keyword}{false};\ }
+\DoxyCodeLine{00021\ \};}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00027\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structSaque}{Saque}}\ \{}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structSaque_ac135403c677302a3e4028386c3b957e2}{id\_conta}};\ }
+\DoxyCodeLine{00029\ \ \ \ \ std::string\ \mbox{\hyperlink{structSaque_a5dcd38a54cfb7e2a35ed9634d59eca7c}{data}};\ }
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structSaque_afb7c066fab24a4f63bba352f63f20aa7}{valor}}\ =\ 0;\ }
+\DoxyCodeLine{00031\ \};}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00037\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structDeposito}{Deposito}}\ \{}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structDeposito_ac5553ea59380934359dc33b7c5fad4ff}{id\_conta}};\ }
+\DoxyCodeLine{00039\ \ \ \ \ std::string\ \mbox{\hyperlink{structDeposito_ae7a1ae67348d55f0dbd67b78e0e5b788}{data}};\ }
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structDeposito_ab70b23f9b27dba110834fc86cbee4d6c}{valor}}\ =\ 0;\ }
+\DoxyCodeLine{00041\ \};}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00047\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structCartao}{Cartao}}\ \{}
+\DoxyCodeLine{00048\ \ \ \ \ std::string\ \mbox{\hyperlink{structCartao_a86ade175b9c49f35a7cd89659cfb8faf}{numero}};\ }
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structCartao_a7739538d59c01afdc3987dfe590fa525}{conta\_id}};\ }
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structCartao_aa5ae34bff0ca07d2aa8fd407d5541dbc}{bloqueado}}\ =\ \textcolor{keyword}{false};\ }
+\DoxyCodeLine{00051\ \};}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00061\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classBanco}{Banco}}\ \{}
+\DoxyCodeLine{00062\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00063\ \ \ \ \ std::vector<std::shared\_ptr<Conta>>\ contas;\ }
+\DoxyCodeLine{00064\ \ \ \ \ std::vector<Transacao>\ transacoes;\ }
+\DoxyCodeLine{00065\ \ \ \ \ std::vector<Cartao>\ cartoes;\ }
+\DoxyCodeLine{00066\ \ \ \ \ std::vector<std::shared\_ptr<Cliente>>\ clientes;\ }
+\DoxyCodeLine{00067\ \ \ \ \ std::vector<Saque>\ saques;\ }
+\DoxyCodeLine{00068\ \ \ \ \ std::vector<Deposito>\ depositos;\ }
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classBanco_ab54aaf69a3c89a7dcc3dce0e420b1476}{gerenciar\_contas}}();}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classBanco_ae48a49cfa1fb0f1094235958b52f44cc}{validar\_transacao}}(\mbox{\hyperlink{structTransacao}{Transacao}}\ \&transacao);}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classBanco_ab3d9176bfe39dd1bd70bf400d77db5de}{validar\_transacoes}}();}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00098\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classBanco_a211793cd76d2f53d9abe6d4d1693d702}{criar\_cartao}}();}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00104\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classBanco_aa6e1d9b91523e3892284e7d805e2ea0e}{bloquear\_cartao}}();}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00111\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classBanco_a391c192fb6159444c41c23968b2487b6}{gerar\_relatorio}}(std::string\ dados);}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00117\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classBanco_a2d979095bc806d68d48418df77fb0016}{realizar\_transacao}}();}
+\DoxyCodeLine{00118\ \ \ \ \ }
+\DoxyCodeLine{00123\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classBanco_ae5f54a65ee8f5a291b780cc1d7cf99b6}{realizar\_saque}}();}
+\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00129\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classBanco_ad1e5dcf7d20c345c31efeead857c596d}{realizar\_deposito}}();}
+\DoxyCodeLine{00130\ }
+\DoxyCodeLine{00135\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classBanco_ac20e373111a26fe3887fc0821a30884b}{posicao\_id}}(\textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id});\textcolor{comment}{//retorna\ a\ posição\ do\ ID\ no\ vetor\ contas}}
+\DoxyCodeLine{00136\ \ \ \ \ }
+\DoxyCodeLine{00141\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classBanco_a4ebb1c750cb9c2b4c2234c4bb431f751}{verifica\_id}}(\textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id});}
+\DoxyCodeLine{00142\ }
+\DoxyCodeLine{00147\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classBanco_a2a03a17a7da4e0709fe18b29c1f24dde}{autenticar\_conta}}(\textcolor{keywordtype}{int}\ id\_conta);}
+\DoxyCodeLine{00148\ }
+\DoxyCodeLine{00155\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classBanco_a04aac586c117c8ba81428691223f4400}{verificar\_cartao}}(\textcolor{keywordtype}{int}\ id\_conta,\ \textcolor{keyword}{const}\ std::string\&\ numero\_cartao);}
+\DoxyCodeLine{00156\ }
+\DoxyCodeLine{00162\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classBanco_aee8a042418c3b714106de8cabd324135}{gerar\_extrato}}(\textcolor{keywordtype}{int}\ id\_conta);}
+\DoxyCodeLine{00163\ \ \ \ \ }
+\DoxyCodeLine{00164\ \ \ \ \ \textcolor{comment}{//\ Getters\ para\ acesso\ controlado\ aos\ dados\ internos}}
+\DoxyCodeLine{00165\ \ \ \ \ }
+\DoxyCodeLine{00170\ \ \ \ \ std::vector<std::shared\_ptr<Conta>>\&\ \mbox{\hyperlink{classBanco_a9520a5ad7bf9d83ba9e60241ddcfa03e}{getContas}}();}
+\DoxyCodeLine{00171\ \ \ \ \ }
+\DoxyCodeLine{00176\ \ \ \ \ std::vector<Transacao>\&\ \mbox{\hyperlink{classBanco_a6a004d503f372e5e25c945bdb2a83f07}{getTransacoes}}();}
+\DoxyCodeLine{00177\ }
+\DoxyCodeLine{00182\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classBanco_a55b7a30fbcbc1e5724f4c128599742d4}{isContasEmpty}}();}
+\DoxyCodeLine{00183\ }
+\DoxyCodeLine{00188\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<std::shared\_ptr<Conta>>\&\ \mbox{\hyperlink{classBanco_a9520a5ad7bf9d83ba9e60241ddcfa03e}{getContas}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00189\ \ \ \ \ }
+\DoxyCodeLine{00194\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classBanco_a5bc6df2e9d439ac561c28d308411ac88}{contasSize}}();}
+\DoxyCodeLine{00195\ }
+\DoxyCodeLine{00196\ \};}
+
+\end{DoxyCode}

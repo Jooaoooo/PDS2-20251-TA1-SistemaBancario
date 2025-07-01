@@ -1,0 +1,227 @@
+\doxysection{Referência à classe Cliente}
+\hypertarget{classCliente}{}\label{classCliente}\index{Cliente@{Cliente}}
+
+
+armazena informações do cliente  
+
+
+
+
+{\ttfamily \#include $<$Cliente.\+hpp$>$}
+
+\doxysubsubsection*{Membros públicos}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classCliente_a9dc1d3f09fe73a504be0461f724b374e}{Cliente}} (std\+::string nome, std\+::string cpf\+\_\+cnpj, std\+::string rg, std\+::string senha, std\+::string endereco, std\+::string email, std\+::string telefone)
+\begin{DoxyCompactList}\small\item\em Armazena informações iniciais de \doxylink{classCliente}{Cliente}. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classCliente_a6c0fb863a4a1bfc3f88dd75b62a3ff38}{autenticar\+\_\+usuario}} (const std\+::string \&senha, const std\+::string \&rg) const
+\begin{DoxyCompactList}\small\item\em Realiza verificação se é de fato o usuário com dados pessoais. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classCliente_a3104d12022f1bad10f1ec0a634b69a5f}{get\+\_\+dados}} (int dado) const
+\begin{DoxyCompactList}\small\item\em informa um dado desejado \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCliente_a3c52f7a3d68a4ef203a778e2fbf7799e}{atualizar\+\_\+metodos\+\_\+contato}} (const std\+::string \&endereco, const std\+::string \&email, const std\+::string \&telefone)
+\begin{DoxyCompactList}\small\item\em Atualiza informações de contato. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classCliente_ae3d38164dffb1a932171595d59ee46c5}{get\+\_\+nome}} () const
+\begin{DoxyCompactList}\small\item\em Retorna nome. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classCliente_ae7b5882aa85a9828d78e16d34544ce65}{get\+\_\+cpf\+\_\+cnpj}} () const
+\begin{DoxyCompactList}\small\item\em Retorna cpf/cnpj. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classCliente_a85f0df75fe925eb759a5f9468cb3d38d}{get\+\_\+rg}} () const
+\begin{DoxyCompactList}\small\item\em Retorna rg. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classCliente_a705f103ac898ca24ce91acf75c93bfd9}{get\+\_\+senha}} () const
+\begin{DoxyCompactList}\small\item\em Retorna senha. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classCliente_aac25c8696e072a4e8887ecdc86c859ff}{get\+\_\+endereco}} () const
+\begin{DoxyCompactList}\small\item\em Retorna endereço. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classCliente_a7e7a07bb5221ae3a974cce7824e41794}{get\+\_\+email}} () const
+\begin{DoxyCompactList}\small\item\em Retorna e-\/mail. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classCliente_a81d40e3530f7d1daad6f9d42d2da4bfc}{get\+\_\+telefone}} () const
+\begin{DoxyCompactList}\small\item\em Retorna telefone. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descrição detalhada}
+armazena informações do cliente 
+
+@\+Class \doxylink{classCliente}{Cliente} 
+
+Armazena informações do cliente como nome, cpf, rg, senha, endereço, e-\/mail e telefone 
+
+\label{doc-constructors}
+\Hypertarget{classCliente_doc-constructors}
+\doxysubsection{Documentação dos Construtores \& Destrutor}
+\Hypertarget{classCliente_a9dc1d3f09fe73a504be0461f724b374e}\index{Cliente@{Cliente}!Cliente@{Cliente}}
+\index{Cliente@{Cliente}!Cliente@{Cliente}}
+\doxysubsubsection{\texorpdfstring{Cliente()}{Cliente()}}
+{\footnotesize\ttfamily \label{classCliente_a9dc1d3f09fe73a504be0461f724b374e} 
+Cliente\+::\+Cliente (\begin{DoxyParamCaption}\item[{std\+::string}]{nome}{, }\item[{std\+::string}]{cpf\+\_\+cnpj}{, }\item[{std\+::string}]{rg}{, }\item[{std\+::string}]{senha}{, }\item[{std\+::string}]{endereco}{, }\item[{std\+::string}]{email}{, }\item[{std\+::string}]{telefone}{}\end{DoxyParamCaption})}
+
+
+
+Armazena informações iniciais de \doxylink{classCliente}{Cliente}. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em nome} & nome do cliente \\
+\hline
+{\em cpf\+\_\+cnpf} & cpf ou cnpj do cliente \\
+\hline
+{\em rg} & rg do cliente \\
+\hline
+{\em senha} & senha do cliente \\
+\hline
+{\em endereco} & endereço do cliente \\
+\hline
+{\em email} & e-\/mail do cliente \\
+\hline
+{\em telefone} & telefone do cliente \\
+\hline
+\end{DoxyParams}
+
+
+\label{doc-func-members}
+\Hypertarget{classCliente_doc-func-members}
+\doxysubsection{Documentação das funções}
+\Hypertarget{classCliente_a3c52f7a3d68a4ef203a778e2fbf7799e}\index{Cliente@{Cliente}!atualizar\_metodos\_contato@{atualizar\_metodos\_contato}}
+\index{atualizar\_metodos\_contato@{atualizar\_metodos\_contato}!Cliente@{Cliente}}
+\doxysubsubsection{\texorpdfstring{atualizar\_metodos\_contato()}{atualizar\_metodos\_contato()}}
+{\footnotesize\ttfamily \label{classCliente_a3c52f7a3d68a4ef203a778e2fbf7799e} 
+void Cliente\+::atualizar\+\_\+metodos\+\_\+contato (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{endereco}{, }\item[{const std\+::string \&}]{email}{, }\item[{const std\+::string \&}]{telefone}{}\end{DoxyParamCaption})}
+
+
+
+Atualiza informações de contato. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em endereco} & endereço \\
+\hline
+{\em email} & e-\/mail \\
+\hline
+{\em telefone} & telefone\\
+\hline
+\end{DoxyParams}
+As informações são endereço, e-\/mail e telefone \Hypertarget{classCliente_a6c0fb863a4a1bfc3f88dd75b62a3ff38}\index{Cliente@{Cliente}!autenticar\_usuario@{autenticar\_usuario}}
+\index{autenticar\_usuario@{autenticar\_usuario}!Cliente@{Cliente}}
+\doxysubsubsection{\texorpdfstring{autenticar\_usuario()}{autenticar\_usuario()}}
+{\footnotesize\ttfamily \label{classCliente_a6c0fb863a4a1bfc3f88dd75b62a3ff38} 
+bool Cliente\+::autenticar\+\_\+usuario (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{senha}{, }\item[{const std\+::string \&}]{rg}{}\end{DoxyParamCaption}) const}
+
+
+
+Realiza verificação se é de fato o usuário com dados pessoais. 
+
+\begin{DoxyReturn}{Retorna}
+Retorna se a operação foi bem sucedida 
+\end{DoxyReturn}
+\Hypertarget{classCliente_ae7b5882aa85a9828d78e16d34544ce65}\index{Cliente@{Cliente}!get\_cpf\_cnpj@{get\_cpf\_cnpj}}
+\index{get\_cpf\_cnpj@{get\_cpf\_cnpj}!Cliente@{Cliente}}
+\doxysubsubsection{\texorpdfstring{get\_cpf\_cnpj()}{get\_cpf\_cnpj()}}
+{\footnotesize\ttfamily \label{classCliente_ae7b5882aa85a9828d78e16d34544ce65} 
+std\+::string Cliente\+::get\+\_\+cpf\+\_\+cnpj (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Retorna cpf/cnpj. 
+
+\begin{DoxyReturn}{Retorna}
+Cpf/\+Cnpj 
+\end{DoxyReturn}
+\Hypertarget{classCliente_a3104d12022f1bad10f1ec0a634b69a5f}\index{Cliente@{Cliente}!get\_dados@{get\_dados}}
+\index{get\_dados@{get\_dados}!Cliente@{Cliente}}
+\doxysubsubsection{\texorpdfstring{get\_dados()}{get\_dados()}}
+{\footnotesize\ttfamily \label{classCliente_a3104d12022f1bad10f1ec0a634b69a5f} 
+std\+::string Cliente\+::get\+\_\+dados (\begin{DoxyParamCaption}\item[{int}]{dado}{}\end{DoxyParamCaption}) const}
+
+
+
+informa um dado desejado 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em dado} & que deseja obter\\
+\hline
+\end{DoxyParams}
+parâmetros podem ser\+: 0\+: nome 1\+: endereço 2\+: e-\/mail 3\+: telefone 4\+: cpf/cnpj 5\+: rg \begin{DoxyReturn}{Retorna}
+Retorna a informação desejada 
+\end{DoxyReturn}
+\Hypertarget{classCliente_a7e7a07bb5221ae3a974cce7824e41794}\index{Cliente@{Cliente}!get\_email@{get\_email}}
+\index{get\_email@{get\_email}!Cliente@{Cliente}}
+\doxysubsubsection{\texorpdfstring{get\_email()}{get\_email()}}
+{\footnotesize\ttfamily \label{classCliente_a7e7a07bb5221ae3a974cce7824e41794} 
+std\+::string Cliente\+::get\+\_\+email (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Retorna e-\/mail. 
+
+\begin{DoxyReturn}{Retorna}
+E-\/mail 
+\end{DoxyReturn}
+\Hypertarget{classCliente_aac25c8696e072a4e8887ecdc86c859ff}\index{Cliente@{Cliente}!get\_endereco@{get\_endereco}}
+\index{get\_endereco@{get\_endereco}!Cliente@{Cliente}}
+\doxysubsubsection{\texorpdfstring{get\_endereco()}{get\_endereco()}}
+{\footnotesize\ttfamily \label{classCliente_aac25c8696e072a4e8887ecdc86c859ff} 
+std\+::string Cliente\+::get\+\_\+endereco (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Retorna endereço. 
+
+\begin{DoxyReturn}{Retorna}
+Endereço 
+\end{DoxyReturn}
+\Hypertarget{classCliente_ae3d38164dffb1a932171595d59ee46c5}\index{Cliente@{Cliente}!get\_nome@{get\_nome}}
+\index{get\_nome@{get\_nome}!Cliente@{Cliente}}
+\doxysubsubsection{\texorpdfstring{get\_nome()}{get\_nome()}}
+{\footnotesize\ttfamily \label{classCliente_ae3d38164dffb1a932171595d59ee46c5} 
+std\+::string Cliente\+::get\+\_\+nome (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Retorna nome. 
+
+\begin{DoxyReturn}{Retorna}
+Nome 
+\end{DoxyReturn}
+\Hypertarget{classCliente_a85f0df75fe925eb759a5f9468cb3d38d}\index{Cliente@{Cliente}!get\_rg@{get\_rg}}
+\index{get\_rg@{get\_rg}!Cliente@{Cliente}}
+\doxysubsubsection{\texorpdfstring{get\_rg()}{get\_rg()}}
+{\footnotesize\ttfamily \label{classCliente_a85f0df75fe925eb759a5f9468cb3d38d} 
+std\+::string Cliente\+::get\+\_\+rg (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Retorna rg. 
+
+\begin{DoxyReturn}{Retorna}
+Rg 
+\end{DoxyReturn}
+\Hypertarget{classCliente_a705f103ac898ca24ce91acf75c93bfd9}\index{Cliente@{Cliente}!get\_senha@{get\_senha}}
+\index{get\_senha@{get\_senha}!Cliente@{Cliente}}
+\doxysubsubsection{\texorpdfstring{get\_senha()}{get\_senha()}}
+{\footnotesize\ttfamily \label{classCliente_a705f103ac898ca24ce91acf75c93bfd9} 
+std\+::string Cliente\+::get\+\_\+senha (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Retorna senha. 
+
+\begin{DoxyReturn}{Retorna}
+Senha 
+\end{DoxyReturn}
+\Hypertarget{classCliente_a81d40e3530f7d1daad6f9d42d2da4bfc}\index{Cliente@{Cliente}!get\_telefone@{get\_telefone}}
+\index{get\_telefone@{get\_telefone}!Cliente@{Cliente}}
+\doxysubsubsection{\texorpdfstring{get\_telefone()}{get\_telefone()}}
+{\footnotesize\ttfamily \label{classCliente_a81d40e3530f7d1daad6f9d42d2da4bfc} 
+std\+::string Cliente\+::get\+\_\+telefone (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Retorna telefone. 
+
+\begin{DoxyReturn}{Retorna}
+Telefone 
+\end{DoxyReturn}
+
+
+A documentação para esta classe foi gerada a partir dos seguintes ficheiros\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{Cliente_8hpp}{Cliente.\+hpp}}\item 
+src/\mbox{\hyperlink{Cliente_8cpp}{Cliente.\+cpp}}\end{DoxyCompactItemize}
